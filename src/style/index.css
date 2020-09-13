@@ -1,4 +1,25 @@
 /** Palette **/
+.animation-fade-enter {
+  opacity: 0;
+}
+.animation-fade-enter-active {
+  opacity: 0.5;
+  transition: opacity 500ms ease-in-out;
+}
+.animation-fade-enter-done {
+  opacity: 1;
+}
+.animation-fade-exit {
+  opacity: 1;
+}
+.animation-fade-exit-active {
+  opacity: 0.5;
+  transition: opacity 500ms ease-in-out;
+}
+.animation-fade-exit-done {
+  opacity: 0;
+}
+
 @font-face {
   font-family: "Montserrat";
   font-weight: 300;

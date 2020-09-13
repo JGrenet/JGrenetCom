@@ -1,0 +1,67 @@
+.shell {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+
+        rect {
+            stroke: $white;
+            stroke-width: 3px;
+            width: 100%;
+            height: 100%;
+            fill: none;
+            transition: stroke-dashoffset 1.5s ease-in-out;
+        }
+
+        &.animation-stroke-appear {
+            &-active, &-done {
+                rect {
+                    stroke-dashoffset: 0 !important;
+                }
+            }
+        }
+    }
+
+    .stroke-hidder {
+        z-index: 2;
+        position: absolute;
+        background-color: $black;
+    }
+
+    &_logo {
+        top: 0;
+        left: 100px;
+        transform: translateY(-50%);
+        height: 70px;
+        width: 200px;
+    }
+
+    &_language {
+        bottom: 0;
+        right: 100px;
+        transform: translateY(50%);
+        height: 30px;
+        width: 50px;
+    }
+
+    &_contact-btn {
+        bottom: 0;
+        right: 50%;
+        transform: translate(50%, 50%);
+        height: 60px;
+        width: 200px;
+    }
+}

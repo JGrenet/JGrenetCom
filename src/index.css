@@ -1,4 +1,25 @@
 /** Palette **/
+.animation-fade-enter {
+  opacity: 0;
+}
+.animation-fade-enter-active {
+  opacity: 0.5;
+  transition: opacity 500ms ease-in-out;
+}
+.animation-fade-enter-done {
+  opacity: 1;
+}
+.animation-fade-exit {
+  opacity: 1;
+}
+.animation-fade-exit-active {
+  opacity: 0.5;
+  transition: opacity 500ms ease-in-out;
+}
+.animation-fade-exit-done {
+  opacity: 0;
+}
+
 @font-face {
   font-family: "Montserrat";
   font-weight: 300;
@@ -110,15 +131,71 @@ body {
   stroke: white;
   stroke-width: 3px;
   stroke-dasharray: 80px;
-  animation: dash 5s ease-in-out infinite;
+  animation: loader_dash 5s ease-in-out infinite;
 }
 .loader_txt {
   font-size: 55px;
   font-weight: 300;
 }
 
-@keyframes dash {
+@keyframes loader_dash {
   to {
     stroke-dashoffset: 960;
   }
+}
+.shell {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+.shell svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.shell svg rect {
+  stroke: white;
+  stroke-width: 3px;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+.shell svg.animation-stroke-appear-active rect, .shell svg.animation-stroke-appear-done rect {
+  stroke-dashoffset: 0 !important;
+}
+.shell .stroke-hidder {
+  z-index: 2;
+  position: absolute;
+  background-color: black;
+}
+.shell_logo {
+  top: 0;
+  left: 100px;
+  transform: translateY(-50%);
+  height: 70px;
+  width: 200px;
+}
+.shell_language {
+  bottom: 0;
+  right: 100px;
+  transform: translateY(50%);
+  height: 30px;
+  width: 50px;
+}
+.shell_contact-btn {
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%, 50%);
+  height: 60px;
+  width: 200px;
 }

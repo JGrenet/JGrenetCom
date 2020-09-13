@@ -7,8 +7,10 @@
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@types/react-transition-group": "^4.4.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
     "@snowpack/app-scripts-react": "^1.10.0",
