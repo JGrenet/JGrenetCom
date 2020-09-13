@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Loader from './components/loader/Loader';
-import { SwitchTransition, CSSTransition } from 'react-transition-group';
-import Shell from './components/shell/Shell';
+import React, { useState, useEffect, useCallback } from "react";
+import Loader from "./components/loader/Loader";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
+import Shell from "./components/shell/Shell";
 
 interface AppProps {}
 

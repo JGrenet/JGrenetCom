@@ -7,7 +7,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: -1;
     
     svg {
         position: absolute;
@@ -15,7 +14,6 @@
         left: 0;
         height: 100%;
         width: 100%;
-        z-index: 1;
 
         rect {
             stroke: $white;
@@ -36,14 +34,13 @@
     }
 
     .stroke-hidder {
-        z-index: 2;
         position: absolute;
         background-color: $black;
     }
 
     &_logo {
         top: 0;
-        left: 100px;
+        left: $shell_padding;
         transform: translateY(-50%);
         height: 70px;
         width: 200px;
@@ -51,7 +48,7 @@
 
     &_language {
         bottom: 0;
-        right: 100px;
+        right: $shell_padding;
         transform: translateY(50%);
         height: 30px;
         width: 50px;

@@ -1,0 +1,42 @@
+
+.navbar {
+    position: absolute;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    transform: rotate(-90deg) translateX(-50px);
+    transform-origin: top left;
+
+    &_container {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        margin: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &__item {
+            padding: 0 15px;
+            color: $white;
+            height: 100%;
+            text-transform: uppercase;
+            line-height: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: font-weight .5s ease-out;
+
+            &.selected {
+                font-weight: 600;
+            }
+        }
+    }
+
+    &_underline {
+        position: fixed;
+        background-color: $white;
+        height: 2px;
+        top: 40px;
+        transition: all .5s ease-in-out;
+    }
+}

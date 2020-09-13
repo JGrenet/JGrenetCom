@@ -1,5 +1,7 @@
 import React, { CSSProperties, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
+import { SHELL_PADDING } from "../../utils/globals";
+import NavBar from "../navbar/NavBar";
 
 type ShellStyle = {
     [key: string]: CSSProperties
@@ -10,8 +12,8 @@ interface ShellProps {
 }
 
 const Shell = ({}: ShellProps) => {
-    const shellWidth = document.documentElement.clientWidth - 200;
-    const shellHeight = document.documentElement.clientHeight - 200;
+    const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
+    const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
     const shellBorderWidth = (shellWidth * 2) + (shellHeight * 2);
     const style: ShellStyle = {
         shell: {
@@ -54,6 +56,7 @@ const Shell = ({}: ShellProps) => {
             <div className="shell_contact-btn stroke-hidder">
                 
             </div>
+            <NavBar />
         </div>
     );
 }
