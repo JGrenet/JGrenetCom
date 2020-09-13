@@ -34,9 +34,7 @@ const tabs: Tab[] = [
     },
 ]
 
-interface NavBarProps {}
-
-const NavBar = ({}: NavBarProps)  => {
+const NavBar = ()  => {
 
     const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
     const [underlineStyle, setUnderlineStyle] = useState<CSSProperties>({});

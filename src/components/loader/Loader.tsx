@@ -1,10 +1,6 @@
 import React from "react";
 
-interface LoaderProps {
-
-}
-
-const Loader = ({}: LoaderProps) => {
+const Loader = (): JSX.Element => {
     return (
         <div className="loader">
             <svg>

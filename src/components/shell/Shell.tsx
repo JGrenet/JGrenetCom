@@ -7,11 +7,7 @@ type ShellStyle = {
     [key: string]: CSSProperties
 }
 
-interface ShellProps {
-
-}
-
-const Shell = ({}: ShellProps) => {
+const Shell = (): JSX.Element => {
     const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
     const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
     const shellBorderWidth = (shellWidth * 2) + (shellHeight * 2);

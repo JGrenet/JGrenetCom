@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import clsx from "clsx";
 import type { Tab } from './NavBar';
 
@@ -14,11 +14,11 @@ const TabItem = ({
     index,
     tab,
     selected
-}: TabItemProps)  => {
+}: TabItemProps): JSX.Element  => {
 
     const handleSelectItem = useCallback(() => {
         onSelectItem(index)
-    }, [onSelectItem])
+    }, [onSelectItem, index])
 
     return (
         <li 
