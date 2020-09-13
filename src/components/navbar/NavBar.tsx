@@ -44,13 +44,11 @@ const NavBar = ({}: NavBarProps)  => {
 
     useLayoutEffect(() => {
         const selected = document.querySelector(".navbar_container__item.selected")
-        console.log("Selected : ", selected);
+
         if (selected && navBarContainerRef?.current) {
             const selectedPositions = selected.getBoundingClientRect();
             const navBarContainerPostions = navBarContainerRef.current.getBoundingClientRect()
 
-            console.log("Positions : ", selectedPositions);
-            console.log("Container Positions : ", navBarContainerPostions);
             setUnderlineStyle({
                 width: selected.clientWidth - TAB_PADDING,
                 left: ((navBarContainerPostions.bottom - selectedPositions.bottom) + (navBarContainerPostions.top - 100)) + (TAB_PADDING / 2),
