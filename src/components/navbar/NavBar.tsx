@@ -34,7 +34,7 @@ const tabs: Tab[] = [
     },
 ]
 
-const NavBar = ()  => {
+const NavBar = (): JSX.Element  => {
 
     const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
     const [underlineStyle, setUnderlineStyle] = useState<CSSProperties>({});

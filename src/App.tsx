@@ -3,9 +3,7 @@ import Loader from "./components/loader/Loader";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import Shell from "./components/shell/Shell";
 
-interface AppProps {}
-
-const App = ({}: AppProps)  => {
+const App = (): JSX.Element  => {
     const [isLoaded, setIsLoaded] = useState(false);
     
     useEffect(() => {
