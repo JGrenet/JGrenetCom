@@ -36,6 +36,9 @@
     .stroke-hidder {
         position: absolute;
         background-color: $black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     &_logo {
@@ -59,6 +62,6 @@
         right: 50%;
         transform: translate(50%, 50%);
         height: 60px;
-        width: 200px;
+        padding: 0 10px;
     }
 }

@@ -1,0 +1,18 @@
+
+.button {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    border: 2px solid $white;
+    background-color: $black;
+    color: $white;
+    box-sizing: content-box;
+    padding: 0 30px;
+    transition: all .1s ease-in;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $white;
+        color: $black;
+    }
+}

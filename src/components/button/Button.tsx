@@ -1,12 +1,18 @@
 import React from "react";
 
 interface ButtonProps {
-    onClick: ([params]) => void;
+    onClick?: () => void;
+    label: string;
 }
 
-const Button = (): JSX.Element => {
+const Button = ({
+    onClick,
+    label
+}: ButtonProps): JSX.Element => {
     return (
-        <button className="button"></button>
+        <button className="button" onClick={onClick}>
+            {label}
+        </button>
     );
 }
 

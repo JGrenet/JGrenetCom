@@ -1,6 +1,7 @@
 import React, { CSSProperties, useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
 import { SHELL_PADDING } from "../../utils/globals";
+import Button from "../button/Button";
 import NavBar from "../navbar/NavBar";
 
 type ShellStyle = {
@@ -50,7 +51,7 @@ const Shell = (): JSX.Element => {
                 
             </div>
             <div className="shell_contact-btn stroke-hidder">
-                
+                <Button label="Contactez-moi" />
             </div>
             <NavBar />
         </div>
