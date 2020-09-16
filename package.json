@@ -25,6 +25,8 @@
     "eslint": "^7.9.0",
     "eslint-plugin-react-hooks": "^4.1.2",
     "jest": "^26.2.2",
+    "mobx": "^5.15.6",
+    "mobx-react-lite": "^2.2.2",
     "node-sass": "^4.14.1",
     "sass": "^1.26.10",
     "snowpack": "^2.10.0",
