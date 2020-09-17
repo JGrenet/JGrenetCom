@@ -1,4 +1,4 @@
-import { observable, action } from "mobx";
+import { observable, action, autorun } from "mobx";
 import { storageAvailable } from "../utils/function";
 
 export type Locale = {
@@ -27,6 +27,13 @@ class LocaleStore  {
             this.locale = locale || locales[0].code;
         } else {
             this.locale = locales[0].code;
+        }
+        autorun(() => this.loadKeys)
+    }
+
+    @action private loadKeys = () => {
+        if (this.locale) {
+            // read and load JSON file in associated file
         }
     }
  
