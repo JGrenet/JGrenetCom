@@ -1,6 +1,22 @@
 import { observable, action } from "mobx";
 import { storageAvailable } from "../utils/function";
 
+export type Locale = {
+    code: string;
+    label: string;
+}
+
+export const locales: Locale[] = [
+    {
+        code: "fr",
+        label: ""
+    },
+    {
+        code: "en",
+        label: ""
+    }
+]
+
 class LocaleStore  {
  
     @observable locale: string;
@@ -8,9 +24,9 @@ class LocaleStore  {
     constructor() {
         if (storageAvailable()) {
             const locale = localStorage.getItem('locale');
-            this.locale = locale || "fr";
+            this.locale = locale || locales[0].code;
         } else {
-            this.locale = "fr";
+            this.locale = locales[0].code;
         }
     }
  
