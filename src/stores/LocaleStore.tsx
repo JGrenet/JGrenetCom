@@ -1,4 +1,4 @@
-import { observable, action, autorun } from "mobx";
+import { observable, action, runInAction, reaction } from "mobx";
 import { storageAvailable } from "../utils/function";
 
 export type Locale = {
@@ -9,17 +9,18 @@ export type Locale = {
 export const locales: Locale[] = [
     {
         code: "fr",
-        label: ""
+        label: "LOCALE_FR"
     },
     {
         code: "en",
-        label: ""
+        label: "LOCALE_EN"
     }
 ]
 
 class LocaleStore  {
  
     @observable locale: string;
+    @observable keys: {[key: string]: string};
 
     constructor() {
         if (storageAvailable()) {
@@ -28,12 +29,18 @@ class LocaleStore  {
         } else {
             this.locale = locales[0].code;
         }
-        autorun(() => this.loadKeys)
+        this.keys = {};
+        reaction(() => this.locale, () => this.loadKeys)
     }
 
-    @action private loadKeys = () => {
+    @action private loadKeys = async () => {
         if (this.locale) {
-            // read and load JSON file in associated file
+            const keys = await import(`../res/${this.locale}.json`);
+            if (keys) {
+                runInAction(() => {
+                    this.keys = keys;
+                })
+            }
         }
     }
  

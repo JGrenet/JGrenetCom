@@ -4,12 +4,15 @@ import { SHELL_PADDING } from "../../utils/globals";
 import Button from "../button/Button";
 import LanguageSelector from "../language-selector/LanguageSelector";
 import NavBar from "../navbar/NavBar";
+import useStores from "../../stores";
 
 type ShellStyle = {
     [key: string]: CSSProperties
 }
 
 const Shell = (): JSX.Element => {
+    const { localeStore } = useStores();
+    const appKeys= localeStore.keys;
     const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
     const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
     const shellBorderWidth = (shellWidth * 2) + (shellHeight * 2);
@@ -52,7 +55,7 @@ const Shell = (): JSX.Element => {
                 <LanguageSelector />
             </div>
             <div className="shell_contact-btn stroke-hidder">
-                <Button label="Contactez-moi" />
+                <Button label={appKeys["ACTION_CONTACT_ME"]} />
             </div>
             <NavBar />
         </div>
