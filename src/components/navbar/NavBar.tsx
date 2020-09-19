@@ -47,9 +47,13 @@ const NavBar = (): JSX.Element  => {
             const selectedPositions = selected.getBoundingClientRect();
             const navBarContainerPostions = navBarContainerRef.current.getBoundingClientRect()
 
+            console.log(selectedPositions);
+            console.log(navBarContainerPostions);
+
             setUnderlineStyle({
                 width: selected.clientWidth - TAB_PADDING,
-                left: ((navBarContainerPostions.bottom - selectedPositions.bottom) + (navBarContainerPostions.top - 100)) + (TAB_PADDING / 2),
+                left: ((navBarContainerPostions.bottom - selectedPositions.bottom) + (navBarContainerPostions.top - SHELL_PADDING)) + (TAB_PADDING / 2),
+                top: (selectedPositions.left - SHELL_PADDING) + 40
             })
         }
     }, [setUnderlineStyle, navBarContainerRef, selectedTabIndex])

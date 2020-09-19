@@ -216,6 +216,9 @@ body {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .navbar_container__item {
   padding: 0 15px;
@@ -233,7 +236,6 @@ body {
   position: fixed;
   background-color: white;
   height: 2px;
-  top: 40px;
   transition: all 0.5s ease-in-out;
 }
 
