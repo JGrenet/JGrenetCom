@@ -35,7 +35,4 @@ const App = (): JSX.Element  => {
 }
     
 export default App;
-
-{/* https://codesandbox.io/s/aged-fast-xffvp?file=/src/App.js:673-686 */}
-// https://coursework.vschool.io/react-transitions-with-react-transition-group/
     

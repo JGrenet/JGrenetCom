@@ -30,15 +30,16 @@ class LocaleStore  {
             this.locale = locales[0].code;
         }
         this.keys = {};
-        reaction(() => this.locale, () => this.loadKeys)
+        reaction(() => this.locale, () => this.loadKeys() ,{fireImmediately: true})
     }
 
     @action private loadKeys = async () => {
         if (this.locale) {
-            const keys = await import(`../res/${this.locale}.json`);
+            const response = await fetch(`res/${this.locale}.json`);
+            const keys = await response.text();
             if (keys) {
                 runInAction(() => {
-                    this.keys = keys;
+                    this.keys = JSON.parse(keys);
                 })
             }
         }

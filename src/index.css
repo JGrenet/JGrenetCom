@@ -262,6 +262,7 @@ body {
 }
 .language-selector_locale {
   color: white;
+  cursor: pointer;
 }
 .language-selector_locale--selected {
   font-weight: 700;

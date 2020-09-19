@@ -5,12 +5,13 @@ import Button from "../button/Button";
 import LanguageSelector from "../language-selector/LanguageSelector";
 import NavBar from "../navbar/NavBar";
 import useStores from "../../stores";
+import { observer } from "mobx-react-lite";
 
 type ShellStyle = {
     [key: string]: CSSProperties
 }
 
-const Shell = (): JSX.Element => {
+const Shell = observer((): JSX.Element => {
     const { localeStore } = useStores();
     const appKeys= localeStore.keys;
     const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
@@ -60,6 +61,6 @@ const Shell = (): JSX.Element => {
             <NavBar />
         </div>
     );
-}
+});
 
 export default Shell;
