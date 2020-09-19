@@ -9,34 +9,34 @@ export type Tab = {
 
 const tabs: Tab[] = [
     {
-        label: "contact",
+        label: "TAB_CONTACT",
         url: ""
     },
     {
-        label: "compétences",
+        label: "TAB_SKILLS",
         url: ""
     },
     {
-        label: "realisations",
+        label: "TAB_PRODUCTIONS",
         url: ""
     },
     {
-        label: "parcours",
+        label: "TAB_CAREER",
         url: ""
     },
     {
-        label: "services",
+        label: "TAB_SERVICES",
         url: ""
     },
     {
-        label: "accueil",
+        label: "TAB_HOME",
         url: ""
     },
 ]
 
 const NavBar = (): JSX.Element  => {
 
-    const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
+    const [selectedTabIndex, setSelectedTabIndex] = useState<number>(tabs.length - 1);
     const [underlineStyle, setUnderlineStyle] = useState<CSSProperties>({});
     const navBarContainerRef = useRef<HTMLUListElement >(null);
 

@@ -183,7 +183,7 @@ body {
   left: 100px;
   transform: translateY(-50%);
   height: 70px;
-  width: 200px;
+  padding: 0 10px;
 }
 .shell_language {
   bottom: 0;
@@ -254,6 +254,26 @@ body {
 .button:hover {
   background-color: white;
   color: black;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo_icon {
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo_icon__text {
+  color: white;
+}
+.logo_wordMark {
+  margin-left: 10px;
+  color: white;
+  font-weight: 600;
 }
 
 .language-selector {

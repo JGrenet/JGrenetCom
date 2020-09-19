@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import clsx from "clsx";
 import type { Tab } from './NavBar';
+import useStores from '../../stores';
 
 interface TabItemProps {
     onSelectItem: (itemIndex: number) => void;
@@ -15,7 +16,9 @@ const TabItem = ({
     tab,
     selected
 }: TabItemProps): JSX.Element  => {
+    const { localeStore  } = useStores();
 
+    const appKeys = localeStore.keys;
     const handleSelectItem = useCallback(() => {
         onSelectItem(index)
     }, [onSelectItem, index])
@@ -28,7 +31,7 @@ const TabItem = ({
                 {["selected"]: selected}
             )}
         >
-            {tab.label}
+            {appKeys[tab.label]}
         </li> 
     );
 }

@@ -6,6 +6,7 @@ import LanguageSelector from "../language-selector/LanguageSelector";
 import NavBar from "../navbar/NavBar";
 import useStores from "../../stores";
 import { observer } from "mobx-react-lite";
+import Logo from "../logo/Logo";
 
 type ShellStyle = {
     [key: string]: CSSProperties
@@ -50,7 +51,7 @@ const Shell = observer((): JSX.Element => {
                 </svg>
             </CSSTransition>
             <div className="shell_logo stroke-hidder">
-
+                <Logo size={60} wordMark />
             </div>
             <div className="shell_language stroke-hidder">
                 <LanguageSelector />

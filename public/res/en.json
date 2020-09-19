@@ -1,5 +1,11 @@
 {
     "ACTION_CONTACT_ME": "Contact me",
     "LOCALE_FR": "Fr",
-    "LOCALE_EN": "En"
+    "LOCALE_EN": "En",
+    "TAB_HOME": "home",
+    "TAB_SERVICES": "services",
+    "TAB_CAREER": "career",
+    "TAB_PRODUCTIONS": "productions",
+    "TAB_SKILLS": "skills",
+    "TAB_CONTACT": "contact"
 }

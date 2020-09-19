@@ -1,0 +1,22 @@
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &_icon {
+        border: 2px solid $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        &__text {
+            color: $white;
+        }
+    }
+
+    &_wordMark {
+        margin-left: 10px;
+        color: $white;
+        font-weight: 600;
+    }
+}
