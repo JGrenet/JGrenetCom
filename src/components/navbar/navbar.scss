@@ -31,6 +31,10 @@
             &.selected {
                 font-weight: 600;
             }
+
+            &.dark {
+                color: $black;
+            }
         }
     }
 
@@ -39,5 +43,9 @@
         background-color: $white;
         height: 2px;
         transition: all .5s ease-in-out;
+
+        &.dark {
+            background-color: $black;
+        }
     }
 }

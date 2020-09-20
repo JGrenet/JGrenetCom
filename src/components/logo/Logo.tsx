@@ -1,4 +1,5 @@
 import React, { CSSProperties } from "react";
+import clsx from "clsx";
 
 type LogoStyle = {
     [key: string]: CSSProperties
@@ -7,9 +8,10 @@ type LogoStyle = {
 interface LogoProps {
     size: number;
     wordMark?: boolean;
+    variant: "white" | "dark";
 }
 
-const Logo = ({ size, wordMark = false }: LogoProps): JSX.Element => {
+const Logo = ({ size, wordMark = false, variant = "white" }: LogoProps): JSX.Element => {
 
     const style: LogoStyle = {
         icon: {
@@ -26,13 +28,13 @@ const Logo = ({ size, wordMark = false }: LogoProps): JSX.Element => {
 
     return (
         <div className="logo">
-            <div className="logo_icon" style={style.icon}>
-                <span className="logo_icon__text" style={style.text}>
+            <div className={clsx("logo_icon", {["dark"]: variant === "dark"})} style={style.icon}>
+                <span className={clsx("logo_icon__text", {["dark"]: variant === "dark"})} style={style.text}>
                     JG
                 </span>
             </div>
             {wordMark && (
-                <span className="logo_wordMark" style={style.wordMark}>
+                <span className={clsx("logo_wordMark", {["dark"]: variant === "dark"})} style={style.wordMark}>
                     Jérémy Grenet
                 </span>
             )}

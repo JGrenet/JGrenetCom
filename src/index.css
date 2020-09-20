@@ -166,24 +166,15 @@ body, .app {
   width: 100%;
   height: 100%;
   fill: none;
-  transition: stroke-dashoffset 1.5s ease-in-out;
+  transition-property: width, stroke-dashoffset;
+  transition-duration: 1.5s;
+  transition-timing-function: ease-in-out;
+}
+.shell svg rect.half {
+  width: 50%;
 }
 .shell svg.animation-stroke-appear-active rect, .shell svg.animation-stroke-appear-done rect {
   stroke-dashoffset: 0 !important;
-}
-.shell .stroke-hidder {
-  position: absolute;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.shell_logo {
-  top: 0;
-  left: 100px;
-  transform: translateY(-50%);
-  height: 70px;
-  padding: 0 10px;
 }
 .shell_language {
   bottom: 0;
@@ -196,8 +187,55 @@ body, .app {
   bottom: 0;
   right: 50%;
   transform: translate(50%, 50%);
-  height: 60px;
+  height: 90px;
   padding: 0 10px;
+  z-index: 3;
+}
+.shell_recover {
+  position: absolute;
+  width: 50%;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  z-index: 2;
+  transition: height 1s ease-in-out;
+  overflow: hidden;
+}
+.shell_recover__content, .shell_recover .recover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.shell_recover__content_border, .shell_recover .recover_border {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}
+
+.stroke-hidder {
+  position: absolute;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stroke-hidder.dark {
+  background-color: white;
+}
+
+.shell_logo {
+  top: 0;
+  left: 100px;
+  transform: translateY(-50%);
+  height: 70px;
+  padding: 0 10px;
+}
+.shell_logo.dark {
+  top: 50px;
 }
 
 .navbar {
@@ -232,11 +270,17 @@ body, .app {
 .navbar_container__item.selected {
   font-weight: 600;
 }
+.navbar_container__item.dark {
+  color: black;
+}
 .navbar_underline {
   position: fixed;
   background-color: white;
   height: 2px;
   transition: all 0.5s ease-in-out;
+}
+.navbar_underline.dark {
+  background-color: black;
 }
 
 .button {
@@ -267,13 +311,22 @@ body, .app {
   justify-content: center;
   align-items: center;
 }
+.logo_icon.dark {
+  border: 2px solid black;
+}
 .logo_icon__text {
   color: white;
+}
+.logo_icon__text.dark {
+  color: black;
 }
 .logo_wordMark {
   margin-left: 10px;
   color: white;
   font-weight: 600;
+}
+.logo_wordMark.dark {
+  color: black;
 }
 
 .language-selector {

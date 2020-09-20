@@ -8,9 +8,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        &.dark {
+            border: 2px solid $black;
+        }
         
         &__text {
             color: $white;
+
+            &.dark {
+                color: $black;
+            }
         }
     }
 
@@ -18,5 +26,9 @@
         margin-left: 10px;
         color: $white;
         font-weight: 600;
+
+        &.dark {
+            color: $black;
+        }
     }
 }

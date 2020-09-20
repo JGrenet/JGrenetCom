@@ -7,13 +7,15 @@ import { observer } from 'mobx-react-lite';
 interface TabItemProps {
     tab: Tab;
     label: TabKeys;
-    selected: boolean
+    selected: boolean;
+    variant: "white" | "dark"
 }
 
 const TabItem = observer(({
     tab,
     label,
-    selected
+    selected,
+    variant = "white"
 }: TabItemProps): JSX.Element  => {
     const { localeStore, tabStore } = useStores();
     const appKeys = localeStore.keys;
@@ -26,7 +28,8 @@ const TabItem = observer(({
             onClick={handleSelectItem}
             className={clsx(
                 "navbar_container__item",
-                {["selected"]: selected}
+                {["selected"]: selected,
+                ["dark"]: variant === "dark"}
             )}
         >
             {appKeys[`TAB_${label}`]}

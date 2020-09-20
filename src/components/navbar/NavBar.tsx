@@ -4,13 +4,18 @@ import { SHELL_PADDING, TAB_PADDING } from "../../utils/globals";
 import { Tab, TabKeys } from '../../stores/TabStore';
 import useStores from '../../stores';
 import { observer } from 'mobx-react-lite';
+import clsx from "clsx";
 
-const NavBar = observer((): JSX.Element  => {
+interface NavBarProps {
+    variant: "white" | "dark";
+}
+const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
 
     const { tabStore } = useStores();
     const [underlineStyle, setUnderlineStyle] = useState<CSSProperties>({});
     const navBarContainerRef = useRef<HTMLUListElement >(null);
 
+    // TODO Update the dash position on window resize and on language change ! 
     useLayoutEffect(() => {
         const selected = document.querySelector(".navbar_container__item.selected")
 
@@ -28,20 +33,21 @@ const NavBar = observer((): JSX.Element  => {
 
     const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
 
-    const TabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => !Number(i))) as TabKeys[]).reverse();
+    const tabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => isNaN(Number(i)))) as TabKeys[]).reverse();
 
     return (
         <nav className="navbar" style={{width: shellHeight}}>
             <ul className="navbar_container" ref={navBarContainerRef}>
-                {TabKeys.map((t: TabKeys, index: number) => <TabItem
+                {tabKeys.map((t: TabKeys, index: number) => <TabItem
                         key={index}
                         tab={Tab[t]}
                         label={t}
                         selected={Tab[t] === tabStore.selectedtab}
+                        variant={variant}
                     />
                 )}
             </ul>
-            <div className="navbar_underline" style={underlineStyle} />
+            <div className={clsx("navbar_underline", {["dark"]: variant === "dark"})} style={underlineStyle} />
         </nav>
     );
 });
