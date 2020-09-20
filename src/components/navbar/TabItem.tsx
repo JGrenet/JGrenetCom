@@ -1,27 +1,25 @@
 import React, { useCallback } from 'react';
 import clsx from "clsx";
-import type { Tab } from './NavBar';
+import type { Tab, TabKeys } from '../../stores/TabStore';
 import useStores from '../../stores';
+import { observer } from 'mobx-react-lite';
 
 interface TabItemProps {
-    onSelectItem: (itemIndex: number) => void;
-    index: number;
     tab: Tab;
+    label: TabKeys;
     selected: boolean
 }
 
-const TabItem = ({
-    onSelectItem,
-    index,
+const TabItem = observer(({
     tab,
+    label,
     selected
 }: TabItemProps): JSX.Element  => {
-    const { localeStore  } = useStores();
-
+    const { localeStore, tabStore } = useStores();
     const appKeys = localeStore.keys;
     const handleSelectItem = useCallback(() => {
-        onSelectItem(index)
-    }, [onSelectItem, index])
+        tabStore.selectTab(tab);
+    }, [tabStore, tab])
 
     return (
         <li 
@@ -31,9 +29,9 @@ const TabItem = ({
                 {["selected"]: selected}
             )}
         >
-            {appKeys[tab.label]}
+            {appKeys[`TAB_${label}`]}
         </li> 
     );
-}
+});
     
 export default TabItem;

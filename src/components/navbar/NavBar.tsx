@@ -1,42 +1,13 @@
 import React, { CSSProperties, useLayoutEffect, useRef, useState } from 'react';
-import TabItem from './Tab';
+import TabItem from './TabItem';
 import { SHELL_PADDING, TAB_PADDING } from "../../utils/globals";
+import { Tab, TabKeys } from '../../stores/TabStore';
+import useStores from '../../stores';
+import { observer } from 'mobx-react-lite';
 
-export type Tab = {
-    label: string,
-    url: string
-}
+const NavBar = observer((): JSX.Element  => {
 
-const tabs: Tab[] = [
-    {
-        label: "TAB_CONTACT",
-        url: ""
-    },
-    {
-        label: "TAB_SKILLS",
-        url: ""
-    },
-    {
-        label: "TAB_PRODUCTIONS",
-        url: ""
-    },
-    {
-        label: "TAB_CAREER",
-        url: ""
-    },
-    {
-        label: "TAB_SERVICES",
-        url: ""
-    },
-    {
-        label: "TAB_HOME",
-        url: ""
-    },
-]
-
-const NavBar = (): JSX.Element  => {
-
-    const [selectedTabIndex, setSelectedTabIndex] = useState<number>(tabs.length - 1);
+    const { tabStore } = useStores();
     const [underlineStyle, setUnderlineStyle] = useState<CSSProperties>({});
     const navBarContainerRef = useRef<HTMLUListElement >(null);
 
@@ -47,35 +18,32 @@ const NavBar = (): JSX.Element  => {
             const selectedPositions = selected.getBoundingClientRect();
             const navBarContainerPostions = navBarContainerRef.current.getBoundingClientRect()
 
-            console.log(selectedPositions);
-            console.log(navBarContainerPostions);
-
             setUnderlineStyle({
                 width: selected.clientWidth - TAB_PADDING,
                 left: ((navBarContainerPostions.bottom - selectedPositions.bottom) + (navBarContainerPostions.top - SHELL_PADDING)) + (TAB_PADDING / 2),
                 top: (selectedPositions.left - SHELL_PADDING) + 40
             })
         }
-    }, [setUnderlineStyle, navBarContainerRef, selectedTabIndex])
+    }, [setUnderlineStyle, navBarContainerRef, tabStore.selectedtab])
 
     const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
+
+    const TabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => !Number(i))) as TabKeys[]).reverse();
 
     return (
         <nav className="navbar" style={{width: shellHeight}}>
             <ul className="navbar_container" ref={navBarContainerRef}>
-                {tabs.map((tab: Tab, index: number) => 
-                    <TabItem
+                {TabKeys.map((t: TabKeys, index: number) => <TabItem
                         key={index}
-                        index={index}
-                        tab={tab}
-                        selected={index === selectedTabIndex}
-                        onSelectItem={setSelectedTabIndex}
+                        tab={Tab[t]}
+                        label={t}
+                        selected={Tab[t] === tabStore.selectedtab}
                     />
                 )}
             </ul>
             <div className="navbar_underline" style={underlineStyle} />
         </nav>
     );
-}
+});
     
 export default NavBar;

@@ -99,7 +99,7 @@ table {
   border-spacing: 0;
 }
 
-body {
+body, .app {
   background-color: black;
   font-family: "Montserrat", "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
   height: 100vh;
