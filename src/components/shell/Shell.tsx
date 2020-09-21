@@ -8,6 +8,7 @@ import useStores from "../../stores";
 import { observer } from "mobx-react-lite";
 import Logo from "../logo/Logo";
 import clsx from "clsx";
+import Routes from "../routes";
 
 type ShellStyle = {
     [key: string]: CSSProperties
@@ -64,14 +65,17 @@ const Shell = observer((): JSX.Element => {
                 in
                 timeout={1500}
             >
-                <svg>
-                    <rect
-                        x="0"
-                        y="0"
-                        style={style.rect}
-                        className={clsx({["half"]: halfStroke})}
-                    />
-                </svg>
+                <>
+                    <svg>
+                        <rect
+                            x="0"
+                            y="0"
+                            style={style.rect}
+                            className={clsx({["half"]: halfStroke})}
+                        />
+                    </svg>
+                    <Routes />
+                </>
             </CSSTransition>
             <div className="shell_logo stroke-hidder">
                 <Logo size={60} wordMark variant="white" />
@@ -85,7 +89,7 @@ const Shell = observer((): JSX.Element => {
                 <Button label={appKeys["ACTION_CONTACT_ME"]} />
             </div>
             <NavBar variant="white" />
-            <div className={clsx("shell_recover", {["open"]: recover})} style={style.cover}>
+            {/* <div className={clsx("shell_recover", {["open"]: recover})} style={style.cover}>
                 <div className="shell_recover__content recover" style={style.coverContent}>
                     <div className="recover_border" />
                     <div className="shell_logo stroke-hidder dark">
@@ -93,7 +97,7 @@ const Shell = observer((): JSX.Element => {
                     </div>
                     <NavBar variant="dark"/>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 });
