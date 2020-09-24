@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import TabItem from './TabItem';
 import { SHELL_PADDING, TAB_PADDING } from "../../utils/globals";
 import { Tab, TabKeys } from '../../stores/TabStore';
@@ -9,40 +9,34 @@ import clsx from "clsx";
 interface NavBarProps {
     variant: "white" | "dark";
 }
-const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
 
+const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
     const { tabStore, localeStore } = useStores();
     const appKeys = localeStore.keys;
     const navBarContainerRef = useRef<HTMLUListElement >(null);
-    const [, refresh] = useState({});
+    const [underlineStyle, setUnderlineStyle] = useState<CSSProperties>();
 
-    const getUnderlineStyle = (navBarContainerPostions: DOMRect | undefined): CSSProperties => {
+    const updateUnderlinePosition = (): void => {
         const selected = document.querySelector(".navbar_container__item.selected")
+        const containerPositions = navBarContainerRef?.current?.getBoundingClientRect();
 
-        console.log(navBarContainerPostions);
-        if (selected && navBarContainerPostions) {
+        if (selected && containerPositions) {
             const selectedPositions = selected.getBoundingClientRect();
-            return ({
+            setUnderlineStyle({
                 width: selected.clientWidth - TAB_PADDING,
-                left: ((navBarContainerPostions.bottom - selectedPositions.bottom) + (navBarContainerPostions.top - SHELL_PADDING)) + (TAB_PADDING / 2),
+                left: ((containerPositions.bottom - selectedPositions.bottom) + (containerPositions.top - SHELL_PADDING)) + (TAB_PADDING / 2),
                 top: (selectedPositions.left - SHELL_PADDING) + 40
             });
         }
-        return {};
     }
 
-    const forceRefresh = useCallback(() => {
-        refresh({});
-    }, [refresh])
-
-    const containerPositions = navBarContainerRef?.current?.getBoundingClientRect();
     useEffect(() => {
         if (navBarContainerRef?.current) {
-            forceRefresh();
+            updateUnderlinePosition();
         }
-        document.addEventListener("resize", forceRefresh);
-        return () => document.removeEventListener("resize", forceRefresh);
-    }, [navBarContainerRef, forceRefresh, tabStore.selectedtab, localeStore.locale, containerPositions?.top])
+        //     document.addEventListener("resize", updateUnderlinePosition);
+        //     return () => document.removeEventListener("resize", updateUnderlinePosition);
+    }, [navBarContainerRef, tabStore.selectedtab])
 
     const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
     const tabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => isNaN(Number(i)))) as TabKeys[]).reverse();
@@ -56,16 +50,16 @@ const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
                         label={appKeys[`TAB_${t}`]}
                         selected={Tab[t] === tabStore.selectedtab}
                         variant={variant}
+                        updateUnderlinePosition={updateUnderlinePosition}
                     />
                 )}
             </ul>
-            {console.log(navBarContainerRef?.current?.getBoundingClientRect().top)}
             <div
                 className={clsx("navbar_underline", {["dark"]: variant === "dark"})}
-                style={getUnderlineStyle(containerPositions)}
+                style={underlineStyle}
             />
         </nav>
     );
 });
-    
+
 export default NavBar;
