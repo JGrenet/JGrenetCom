@@ -237,6 +237,43 @@ body, .app {
   top: 50px;
 }
 
+.mobileShell {
+  background-color: black;
+  position: relative;
+  min-height: 100vh;
+}
+.mobileShell_mobileMenu {
+  position: fixed;
+  background-color: white;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.mobileShell_mobileMenu .mobile-content-container_menu {
+  filter: invert(0%) sepia(0%) saturate(7468%) hue-rotate(311deg) brightness(111%) contrast(102%);
+}
+.mobileShell .mobile-content-container_menu {
+  filter: invert(100%) sepia(95%) saturate(0%) hue-rotate(246deg) brightness(111%) contrast(101%);
+}
+
+.mobile-content-container {
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.mobile-content-container_logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.mobile-content-container_menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  cursor: pointer;
+}
+
 .navbar {
   position: absolute;
   height: 50px;
@@ -309,6 +346,7 @@ body, .app {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 .logo_icon.dark {
   border: 2px solid black;

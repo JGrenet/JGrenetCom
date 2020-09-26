@@ -9,9 +9,10 @@ interface LogoProps {
     size: number;
     wordMark?: boolean;
     variant: "white" | "dark";
+    className?: string;
 }
 
-const Logo = ({ size, wordMark = false, variant = "white" }: LogoProps): JSX.Element => {
+const Logo = ({ size, wordMark = false, variant = "white", className }: LogoProps): JSX.Element => {
 
     const style: LogoStyle = {
         icon: {
@@ -27,7 +28,7 @@ const Logo = ({ size, wordMark = false, variant = "white" }: LogoProps): JSX.Ele
     }
 
     return (
-        <div className="logo">
+        <div className={clsx("logo", className)}>
             <div className={clsx("logo_icon", {["dark"]: variant === "dark"})} style={style.icon}>
                 <span className={clsx("logo_icon__text", {["dark"]: variant === "dark"})} style={style.text}>
                     JG
