@@ -49,9 +49,9 @@ const DesktopShell = observer((): JSX.Element => {
 
     useLayoutEffect(() => {
         getShellStyle();
-        window.addEventListener("resize", getShellStyle);
+        window.addEventListener("resize", () => getShellStyle());
 
-        return () => window.removeEventListener("resize", getShellStyle);
+        return () => window.removeEventListener("resize", () => getShellStyle());
     }, [getShellStyle]);
 
     const handleAddEnd = useCallback((node, done) => {

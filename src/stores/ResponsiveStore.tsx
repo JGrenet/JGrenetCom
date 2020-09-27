@@ -1,9 +1,8 @@
 import { observable, action } from "mobx";
 import { MOBILE_BREAKPOINT } from "../utils/globals";
 
-class ResponsiveStore  {
- 
-    @observable isMobile = false;
+class ResponsiveStore {
+    @observable isMobile: boolean | undefined = undefined;
 
     constructor() {
         this.updateResponsive();

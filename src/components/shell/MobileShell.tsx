@@ -10,23 +10,27 @@ const MobileShell = observer((): JSX.Element => {
     }, [setIsMenuOpen, isMenuOpen])
 
     return (
-        <div className="mobileShell mobile-content-container">
-            <Logo size={40} wordMark variant="white" className="mobile-content-container_logo" />
-            <img
-                src="./icon/menu.svg"
-                className="mobile-content-container_menu"
-                alt="menu"
-                onClick={handleToggleMenu}
-            />
+        <div className="mobileShell">
+            <div className="mobileShell_header">
+                <Logo size={40} wordMark variant="white" className="mobileShell_header__logo" />
+                <img
+                    src="./icon/menu.svg"
+                    className="icon"
+                    alt="menu"
+                    onClick={handleToggleMenu}
+                />
+            </div>
             {isMenuOpen && (
-                <div className="mobileShell_mobileMenu mobile-content-container">
-                     <Logo size={40} wordMark variant="dark" className="mobile-content-container_logo" />
-                    <img
-                        src="./icon/cancel.svg"
-                        className="mobile-content-container_menu"
-                        alt="menu"
-                        onClick={handleToggleMenu}
-                    />
+                <div className="mobileShell_mobileMenu">
+                    <div className="mobileShell_header">
+                        <Logo size={40} wordMark variant="dark" className="mobileShell_header__logo" />
+                        <img
+                            src="./icon/cancel.svg"
+                            className="icon"
+                            alt="menu"
+                            onClick={handleToggleMenu}
+                        />
+                    </div>
                 </div>
             )}
         </div>

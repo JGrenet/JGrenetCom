@@ -14,7 +14,7 @@ const contextValue: Context = {
     tabStore: new TabStore(),
     responsiveStore: new ResponsiveStore()
 };
- 
+
 export const AppContext = React.createContext<Context>(contextValue);
 
 
