@@ -23,7 +23,7 @@ const Logo = ({ size, wordMark = false, variant = "white", className }: LogoProp
             fontSize: (size / 1.8)
         },
         wordMark: {
-            fontSize: (size / 4.5)
+            fontSize: (size / 4)
         }
     }
 

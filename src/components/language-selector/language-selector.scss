@@ -5,7 +5,7 @@
     align-items: center;
 
     &_locale {
-        color: white;
+        color: $white;
         cursor: pointer;
         &--selected {
             font-weight: 700;
@@ -17,5 +17,17 @@
         width: 1px;
         height: 15px;
         margin: 0 10px;
+    }
+
+    &--dark {
+        .language-selector {
+            &_locale {
+                color: $black;
+            }
+
+            &_separator {
+                background-color: $black;
+            }
+        }
     }
 }

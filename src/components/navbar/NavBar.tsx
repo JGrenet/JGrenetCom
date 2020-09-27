@@ -34,8 +34,6 @@ const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
         if (navBarContainerRef?.current) {
             updateUnderlinePosition();
         }
-        //     document.addEventListener("resize", updateUnderlinePosition);
-        //     return () => document.removeEventListener("resize", updateUnderlinePosition);
     }, [navBarContainerRef, tabStore.selectedtab])
 
     const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);

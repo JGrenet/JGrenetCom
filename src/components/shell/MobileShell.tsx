@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { observer } from "mobx-react-lite";
 import Logo from "../logo/Logo";
+import MobileNavbar from "../mobile-navbar/MobileNavbar";
+import LanguageSelector from "../language-selector/LanguageSelector";
 
 const MobileShell = observer((): JSX.Element => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -31,6 +33,8 @@ const MobileShell = observer((): JSX.Element => {
                             onClick={handleToggleMenu}
                         />
                     </div>
+                    <MobileNavbar />
+                    <LanguageSelector variant="dark" className="mobileShell_mobileMenu__language-selector" />
                 </div>
             )}
         </div>

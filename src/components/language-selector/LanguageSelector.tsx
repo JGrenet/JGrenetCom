@@ -3,12 +3,23 @@ import useStores from "../../stores";
 import { locales } from "../../stores/LocaleStore";
 import LanguageItem from "./LanguageItem";
 import { observer } from "mobx-react-lite";
+import clsx from "clsx";
 
-const LanguageSelector = observer((): JSX.Element => {
+interface LanguageSelectorProps {
+    variant?: "white" | "dark";
+    className?: string;
+}
+
+const LanguageSelector = observer(({ variant = "white", className }: LanguageSelectorProps): JSX.Element => {
     const { localeStore } = useStores();
 
     return (
-        <div className="language-selector">
+        <div className={clsx(
+                "language-selector",
+                {["language-selector--dark"]: variant === "dark"},
+                className
+            )}
+        >
             {locales.map((l, index) => {
                 return (
                     <Fragment key={index}>

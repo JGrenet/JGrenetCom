@@ -6,7 +6,6 @@ import { observer } from 'mobx-react-lite';
 
 interface TabItemProps {
     tab: Tab;
-    //label: TabKeys;
     label: string;
     selected: boolean;
     variant: "white" | "dark",

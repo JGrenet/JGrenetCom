@@ -140,6 +140,12 @@
             right: 5px;
             filter: invert(0%) sepia(0%) saturate(7468%) hue-rotate(311deg) brightness(111%) contrast(102%);
         }
+
+        &__language-selector {
+            margin-top: 50px;
+            height: unset !important;
+            justify-content: center;
+        }
     }
 
     & > .mobileShell_header .icon {
