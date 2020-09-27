@@ -3,3 +3,7 @@
         @content;
     }
 }
+
+@mixin font-size($fontsize) {
+    font-size: ($fontsize / 16px) * 1em;
+}

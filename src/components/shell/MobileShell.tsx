@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import Logo from "../logo/Logo";
 import MobileNavbar from "../mobile-navbar/MobileNavbar";
 import LanguageSelector from "../language-selector/LanguageSelector";
+import Home from "../home/Home";
 
 const MobileShell = observer((): JSX.Element => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -37,6 +38,7 @@ const MobileShell = observer((): JSX.Element => {
                     <LanguageSelector variant="dark" className="mobileShell_mobileMenu__language-selector" />
                 </div>
             )}
+            <Home />
         </div>
     )
 });

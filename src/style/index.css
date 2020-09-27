@@ -45,6 +45,10 @@
   font-weight: 700;
   src: url("/fonts/Montserrat-Bold.ttf") format("ttf");
 }
+.bold {
+  font-weight: 600;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -65,7 +69,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }
@@ -99,10 +102,48 @@ table {
   border-spacing: 0;
 }
 
+html {
+  font-size: 90%;
+}
+@media (max-width: 1200px) {
+  html {
+    font-size: 85%;
+  }
+}
+@media (max-width: 992px) {
+  html {
+    font-size: 75%;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+}
+@media (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body, .app {
   background-color: black;
   font-family: "Montserrat", "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
   height: 100vh;
   width: 100vw;
   overflow-y: auto;
+}
+
+.tab-content {
+  height: 100%;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .tab-content {
+    height: unset;
+    margin-top: 60px;
+    box-sizing: border-box;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }

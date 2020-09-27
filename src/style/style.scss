@@ -1,3 +1,23 @@
+html {
+    font-size: 90.0%;
+
+    @include media-breakpoint-down($lg) {
+        font-size: 85%;
+    }
+
+    @include media-breakpoint-down($md) {
+        font-size: 75%;
+    }
+
+    @include media-breakpoint-down($sm) {
+        font-size: 60%;
+    }
+
+    @include media-breakpoint-down($xs) {
+        font-size: 50%;
+    }
+}
+
 body, .app {
     background-color: $black;
     font-family: "Montserrat", "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -5,4 +25,17 @@ body, .app {
     height: 100vh;
     width: 100vw;
     overflow-y: auto;
+}
+
+.tab-content {
+    height: 100%;
+    width: 100%;
+
+    @include media-breakpoint-down($sm) {
+        height: unset;
+        margin-top: 60px;
+        box-sizing: border-box;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 }

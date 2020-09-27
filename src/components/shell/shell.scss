@@ -111,6 +111,7 @@
     background-color: $black;
     position: relative;
     min-height: 100vh;
+    overflow-y: auto;
 
     &_header {
         width: 100vw;

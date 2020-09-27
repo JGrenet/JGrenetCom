@@ -1,9 +1,9 @@
-/* Error: Undefined variable.
+/* Error: Undefined mixin.
  *    ,
- * 12 |             color: $black;
- *    |                    ^^^^^^
+ * 11 |             @include font-size(20px);
+ *    |             ^^^^^^^^^^^^^^^^^^^^^^^^
  *    '
- *   src\components\mobile-navbar\mobile-navbar.scss 12:20  root stylesheet */
+ *   src\components\mobile-navbar\mobile-navbar.scss 11:13  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 12 \2502              color: $black;\d\a    \2502                     ^^^^^^\a    \2575 \a   src\\components\\mobile-navbar\\mobile-navbar.scss 12:20  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 11 \2502              @include font-size(20px);\d\a    \2502              ^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\components\\mobile-navbar\\mobile-navbar.scss 11:13  root stylesheet";
 }

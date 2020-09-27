@@ -1,5 +1,6 @@
 import React from "react";
 import { observable, action } from "mobx";
+import Home from "../components/home/Home";
 
 export enum Tab {
     HOME = 0,
@@ -67,7 +68,7 @@ class TabStore {
     getTabComponent(): JSX.Element {
         switch (this.selectedtab) {
             case Tab.HOME:
-                return <span style={{color: "white"}}>HOME</span>;
+                return <Home />
             case Tab.SERVICES:
                 return <span style={{color: "white"}}>SERVICES</span>;
             case Tab.CAREER:

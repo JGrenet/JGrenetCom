@@ -2,7 +2,7 @@
 .button {
     height: 60px;
     line-height: 60px;
-    font-size: 20px;
+    @include font-size(20px);
     border: 2px solid $white;
     background-color: $black;
     color: $white;

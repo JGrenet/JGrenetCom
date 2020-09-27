@@ -23,3 +23,6 @@
   font-weight: 700;
   src: url("/fonts/Montserrat-Bold.ttf") format("ttf");
 }
+.bold {
+  font-weight: 600;
+}
