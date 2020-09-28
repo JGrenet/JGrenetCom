@@ -25,7 +25,7 @@ const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
             setUnderlineStyle({
                 width: selected.clientWidth - TAB_PADDING,
                 left: ((containerPositions.bottom - selectedPositions.bottom) + (containerPositions.top - SHELL_PADDING)) + (TAB_PADDING / 2),
-                top: (selectedPositions.left - SHELL_PADDING) + 40
+                top: (selectedPositions.left - SHELL_PADDING) + 30
             });
         }
     }
