@@ -435,7 +435,12 @@ body, .app {
 .language-selector_locale {
   color: white;
   cursor: pointer;
-  font-size: 1.875em;
+  font-size: 1.25em;
+}
+@media (max-width: 768px) {
+  .language-selector_locale {
+    font-size: 1.875em;
+  }
 }
 .language-selector_locale--selected {
   font-weight: 700;
