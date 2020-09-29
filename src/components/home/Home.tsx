@@ -7,17 +7,18 @@ const Home = observer(() => {
     const { localeStore, responsiveStore } = useStores();
     const appKeys = localeStore.keys;
 
+    //TODO Inverser le front-end avec la premiere phrase en Anglais !
     return (
         <div className="home tab-content">
             
             <div className="home_content">
                 <div className="home_content__main-content">
-                    <h1 className="bold">Bonjour!</h1>
-                    <h2>Je m'appelle Jérémy</h2>
+                    <h1 className="bold">{appKeys["HOME_HELLO"]}</h1>
+                    <h2>{appKeys["HOME_NAME"]}</h2>
                     <h2>
-                        Je suis développeur <span className="yellow bold">Front-End</span>
+                    {appKeys["HOME_JOB"]} <span className="yellow bold">{appKeys["HOME_FRONT_END"]}</span>
                     </h2>
-                    <h4>Voyons ensemble comment nous pouvons mener vos projets à bien.</h4>
+                    <h4>{appKeys["HOME_CATCHPHRASE"]}</h4>
                 </div>
             </div>
             <div className="home_image">

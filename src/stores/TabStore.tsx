@@ -70,7 +70,7 @@ class TabStore {
             case Tab.HOME:
                 return <Home />
             case Tab.SERVICES:
-                return <span style={{color: "white"}}>SERVICES</span>;
+                return <Services />
             case Tab.CAREER:
                 return <span style={{color: "white"}}>CAREER</span>;
             case Tab.PRODUCTIONS:

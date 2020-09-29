@@ -7,5 +7,10 @@
     "TAB_CAREER": "parcours",
     "TAB_PRODUCTIONS": "realisations",
     "TAB_SKILLS": "compétences",
-    "TAB_CONTACT": "contact"
+    "TAB_CONTACT": "contact",
+    "HOME_HELLO": "Bonjour!",
+    "HOME_NAME": "Je m'appelle Jérémy",
+    "HOME_JOB": "Je suis développeur",
+    "HOME_FRONT_END": "Front-End",
+    "HOME_CATCHPHRASE": "Voyons ensemble comment nous pouvons mener vos projets à bien."
 }
