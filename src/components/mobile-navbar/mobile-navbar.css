@@ -1,6 +1,6 @@
 /* Error: Undefined mixin.
  *    ,
- * 11 |             @include font-size(20px);
+ * 11 |             @include font-size(40px);
  *    |             ^^^^^^^^^^^^^^^^^^^^^^^^
  *    '
  *   src\components\mobile-navbar\mobile-navbar.scss 11:13  root stylesheet */
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 11 \2502              @include font-size(20px);\d\a    \2502              ^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\components\\mobile-navbar\\mobile-navbar.scss 11:13  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 11 \2502              @include font-size(40px);\d\a    \2502              ^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\components\\mobile-navbar\\mobile-navbar.scss 11:13  root stylesheet";
 }

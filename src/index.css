@@ -303,6 +303,7 @@ body, .app {
   width: 100vw;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 .mobileShell_mobileMenu > .mobileShell_header .icon {
   height: 22px;
@@ -382,6 +383,18 @@ body, .app {
   background-color: white;
   color: black;
 }
+@media (max-width: 768px) {
+  .button {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 400px) {
+  .button {
+    font-size: 1.875em;
+    height: 50px;
+    line-height: 50px;
+  }
+}
 
 .logo {
   display: flex;
@@ -422,6 +435,7 @@ body, .app {
 .language-selector_locale {
   color: white;
   cursor: pointer;
+  font-size: 1.875em;
 }
 .language-selector_locale--selected {
   font-weight: 700;
@@ -449,7 +463,7 @@ body, .app {
   align-items: center;
 }
 .mobile-navbar_container__item {
-  font-size: 1.25em;
+  font-size: 2.5em;
   color: black;
   padding-bottom: 25px;
   text-transform: capitalize;
@@ -475,7 +489,22 @@ body, .app {
   .home {
     justify-content: unset;
     height: calc(100vh - 60px);
-    padding-top: 60px;
+    padding-top: 100px;
+  }
+}
+@media (max-height: 750px) {
+  .home {
+    padding-top: 70px;
+  }
+}
+@media (max-height: 750px) {
+  .home {
+    padding-top: 70px;
+  }
+}
+@media (max-height: 700px) {
+  .home {
+    padding-top: 50px;
   }
 }
 .home_content {
@@ -521,6 +550,11 @@ body, .app {
     font-size: 3.75em;
   }
 }
+@media (max-width: 400px) {
+  .home_content__main-content h1 {
+    font-size: 3.125em;
+  }
+}
 .home_content__main-content h2 {
   font-size: 3.125em;
   padding-bottom: 10px;
@@ -535,8 +569,19 @@ body, .app {
     font-size: 3.125em;
   }
 }
+@media (max-width: 400px) {
+  .home_content__main-content h2 {
+    font-size: 2.5em;
+  }
+}
 .home_content__main-content h2 .yellow {
   color: #fca311;
+}
+@media (max-width: 768px) {
+  .home_content__main-content h2 .yellow {
+    display: block;
+    margin-top: 10px;
+  }
 }
 .home_content__main-content h4 {
   position: absolute;
@@ -555,7 +600,13 @@ body, .app {
   .home_content__main-content h4 {
     left: 0;
     transform: unset;
-    bottom: -40px;
+    bottom: -60px;
+    font-size: 2.1875em;
+  }
+}
+@media (max-width: 400px) {
+  .home_content__main-content h4 {
+    bottom: -50px;
     font-size: 1.875em;
   }
 }
@@ -583,14 +634,28 @@ body, .app {
 }
 @media (max-width: 768px) {
   .home_image {
-    margin-top: 80px;
+    margin-top: 110px;
+    width: 150px;
+  }
+}
+@media (max-width: 400px) {
+  .home_image {
+    margin-top: 25%;
+    width: 125px;
   }
 }
 .home_image img {
   width: 100%;
 }
 .home_contact {
-  height: 20px;
-  width: 20px;
-  background-color: blue;
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 400px) {
+  .home_contact {
+    bottom: 40px;
+  }
 }
