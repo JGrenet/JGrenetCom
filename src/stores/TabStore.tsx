@@ -1,6 +1,7 @@
 import React from "react";
 import { observable, action } from "mobx";
 import Home from "../components/home/Home";
+import Services from "../components/services/Services";
 
 export enum Tab {
     HOME = 0,

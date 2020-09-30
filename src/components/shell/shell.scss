@@ -4,9 +4,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     
     svg {
         position: absolute;
@@ -25,7 +22,7 @@
             transition-timing-function: ease-in-out;
 
             &.half {
-                width: 50%;
+                width: calc(50% - 15px) !important;
             }
         }
 

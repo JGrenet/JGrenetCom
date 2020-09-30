@@ -190,9 +190,6 @@ body, .app {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .shell svg {
   position: absolute;
@@ -211,7 +208,7 @@ body, .app {
   transition-timing-function: ease-in-out;
 }
 .shell svg rect.half {
-  width: 50%;
+  width: calc(50% - 15px) !important;
 }
 .shell svg.animation-stroke-appear-active rect, .shell svg.animation-stroke-appear-done rect {
   stroke-dashoffset: 0 !important;
@@ -663,4 +660,64 @@ body, .app {
   .home_contact {
     bottom: 40px;
   }
+}
+
+.services {
+  position: relative;
+}
+.services_content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.services_content h2 {
+  font-size: 3.75em;
+  margin-top: 100px;
+  margin-bottom: 75px;
+}
+.services_content__services-list_item, .services_content .services-list_item {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 500px;
+}
+.services_content__services-list_item:not(:first-child), .services_content .services-list_item:not(:first-child) {
+  margin-top: 100px;
+}
+.services_content__services-list_item__icon, .services_content .services-list_item__icon {
+  flex-basis: 170px;
+  height: 100%;
+  background-color: white;
+}
+.services_content__services-list_item__separator, .services_content .services-list_item__separator {
+  height: 100%;
+  position: relative;
+  padding: 0 20px;
+}
+.services_content__services-list_item__separator::after, .services_content .services-list_item__separator::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  background-color: white;
+  height: 40px;
+}
+.services_content__services-list_item__content, .services_content .services-list_item__content {
+  flex-grow: 1;
+  height: 60px;
+  background-color: white;
+}
+.services_illustration {
+  position: absolute;
+  bottom: -8000px;
+  transition: bottom, 1.5s ease-in-out;
+  background-color: red;
+}
+.services_illustration.animation-slide-bottom-appear-active, .services_illustration.animation-slide-bottom-appear-done {
+  bottom: 0;
 }

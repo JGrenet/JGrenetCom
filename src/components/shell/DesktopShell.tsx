@@ -9,17 +9,17 @@ import { observer } from "mobx-react-lite";
 import Logo from "../logo/Logo";
 import clsx from "clsx";
 import Routes from "../routes";
+import { Tab } from "../../stores/TabStore";
 
 type ShellStyle = {
     [key: string]: CSSProperties;
 }
 
 const DesktopShell = observer((): JSX.Element => {
-    const { localeStore } = useStores();
+    const { localeStore, tabStore } = useStores();
     const appKeys= localeStore.keys;
     const [shellStyle, setShellStyle] = useState<ShellStyle | null>(null);
     // == Experimental
-    const [halfStroke, setHalfStroke] = useState(false);
     const [recover, setRecover] = useState(false);
     // ==
 
@@ -59,9 +59,6 @@ const DesktopShell = observer((): JSX.Element => {
     }, []);
 
     // == Experimental
-    const handleHalfStrole = useCallback(() => {
-        setHalfStroke(!halfStroke);
-    }, [halfStroke, setHalfStroke])
 
     const handleRecover = useCallback(() => {
         setRecover(!recover);
@@ -85,7 +82,7 @@ const DesktopShell = observer((): JSX.Element => {
                             x="0"
                             y="0"
                             style={shellStyle.rect}
-                            className={clsx({["half"]: halfStroke})}
+                            className={clsx({["half"]: tabStore.selectedtab === Tab.SERVICES})}
                         />
                     </svg>
                     <Routes />
@@ -95,7 +92,6 @@ const DesktopShell = observer((): JSX.Element => {
                 <Logo size={60} wordMark variant="white" />
             </div>
             <div className="shell_language stroke-hidder">
-                <button onClick={handleHalfStrole}>STROKE</button>
                 <button onClick={handleRecover}>COVER</button>
                 <LanguageSelector />
             </div>
