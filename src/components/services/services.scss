@@ -18,7 +18,7 @@
             &_item {
                 display: flex;
                 align-items: center;
-                height: 60px;
+                height: 70px;
                 width: 500px;
 
                 &:not(:first-child) {
@@ -28,7 +28,21 @@
                 &__icon {
                     flex-basis: 170px;
                     height: 100%;
-                    background-color: $white;
+                    color: $grey;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    img {
+                        height: 40px;
+                    }
+                    
+                    span {
+                        display: block;
+                        text-align: center;
+                        @include font-size(14px);
+                    }
                 }
 
                 &__separator {
@@ -52,7 +66,12 @@
                 &__content {
                     flex-grow: 1;
                     height: 60px;
-                    background-color: $white;
+                    color: $grey;
+                    text-align: center;
+                }
+
+                &--selected {
+                    color: $white;
                 }
             }
         }
@@ -62,7 +81,8 @@
         position: absolute;
         bottom: -8000px;
         transition: bottom, 1.5s ease-in-out;
-        background-color: red;
+        box-sizing: border-box;
+        border: 5px solid $white;
 
         &.animation-slide-bottom-appear {
             &-active, &-done {

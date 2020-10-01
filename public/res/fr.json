@@ -12,5 +12,11 @@
     "HOME_NAME": "Je m'appelle Jérémy",
     "HOME_JOB": "Je suis développeur",
     "HOME_FRONT_END": "Front-End",
-    "HOME_CATCHPHRASE": "Voyons ensemble comment nous pouvons mener vos projets à bien."
+    "HOME_CATCHPHRASE": "Voyons ensemble comment nous pouvons mener vos projets à bien.",
+    "SERVICES_ITEM_WEBDEV_TITLE": "Developpement web",
+    "SERVICES_ITEM_WEBDEV_CONTENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "SERVICES_ITEM_BACKOFFICE_TITLE": "Back-office",
+    "SERVICES_ITEM_BACKOFFICE_CONTENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "SERVICES_ITEM_RESPONSIVE_TITLE": "Integration responsive",
+    "SERVICES_ITEM_RESPONSIVE_CONTENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 }

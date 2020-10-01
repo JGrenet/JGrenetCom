@@ -217,7 +217,7 @@ body, .app {
   bottom: 0;
   right: 100px;
   transform: translateY(50%);
-  height: 30px;
+  height: 90px;
   padding: 0 10px;
 }
 .shell_contact-btn {
@@ -680,7 +680,7 @@ body, .app {
 .services_content__services-list_item, .services_content .services-list_item {
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 70px;
   width: 500px;
 }
 .services_content__services-list_item:not(:first-child), .services_content .services-list_item:not(:first-child) {
@@ -689,7 +689,19 @@ body, .app {
 .services_content__services-list_item__icon, .services_content .services-list_item__icon {
   flex-basis: 170px;
   height: 100%;
-  background-color: white;
+  color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.services_content__services-list_item__icon img, .services_content .services-list_item__icon img {
+  height: 40px;
+}
+.services_content__services-list_item__icon span, .services_content .services-list_item__icon span {
+  display: block;
+  text-align: center;
+  font-size: 0.875em;
 }
 .services_content__services-list_item__separator, .services_content .services-list_item__separator {
   height: 100%;
@@ -710,13 +722,18 @@ body, .app {
 .services_content__services-list_item__content, .services_content .services-list_item__content {
   flex-grow: 1;
   height: 60px;
-  background-color: white;
+  color: #e5e5e5;
+  text-align: center;
+}
+.services_content__services-list_item--selected, .services_content .services-list_item--selected {
+  color: white;
 }
 .services_illustration {
   position: absolute;
   bottom: -8000px;
   transition: bottom, 1.5s ease-in-out;
-  background-color: red;
+  box-sizing: border-box;
+  border: 5px solid white;
 }
 .services_illustration.animation-slide-bottom-appear-active, .services_illustration.animation-slide-bottom-appear-done {
   bottom: 0;
