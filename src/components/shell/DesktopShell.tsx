@@ -28,6 +28,21 @@ const DesktopShell = observer((): JSX.Element => {
         const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
         const shellBorderWidth = (shellWidth * 2) + (shellHeight * 2);
 
+        const getRectWidth = (): number => {
+            const getHalfWidth = (): number => {
+                if (shellWidth <= 1200) {
+                    return shellWidth;
+                }
+                else if (shellWidth <= 1400) {
+                    return (shellWidth * 0.6) - 15;
+                } 
+                return (shellWidth / 2) - 15;
+            }
+
+            return tabStore.selectedtab === Tab.SERVICES ? 
+                getHalfWidth() : shellWidth;
+        }
+
         setShellStyle({
             shell: {
                 width: shellWidth,
@@ -36,7 +51,7 @@ const DesktopShell = observer((): JSX.Element => {
             rect: {
                 strokeDasharray: shellBorderWidth,
                 strokeDashoffset: shellBorderWidth,
-                width: shellWidth
+                width: getRectWidth()
             },
             cover: {
                 height: recover ? 0 : shellHeight + 50
@@ -45,7 +60,7 @@ const DesktopShell = observer((): JSX.Element => {
                 height: shellHeight + 50
             }
         })
-    }, [setShellStyle, recover]);
+    }, [setShellStyle, recover, tabStore.selectedtab]);
 
     useLayoutEffect(() => {
         getShellStyle();
@@ -82,7 +97,7 @@ const DesktopShell = observer((): JSX.Element => {
                             x="0"
                             y="0"
                             style={shellStyle.rect}
-                            className={clsx({["half"]: tabStore.selectedtab === Tab.SERVICES})}
+                            // className={clsx({["half"]: tabStore.selectedtab === Tab.SERVICES})}
                         />
                     </svg>
                     <Routes />

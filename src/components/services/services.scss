@@ -4,29 +4,44 @@
     &_content {
         width: 100%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        position: relative;
+        padding-top: 75px;
 
         h2 {
+            text-align: center;
             @include font-size(60px);
-            margin-top: 100px;
-            margin-bottom: 75px;
+
+            @media (max-height: 900px) {
+                @include font-size(50px);
+            }
+        }
+
+        @media (max-height: 900px) {
+            padding-top: 50px;
         }
 
         &__services-list, .services-list {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
             &_item {
                 display: flex;
                 align-items: center;
                 height: 70px;
-                width: 500px;
+                cursor: pointer;
 
                 &:not(:first-child) {
                     margin-top: 100px;
+
+                    @media (max-height: 900px) {
+                        margin-top: 75px;
+                    }
                 }
 
                 &__icon {
-                    flex-basis: 170px;
+                    width: 170px;
                     height: 100%;
                     color: $grey;
                     display: flex;
@@ -64,14 +79,25 @@
                 }
 
                 &__content {
-                    flex-grow: 1;
-                    height: 60px;
+                    width: 300px;
                     color: $grey;
                     text-align: center;
+
+                    @include media-breakpoint-down(1400px) {
+                        width: 400px;
+                    }
+
+                    @include media-breakpoint-down($md) {
+                        width: 250px;
+                    }
                 }
 
                 &--selected {
                     color: $white;
+
+                    .services-list_item__content {
+                        color: $white;
+                    }
                 }
             }
         }
@@ -82,12 +108,16 @@
         bottom: -8000px;
         transition: bottom, 1.5s ease-in-out;
         box-sizing: border-box;
-        border: 5px solid $white;
+        border: 8px solid $white;
 
         &.animation-slide-bottom-appear {
             &-active, &-done {
                 bottom: 0;
             }
+        }
+
+        @include media-breakpoint-down(1400px) {
+            display: none;
         }
     }
 }

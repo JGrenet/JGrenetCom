@@ -21,9 +21,9 @@
             transition-duration: 1.5s;
             transition-timing-function: ease-in-out;
 
-            &.half {
-                width: calc(50% - 15px) !important;
-            }
+            // &.half {
+            //     width: calc(50% - 15px) !important;
+            // }
         }
 
         &.animation-stroke-appear {
