@@ -7,13 +7,14 @@
         flex-direction: column;
         justify-content: space-around;
         box-sizing: border-box;
-        padding: 30px 0;
+        padding: 30px 0 0 0;
     }
 
     @include media-breakpoint-down($sm) {
         justify-content: unset;
         height: calc(100vh - 60px);
         padding-top: 100px;
+        position: relative;
     }
 
     @media (max-height: 750px) {

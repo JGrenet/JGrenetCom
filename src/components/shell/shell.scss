@@ -114,10 +114,12 @@
         width: 100vw;
         padding: 20px;
         box-sizing: border-box;
-        position: absolute;
+        position: fixed;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: $black;
+        z-index: 1;
     
         &_menu {
             cursor: pointer;

@@ -4,13 +4,14 @@ import { CSSTransition } from "react-transition-group";
 import { SHELL_PADDING } from "../../utils/globals";
 import useStores from "../../stores";
 import ServiceItem from "./ServiceItem";
+import { Tab } from "../../stores/TabStore";
 
 type ServicesStyles = {
     [key: string]: CSSProperties
 }
 
 const Services = observer(() => {
-    const { localeStore, responsiveStore } = useStores();
+    const { localeStore, responsiveStore, tabStore } = useStores();
     const appKeys = localeStore.keys;
     const [selectedItem, setSelectedItem] = useState<number>(0);
     const [serviceStyle, setServiceStyle] = useState<ServicesStyles | null>(null);
@@ -50,18 +51,23 @@ const Services = observer(() => {
     }, []);
 
     useLayoutEffect(() => {
-        getServiceStyle();
-        window.addEventListener("resize", () => getServiceStyle());
+        if (!responsiveStore.isMobile) {
+            getServiceStyle();
+            window.addEventListener("resize", () => getServiceStyle());
 
-        return () => window.removeEventListener("resize", () => getServiceStyle());
-    }, [getServiceStyle]);
+            return () => window.removeEventListener("resize", () => getServiceStyle());
+        }
+    }, [getServiceStyle, responsiveStore.isMobile]);
 
-    if (!serviceStyle) return <></>;
+    if (!serviceStyle && !responsiveStore.isMobile) return <></>;
 
     return (
-        <div className="services tab-content" style={serviceStyle.services}>
-            <div className="services_content" style={{color: "white"}}>
-                <h2>My services</h2>
+        <div
+            className="services tab-content"
+            style={serviceStyle ? serviceStyle.services : undefined}
+        >
+            <div className="services_content">
+                <h2>{appKeys["SERVICES_TAB_TITLE"]}</h2>
                 <div className="services_content__services-list services-list">
                     <ServiceItem
                         index={0}
@@ -94,12 +100,12 @@ const Services = observer(() => {
                     addEndListener={handleAddEnd}
                     classNames='animation-slide-bottom'
                     appear
-                    in
+                    in={tabStore.selectedtab === Tab.SERVICES}
                     timeout={1500}
                 >
                     <div
                         className="services_illustration"
-                        style={serviceStyle.illustrations}
+                        style={serviceStyle?.illustrations}
                     >
                     </div>
                 </CSSTransition>

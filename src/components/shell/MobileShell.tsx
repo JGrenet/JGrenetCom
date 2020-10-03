@@ -4,6 +4,7 @@ import Logo from "../logo/Logo";
 import MobileNavbar from "../mobile-navbar/MobileNavbar";
 import LanguageSelector from "../language-selector/LanguageSelector";
 import Home from "../home/Home";
+import Services from "../services/Services";
 
 const MobileShell = observer((): JSX.Element => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -39,6 +40,7 @@ const MobileShell = observer((): JSX.Element => {
                 </div>
             )}
             <Home />
+            <Services />
         </div>
     )
 });
