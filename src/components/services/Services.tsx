@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React, { CSSProperties, useCallback, useLayoutEffect, useState } from "react";
+import React, { CSSProperties, useCallback, useLayoutEffect, useMemo, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { SHELL_PADDING } from "../../utils/globals";
 import useStores from "../../stores";
@@ -15,6 +15,16 @@ const Services = observer(() => {
     const appKeys = localeStore.keys;
     const [selectedItem, setSelectedItem] = useState<number>(0);
     const [serviceStyle, setServiceStyle] = useState<ServicesStyles | null>(null);
+    const imgUrl = useMemo(() => {
+        switch (selectedItem) {
+            case 0:
+                return "/img/code.png";
+            case 1:
+                return "/img/responsive.png";
+            case 2:
+                return "/img/admin.png";
+        }
+    }, [selectedItem])
 
     const handleAddEnd = useCallback((node, done) => {
         node.addEventListener("transitionend", done, false);
@@ -107,6 +117,7 @@ const Services = observer(() => {
                         className="services_illustration"
                         style={serviceStyle?.illustrations}
                     >
+                        <img src={imgUrl} alt="illustration" />
                     </div>
                 </CSSTransition>
             )}

@@ -837,6 +837,7 @@ body, .app {
   transition: bottom, 1.5s ease-in-out;
   box-sizing: border-box;
   border: 8px solid white;
+  overflow: hidden;
 }
 .services_illustration.animation-slide-bottom-appear-active, .services_illustration.animation-slide-bottom-appear-done {
   bottom: 0;
@@ -848,4 +849,8 @@ body, .app {
   .services_illustration {
     display: none;
   }
+}
+.services_illustration img {
+  height: 100%;
+  min-width: 100%;
 }

@@ -172,6 +172,7 @@
         transition: bottom, 1.5s ease-in-out;
         box-sizing: border-box;
         border: 8px solid $white;
+        overflow: hidden;
 
         &.animation-slide-bottom-appear {
             &-active, &-done {
@@ -187,6 +188,11 @@
 
         @include media-breakpoint-down(1400px) {
             display: none;
+        }
+
+        img {
+            height: 100%;
+            min-width: 100%;
         }
     }
 }
