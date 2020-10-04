@@ -97,7 +97,6 @@ const DesktopShell = observer((): JSX.Element => {
                             x="0"
                             y="0"
                             style={shellStyle.rect}
-                            // className={clsx({["half"]: tabStore.selectedtab === Tab.SERVICES})}
                         />
                     </svg>
                     <Routes />

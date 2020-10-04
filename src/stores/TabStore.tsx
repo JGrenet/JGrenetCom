@@ -2,6 +2,7 @@ import React from "react";
 import { observable, action } from "mobx";
 import Home from "../components/home/Home";
 import Services from "../components/services/Services";
+import Career from "../components/career/Career";
 
 export enum Tab {
     HOME = 0,
@@ -73,7 +74,7 @@ class TabStore {
             case Tab.SERVICES:
                 return <Services />
             case Tab.CAREER:
-                return <span style={{color: "white"}}>CAREER</span>;
+                return <Career />
             case Tab.PRODUCTIONS:
                 return <span style={{color: "white"}}>PRODUCTIONS</span>;
             case Tab.SKILLS:
