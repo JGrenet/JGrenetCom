@@ -11,7 +11,7 @@ const Career = observer((): JSX.Element => {
         <div
             className="career tab-content"
         >
-            <div className="career_description career_content">
+            <div className="career_description">
                 <div className="career_description__content">
                     <h2>{appKeys["CAREER_TAB_TITLE"]}</h2>
                     <p>
@@ -19,9 +19,9 @@ const Career = observer((): JSX.Element => {
                     </p>
                 </div>
             </div>
-            <div className="career_timeline career_content">
+            <div className="career_timeline">
                 <div className="timeline">
-                    <TimelineItem
+                     <TimelineItem
                         year="2014"
                         logo={"/img/epitech.png"}
                         bottom={0}

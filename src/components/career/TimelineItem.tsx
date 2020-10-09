@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import clsx from "clsx";
 import Logo from "../logo/Logo";
+import { SHELL_PADDING } from "../../utils/globals";
 
 interface TimelineItemProps {
     year: string | string[];
@@ -19,15 +20,16 @@ const TimelineItem = observer(({
     applogo = false
 }: TimelineItemProps): JSX.Element => {
 
+    const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
     const yearLength = Array.isArray(year) ?
-        (parseInt(year[1]) - parseInt(year[0])) + 1 : 1;
+        (parseInt(year[1]) - parseInt(year[0])) : 1;
 
     return (
         <div
             className="timeline-item"
             style={{
                 bottom: `${bottom}%`,
-                height: yearLength * 50
+                height: shellWidth <= 1100 ? yearLength * 30 : yearLength * 50
             }}
         >
             {!applogo && logo && (
