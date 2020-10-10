@@ -65,6 +65,10 @@
                 @media (max-width: 1300px) {
                     @include font-size(17px);
                 }
+
+                @include media-breakpoint-down($sm) {
+                    @include font-size(22px);
+                }
             }
         }
     }
@@ -80,6 +84,11 @@
             width: 100%;
         }
 
+        @include media-breakpoint-down($sm) {
+            height: unset;
+            margin-top: 30px;
+        }
+
         .timeline {
             width: 50%;
             height: calc(100% - 200px);
@@ -87,6 +96,10 @@
 
             @media (max-width: 1300px) {
                 height: calc(100% - 120px);
+            }
+
+            @include media-breakpoint-down($sm) {
+                height: 400px;
             }
 
             &::after {
@@ -114,6 +127,10 @@
                     height: 100%;
                     position: absolute;
                     transform: translate(calc(100% + 15px));
+
+                    @include media-breakpoint-down($sm) {
+                        height: 20px;
+                    }
                 }
 
                 &_point {
@@ -146,6 +163,11 @@
                     background-color: $yellow;
                     position: relative;
 
+                    @include media-breakpoint-down($sm) {
+                        width: 35px;
+                        margin: 0 5px;
+                    }
+
                     &__year {
                         @include font-size(18px);
                         position: absolute;
@@ -154,6 +176,11 @@
                         top: -25px;
                         font-weight: 700;
                         color: $yellow;
+
+                        @include media-breakpoint-down($sm) {
+                            top: -20px;
+                            @include font-size(20px);
+                        }
                     }
                 }
 
@@ -179,6 +206,16 @@
 
                     @include media-breakpoint-down($md) {
                         width: 150px;
+                    }
+
+                    @include media-breakpoint-down($sm) {
+                        width: 100px;
+                        line-height: 15px;
+                        @include font-size(18px);
+                    }
+
+                    @media (max-width: 300px) {
+                        width: 80px;
                     }
                 }
             }

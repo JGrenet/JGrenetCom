@@ -3,6 +3,7 @@ import React from "react";
 import clsx from "clsx";
 import Logo from "../logo/Logo";
 import { SHELL_PADDING } from "../../utils/globals";
+import useStores from "../../stores";
 
 interface TimelineItemProps {
     year: string | string[];
@@ -19,7 +20,7 @@ const TimelineItem = observer(({
     label,
     applogo = false
 }: TimelineItemProps): JSX.Element => {
-
+    const { responsiveStore } = useStores();
     const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
     const yearLength = Array.isArray(year) ?
         (parseInt(year[1]) - parseInt(year[0])) : 1;
@@ -41,8 +42,8 @@ const TimelineItem = observer(({
             )}
             {applogo && (
                  <Logo
-                    size={50}
-                    wordMark
+                    size={40}
+                    wordMark={!responsiveStore.isMobile}
                     variant="white"
                     className="timeline-item_logo"
                 />

@@ -3,6 +3,7 @@ import React from "react";
 import useStores from "../../stores";
 import TimelineItem from "./TimelineItem";
 
+
 const Career = observer((): JSX.Element => {
     const { localeStore } = useStores();
     const appKeys = localeStore.keys;

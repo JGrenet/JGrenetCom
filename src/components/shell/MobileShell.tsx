@@ -5,6 +5,7 @@ import MobileNavbar from "../mobile-navbar/MobileNavbar";
 import LanguageSelector from "../language-selector/LanguageSelector";
 import Home from "../home/Home";
 import Services from "../services/Services";
+import Career from "../career/Career";
 
 const MobileShell = observer((): JSX.Element => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -27,7 +28,12 @@ const MobileShell = observer((): JSX.Element => {
             {isMenuOpen && (
                 <div className="mobileShell_mobileMenu">
                     <div className="mobileShell_header">
-                        <Logo size={40} wordMark variant="dark" className="mobileShell_header__logo" />
+                        <Logo
+                            size={40}
+                            wordMark
+                            variant="dark"
+                            className="mobileShell_header__logo"
+                        />
                         <img
                             src="./icon/cancel.svg"
                             className="icon"
@@ -36,11 +42,15 @@ const MobileShell = observer((): JSX.Element => {
                         />
                     </div>
                     <MobileNavbar />
-                    <LanguageSelector variant="dark" className="mobileShell_mobileMenu__language-selector" />
+                    <LanguageSelector
+                        variant="dark"
+                        className="mobileShell_mobileMenu__language-selector"
+                    />
                 </div>
             )}
             <Home />
             <Services />
+            <Career />
         </div>
     )
 });
