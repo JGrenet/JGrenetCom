@@ -3,6 +3,7 @@ import { observable, action } from "mobx";
 import Home from "../components/home/Home";
 import Services from "../components/services/Services";
 import Career from "../components/career/Career";
+import Productions from "../components/productions/Productions";
 
 export enum Tab {
     HOME = 0,
@@ -76,7 +77,7 @@ class TabStore {
             case Tab.CAREER:
                 return <Career />
             case Tab.PRODUCTIONS:
-                return <span style={{color: "white"}}>PRODUCTIONS</span>;
+                return <Productions />
             case Tab.SKILLS:
                 return <span style={{color: "white"}}>SKILLS</span>;
             case Tab.CONTACT:

@@ -7,7 +7,6 @@ import NavBar from "../navbar/NavBar";
 import useStores from "../../stores";
 import { observer } from "mobx-react-lite";
 import Logo from "../logo/Logo";
-import clsx from "clsx";
 import Routes from "../routes";
 import { Tab } from "../../stores/TabStore";
 
@@ -19,9 +18,6 @@ const DesktopShell = observer((): JSX.Element => {
     const { localeStore, tabStore } = useStores();
     const appKeys= localeStore.keys;
     const [shellStyle, setShellStyle] = useState<ShellStyle | null>(null);
-    // == Experimental
-    const [recover, setRecover] = useState(false);
-    // ==
 
     const getShellStyle = useCallback(() => {
         const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
@@ -53,14 +49,9 @@ const DesktopShell = observer((): JSX.Element => {
                 strokeDashoffset: shellBorderWidth,
                 width: getRectWidth()
             },
-            cover: {
-                height: recover ? 0 : shellHeight + 50
-            },
-            coverContent: {
-                height: shellHeight + 50
-            }
+            
         })
-    }, [setShellStyle, recover, tabStore.selectedtab]);
+    }, [setShellStyle, tabStore.selectedtab]);
 
     useLayoutEffect(() => {
         getShellStyle();
@@ -72,13 +63,6 @@ const DesktopShell = observer((): JSX.Element => {
     const handleAddEnd = useCallback((node, done) => {
         node.addEventListener("transitionend", done, false);
     }, []);
-
-    // == Experimental
-
-    const handleRecover = useCallback(() => {
-        setRecover(!recover);
-    }, [recover, setRecover]);
-    // ==
 
     if (!shellStyle) return <></>;
 
@@ -106,22 +90,12 @@ const DesktopShell = observer((): JSX.Element => {
                 <Logo size={60} wordMark variant="white" />
             </div>
             <div className="shell_language stroke-hidder">
-                <button onClick={handleRecover}>COVER</button>
                 <LanguageSelector />
             </div>
             <div className="shell_contact-btn stroke-hidder">
                 <Button label={appKeys["ACTION_CONTACT_ME"]} />
             </div>
             <NavBar variant="white" />
-            {/* <div className={clsx("shell_recover", {["open"]: recover})} style={shellStyle.cover}>
-                <div className="shell_recover__content recover" style={shellStyle.coverContent}>
-                    <div className="recover_border" />
-                    <div className="shell_logo stroke-hidder dark">
-                        <Logo size={60} wordMark variant="dark"/>
-                    </div>
-                    <NavBar variant="dark"/>
-                </div>
-            </div> */}
         </div>
     );
 });

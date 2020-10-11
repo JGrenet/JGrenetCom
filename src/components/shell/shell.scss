@@ -20,10 +20,6 @@
             transition-property: width, stroke-dashoffset;
             transition-duration: 1.5s;
             transition-timing-function: ease-in-out;
-
-            // &.half {
-            //     width: calc(50% - 15px) !important;
-            // }
         }
 
         &.animation-stroke-appear {
@@ -50,33 +46,6 @@
         height: 90px;
         padding: 0 10px;
         z-index: 3;
-    }
-
-    &_recover {
-        position: absolute;
-        width: 50%;
-        bottom: 0;
-        left: 0;
-        background-color: $white;
-        z-index: 2;
-        transition: height 1s ease-in-out;
-        overflow: hidden;
-
-        &__content, .recover {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-
-            &_border {
-                position: absolute;
-                top: 50px;
-                left: 0;
-                height: 2px;
-                width: 100%;
-                background-color: $black;
-            }
-        }
     }
 }
 
@@ -120,6 +89,10 @@
         align-items: center;
         background-color: $black;
         z-index: 1;
+
+        &--open {
+            background-color: $white;
+        }
     
         &_menu {
             cursor: pointer;
@@ -133,7 +106,7 @@
         width: 100vw;
         top: 0;
         left: 0;
-        z-index: 1;
+        z-index: 2;
 
         & > .mobileShell_header .icon {
             height: 22px;

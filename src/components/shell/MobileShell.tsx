@@ -16,7 +16,9 @@ const MobileShell = observer((): JSX.Element => {
 
     return (
         <div className="mobileShell">
-            <div className="mobileShell_header">
+            <div
+                className={"mobileShell_header"}
+            >
                 <Logo size={40} wordMark variant="white" className="mobileShell_header__logo" />
                 <img
                     src="./icon/menu.svg"
@@ -27,7 +29,7 @@ const MobileShell = observer((): JSX.Element => {
             </div>
             {isMenuOpen && (
                 <div className="mobileShell_mobileMenu">
-                    <div className="mobileShell_header">
+                    <div className="mobileShell_header mobileShell_header--open">
                         <Logo
                             size={40}
                             wordMark

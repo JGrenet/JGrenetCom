@@ -13,7 +13,6 @@ interface LogoProps {
 }
 
 const Logo = ({ size, wordMark = false, variant = "white", className }: LogoProps): JSX.Element => {
-
     const style: LogoStyle = {
         icon: {
             height: size,
