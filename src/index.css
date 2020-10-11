@@ -223,8 +223,9 @@ body, .app {
   bottom: 0;
   right: 100px;
   transform: translateY(50%);
-  height: 90px;
+  height: 40px;
   padding: 0 10px;
+  z-index: 3;
 }
 .shell_contact-btn {
   bottom: 0;
@@ -1131,21 +1132,23 @@ body, .app {
 }
 .productions_recover {
   position: absolute;
-  width: 50%;
+  width: 100%;
   bottom: 0;
   left: 0;
-  background-color: white;
   z-index: 2;
   transition: height 1s ease-in-out;
   overflow: hidden;
 }
 .productions_recover__content, .productions_recover .recover {
+  background-color: white;
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 50%;
 }
-.productions_recover__content_border, .productions_recover .recover_border {
+.productions_recover__content::after, .productions_recover .recover::after {
+  content: "";
+  display: block;
   position: absolute;
   top: 50px;
   left: 0;
@@ -1181,11 +1184,47 @@ body, .app {
   transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
 }
-.productions_recover__content-content_container__grid_item:hover, .productions_recover__content-content_container .productions-grid_item:hover, .productions_recover .recover-content_container__grid_item:hover, .productions_recover .recover-content_container .productions-grid_item:hover {
+.productions_recover__content-content_container__grid_item:hover, .productions_recover__content-content_container__grid_item--selected, .productions_recover__content-content_container .productions-grid_item:hover, .productions_recover__content-content_container .productions-grid_item--selected, .productions_recover .recover-content_container__grid_item:hover, .productions_recover .recover-content_container__grid_item--selected, .productions_recover .recover-content_container .productions-grid_item:hover, .productions_recover .recover-content_container .productions-grid_item--selected {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .productions_recover__content-content_container__grid_item__logo, .productions_recover__content-content_container .productions-grid_item__logo, .productions_recover .recover-content_container__grid_item__logo, .productions_recover .recover-content_container .productions-grid_item__logo {
   width: 100px;
   height: 70px;
   background-color: black;
+}
+.productions_recover__productions-details {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  transition: width 1s ease-in-out;
+}
+.productions_recover__productions-details::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}
+.productions_recover__productions-details::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: calc(100% - 200px);
+  width: 1px;
+  background-color: black;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1px;
+}
+.productions_recover__productions-details--open {
+  width: 50%;
+}
+
+.recover-logo {
+  z-index: 1;
 }

@@ -53,21 +53,23 @@
 
     &_recover {
         position: absolute;
-        width: 50%;
+        width: 100%;
         bottom: 0;
         left: 0;
-        background-color: $white;
         z-index: 2;
         transition: height 1s ease-in-out;
         overflow: hidden;
     
         &__content, .recover {
+            background-color: $white;
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 100%;
-    
-            &_border {
+            width: 50%;
+
+            &::after {
+                content: "";
+                display: block;
                 position: absolute;
                 top: 50px;
                 left: 0;
@@ -104,7 +106,7 @@
                             transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
                             cursor: pointer;
         
-                            &:hover {
+                            &:hover, &--selected {
                                 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
                             }
         
@@ -118,5 +120,45 @@
                 }
             }
         }
+
+        &__productions-details {
+            background-color: $white;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0%;
+            transition: width 1s ease-in-out;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                background-color: $black;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: calc(100% - 200px);
+                width: 1px;
+                background-color: $black;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 1px;
+            }
+
+            &--open {
+                width: 50%;
+            }
+        }
     }
+}
+
+.recover-logo {
+    z-index: 1;
 }

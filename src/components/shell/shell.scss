@@ -35,8 +35,9 @@
         bottom: 0;
         right: $shell_padding;
         transform: translateY(50%);
-        height: 90px;
+        height: 40px;
         padding: 0 10px;
+        z-index: 3;
     }
 
     &_contact-btn {

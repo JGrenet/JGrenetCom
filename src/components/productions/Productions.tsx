@@ -4,6 +4,7 @@ import useStores from "../../stores";
 import Logo from "../logo/Logo";
 import NavBar from "../navbar/NavBar";
 import { SHELL_PADDING } from "../../utils/globals";
+import clsx from "clsx";
 
 type RecoverStyle = {
     [key: string]: CSSProperties;
@@ -14,6 +15,7 @@ const Productions = (): JSX.Element => {
     const appKeys = localeStore.keys;
     const [recover, setRecover] = useState<boolean>(false);
     const [recoverStyle, setRecoverStyle] = useState<RecoverStyle | null>(null);
+    const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
     const getRecoverStyle = useCallback(() => {
         const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
@@ -45,7 +47,15 @@ const Productions = (): JSX.Element => {
 
     const handleScroll = useCallback((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
         event.stopPropagation();
-    }, [])
+    }, []);
+
+    const handleSelectItem = useCallback(() => {
+        if (selectedItem) {
+            setSelectedItem(null);
+        } else {
+            setSelectedItem(1);
+        }
+    }, [setSelectedItem, selectedItem]);
 
     if (!recoverStyle) return <></>;
 
@@ -58,17 +68,29 @@ const Productions = (): JSX.Element => {
                 </div>
             </div>
             {!responsiveStore.isMobile && (
-                <div className="productions_recover" style={recoverStyle.cover} onWheel={handleScroll}>
-                    <div className="productions_recover__content recover" style={recoverStyle.coverContent}>
-                        <div className="recover_border" />
-                        <div className="shell_logo stroke-hidder dark">
+                <div
+                    className="productions_recover productions_recover"
+                    style={recoverStyle.cover}
+                    onWheel={handleScroll}
+                >
+                    <div
+                        className="productions_recover__content recover"
+                        style={recoverStyle.coverContent}
+                    >
+                        <div className="shell_logo stroke-hidder dark recover-logo">
                             <Logo size={60} wordMark variant="dark"/>
                         </div>
                         <NavBar variant="dark"/>
                         <div className="recover-content">
                             <div className="recover-content_container">
                                 <div className="recover-content_container__grid productions-grid">
-                                    <div className="productions-grid_item">
+                                    <div
+                                        className={clsx(
+                                            "productions-grid_item",
+                                            {["productions-grid_item--selected"]: selectedItem === 1}
+                                        )}
+                                        onClick={handleSelectItem}
+                                    >
                                         <div className="productions-grid_item__logo"></div>
                                     </div>
                                     <div className="productions-grid_item"></div>
@@ -86,6 +108,15 @@ const Productions = (): JSX.Element => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div
+                        className={clsx(
+                            "productions_recover__productions-details",
+                            {["productions_recover__productions-details--open"]: selectedItem}
+                        )}
+                        style={recoverStyle.coverContent}
+                    >
+                        
                     </div>
                 </div>
             )}
