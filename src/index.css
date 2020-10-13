@@ -1199,6 +1199,20 @@ body, .app {
   left: 50%;
   width: 0%;
   transition: width 1s ease-in-out;
+  overflow: hidden;
+}
+.productions_recover__productions-details___container {
+  height: 100%;
+  padding: 150px 60px 0 60px;
+  position: relative;
+  box-sizing: border-box;
+}
+.productions_recover__productions-details___container____close {
+  left: 60px;
+  top: 100px;
+  height: 22px;
+  cursor: pointer;
+  position: absolute;
 }
 .productions_recover__productions-details::after {
   content: "";
@@ -1223,6 +1237,82 @@ body, .app {
 }
 .productions_recover__productions-details--open {
   width: 50%;
+}
+.productions_recover__productions-details .productions-details {
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+.productions_recover__productions-details .productions-details_meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  min-height: 70px;
+  margin-bottom: 30px;
+}
+.productions_recover__productions-details .productions-details_meta img {
+  max-width: 150px;
+}
+.productions_recover__productions-details .productions-details_meta__infos {
+  margin-right: 30px;
+}
+.productions_recover__productions-details .productions-details_meta__infos___title {
+  font-weight: 600;
+  color: #fca311;
+  font-size: 1.125em;
+  margin-bottom: 10px;
+  display: block;
+}
+.productions_recover__productions-details .productions-details_meta__infos___date {
+  font-weight: 500;
+  color: black;
+  font-size: 1em;
+}
+.productions_recover__productions-details .productions-details_section {
+  margin-top: 50px;
+  width: 100%;
+  color: black;
+}
+.productions_recover__productions-details .productions-details_section__presentation {
+  margin-top: 80px;
+}
+.productions_recover__productions-details .productions-details_section__title {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 500;
+}
+.productions_recover__productions-details .productions-details_section__content {
+  margin-top: 20px;
+  font-size: 0.875em;
+  line-height: 18px;
+}
+.productions_recover__productions-details .productions-details_section__skills-list, .productions_recover__productions-details .productions-details_section .skills-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.productions_recover__productions-details .productions-details_section__skills-list_item, .productions_recover__productions-details .productions-details_section .skills-list_item {
+  height: 25px;
+  line-height: 25px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 0.9375em;
+  text-transform: uppercase;
+  background-color: white;
+  color: black;
+  transition: all 0.1s ease-in;
+  margin-right: 20px;
+}
+.productions_recover__productions-details .productions-details_section__skills-list_item:hover, .productions_recover__productions-details .productions-details_section .skills-list_item:hover {
+  background-color: black;
+  color: white;
 }
 
 .recover-logo {
