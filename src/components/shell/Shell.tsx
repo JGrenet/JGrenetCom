@@ -9,9 +9,11 @@ const Shell = observer((): JSX.Element => {
 
     useLayoutEffect(() => {
         window.addEventListener("resize", () => responsiveStore.updateResponsive());
+        window.addEventListener("resize", () => responsiveStore.computeShellDimensions());
 
         return () => {
             window.removeEventListener("resize", () =>  responsiveStore.updateResponsive());
+            window.removeEventListener("resize", () =>  responsiveStore.computeShellDimensions());
         }
     }, [responsiveStore]);
 

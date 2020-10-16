@@ -3,14 +3,18 @@ import { Tab } from "../../stores/TabStore";
 import useStores from "../../stores";
 import Logo from "../logo/Logo";
 import NavBar from "../navbar/NavBar";
-import { SHELL_PADDING } from "../../utils/globals";
 import clsx from "clsx";
+import { ProductionsGridItem } from "./ProductionsGridItem";
+import { ProductionsDetails } from "./ProductionsDetails";
+import { observer } from "mobx-react-lite";
 
 type RecoverStyle = {
     [key: string]: CSSProperties;
 }
 
-const Productions = (): JSX.Element => {
+const RECOVER_OVERFLOW = 50;
+
+const Productions = observer((): JSX.Element => {
     const { responsiveStore, tabStore, localeStore } = useStores();
     const appKeys = localeStore.keys;
     const [recover, setRecover] = useState<boolean>(false);
@@ -18,21 +22,25 @@ const Productions = (): JSX.Element => {
     const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
     const getRecoverStyle = useCallback(() => {
-        const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
-        const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
-
         setRecoverStyle({
             cover: {
-                height: recover ? shellHeight + 50 : 0
+                height: recover ? responsiveStore.shellHeight + RECOVER_OVERFLOW : 0
             },
             coverContent: {
-                height: shellHeight + 50
+                height: responsiveStore.shellHeight + RECOVER_OVERFLOW
             },
             detailsContainer: {
-                width: shellWidth / 2
+                width: responsiveStore.shellWidth / 2
             }
         })
-    }, [recover]);
+    }, [recover, responsiveStore]);
+
+    useLayoutEffect(() => {
+        getRecoverStyle();
+        window.addEventListener("resize", () => getRecoverStyle());
+
+        return () => window.removeEventListener("resize", () => getRecoverStyle());
+    }, [getRecoverStyle, recover]);
 
     useEffect(() => {
         if (tabStore.selectedtab === Tab.PRODUCTIONS) {
@@ -41,13 +49,6 @@ const Productions = (): JSX.Element => {
             setRecover(false);
         }
     }, [tabStore.selectedtab, setRecover])
-
-    useLayoutEffect(() => {
-        getRecoverStyle();
-        window.addEventListener("resize", () => getRecoverStyle());
-
-        return () => window.removeEventListener("resize", () => getRecoverStyle());
-    }, [getRecoverStyle, recover]);
 
     const handleScroll = useCallback((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
         event.stopPropagation();
@@ -88,27 +89,22 @@ const Productions = (): JSX.Element => {
                         <div className="recover-content">
                             <div className="recover-content_container">
                                 <div className="recover-content_container__grid productions-grid">
-                                    <div
-                                        className={clsx(
-                                            "productions-grid_item",
-                                            {["productions-grid_item--selected"]: selectedItem === 1}
-                                        )}
-                                        onClick={handleSelectItem}
-                                    >
-                                        <div className="productions-grid_item__logo"></div>
-                                    </div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
-                                    <div className="productions-grid_item"></div>
+                                    <ProductionsGridItem
+                                        onSelectItem={handleSelectItem}
+                                        selectedItem={selectedItem === 1}
+                                    />
+                                    <ProductionsGridItem
+                                        onSelectItem={handleSelectItem}
+                                        selectedItem={selectedItem === 1}
+                                    />
+                                    <ProductionsGridItem
+                                        onSelectItem={handleSelectItem}
+                                        selectedItem={selectedItem === 1}
+                                    />
+                                    <ProductionsGridItem
+                                        onSelectItem={handleSelectItem}
+                                        selectedItem={selectedItem === 1}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -130,51 +126,21 @@ const Productions = (): JSX.Element => {
                                 alt="menu"
                                 onClick={handleSelectItem}
                             />
-                            <div className="productions-details">
-                                <div className="productions-details_meta">
-                                    <div className="productions-details_meta__infos">
-                                        <span className="productions-details_meta__infos___title">
-                                            Infinite Square
-                                        </span>
-                                        <span className="productions-details_meta__infos___date">
-                                            Septembre 2018 - En cours
-                                        </span>
-                                    </div>
-                                    <img src="/img/infinite-square_texte.png" alt="productions_logo" />
-                                </div>
-                                <div className="productions-details_section productions-details_section__presentation">
-                                    <span className="productions-details_section__title">
-                                        PRESENTATION
-                                    </span>
-                                    <p className="productions-details_section__content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                </div>
-                                <div className="productions-details_section">
-                                    <span className="productions-details_section__title">
-                                        MISSIONS
-                                    </span>
-                                    <p className="productions-details_section__content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                </div>
-                                <div className="productions-details_section">
-                                    <span className="productions-details_section__title">
-                                        COMPETENCES
-                                    </span>
-                                    <div className="productions-details_section__skills-list skills-list">
-                                        <div className="skills-list_item">Webpack</div>
-                                        <div className="skills-list_item">React</div>
-                                        <div className="skills-list_item">Html</div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ProductionsDetails
+                                title="Infinite Square"
+                                startDate="Septembre 2018"
+                                endDate="En cours"
+                                presentation="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                missions="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                skills={["Webpack", "React", "HTML"]}
+                                logo="/img/infinite-square_texte.png"
+                            />
                         </div>
                     </div>
                 </div>
             )}
         </div>
     )
-}
+});
 
 export default Productions;

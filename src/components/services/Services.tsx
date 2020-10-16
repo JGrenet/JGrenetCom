@@ -1,7 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React, { CSSProperties, useCallback, useLayoutEffect, useMemo, useState } from "react";
 import { CSSTransition } from "react-transition-group";
-import { SHELL_PADDING } from "../../utils/globals";
 import useStores from "../../stores";
 import ServiceItem from "./ServiceItem";
 import { Tab } from "../../stores/TabStore";
@@ -31,17 +30,20 @@ const Services = observer(() => {
     }, []);
 
     const getServiceStyle = useCallback(() => {
-        const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
-        const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
 
         const getContentWidth = (): number => {
-            const contentWidth = shellWidth <= 1400 ? 
-            (shellWidth <= 1200 ? shellWidth : (shellWidth * 0.6)) : (shellWidth / 2);
-            return shellWidth <= 1200 ? contentWidth : contentWidth - 15;
+            const contentWidth = responsiveStore.shellWidth <= 1400
+            ? (responsiveStore.shellWidth <= 1200
+                ? responsiveStore.shellWidth
+                : (responsiveStore.shellWidth * 0.6))
+            : (responsiveStore.shellWidth / 2);
+            return responsiveStore.shellWidth <= 1200 ? contentWidth : contentWidth - 15;
         }
 
         const getIllustrationWidth = (): number => {
-            const illustrationWidth = shellWidth <= 1400 ? (shellWidth * 0.4) : (shellWidth / 2);
+            const illustrationWidth = responsiveStore.shellWidth <= 1400
+            ? (responsiveStore.shellWidth * 0.4)
+            : (responsiveStore.shellWidth / 2);
             return illustrationWidth - 15;
         }
 
@@ -54,11 +56,11 @@ const Services = observer(() => {
             },
             illustrations: {
                 width: getIllustrationWidth(),
-                height: shellHeight,
+                height: responsiveStore.shellHeight,
                 right: -(illustrationWidth) - 30
             }
         })
-    }, []);
+    }, [responsiveStore]);
 
     useLayoutEffect(() => {
         if (!responsiveStore.isMobile) {

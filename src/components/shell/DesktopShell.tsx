@@ -1,6 +1,5 @@
 import React, { CSSProperties, useCallback, useLayoutEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
-import { SHELL_PADDING } from "../../utils/globals";
 import Button from "../button/Button";
 import LanguageSelector from "../language-selector/LanguageSelector";
 import NavBar from "../navbar/NavBar";
@@ -15,34 +14,32 @@ type ShellStyle = {
 }
 
 const DesktopShell = observer((): JSX.Element => {
-    const { localeStore, tabStore } = useStores();
+    const { localeStore, tabStore, responsiveStore } = useStores();
     const appKeys= localeStore.keys;
     const [shellStyle, setShellStyle] = useState<ShellStyle | null>(null);
 
     const getShellStyle = useCallback(() => {
-        const shellWidth = document.documentElement.clientWidth - (SHELL_PADDING * 2);
-        const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
-        const shellBorderWidth = (shellWidth * 2) + (shellHeight * 2);
+        const shellBorderWidth = (responsiveStore.shellWidth * 2) + (responsiveStore.shellHeight * 2);
 
         const getRectWidth = (): number => {
             const getHalfWidth = (): number => {
-                if (shellWidth <= 1200) {
-                    return shellWidth;
+                if (responsiveStore.shellWidth <= 1200) {
+                    return responsiveStore.shellWidth;
                 }
-                else if (shellWidth <= 1400) {
-                    return (shellWidth * 0.6) - 15;
+                else if (responsiveStore.shellWidth <= 1400) {
+                    return (responsiveStore.shellWidth * 0.6) - 15;
                 } 
-                return (shellWidth / 2) - 15;
+                return (responsiveStore.shellWidth / 2) - 15;
             }
 
             return tabStore.selectedtab === Tab.SERVICES ? 
-                getHalfWidth() : shellWidth;
+                getHalfWidth() : responsiveStore.shellWidth;
         }
 
         setShellStyle({
             shell: {
-                width: shellWidth,
-                height: shellHeight
+                width: responsiveStore.shellWidth,
+                height: responsiveStore.shellHeight
             },
             rect: {
                 strokeDasharray: shellBorderWidth,
@@ -51,7 +48,11 @@ const DesktopShell = observer((): JSX.Element => {
             },
             
         })
-    }, [setShellStyle, tabStore.selectedtab]);
+    }, [
+        setShellStyle,
+        tabStore.selectedtab,
+        responsiveStore
+    ]);
 
     useLayoutEffect(() => {
         getShellStyle();
