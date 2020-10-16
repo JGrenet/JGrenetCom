@@ -6,6 +6,7 @@ import LanguageSelector from "../language-selector/LanguageSelector";
 import Home from "../home/Home";
 import Services from "../services/Services";
 import Career from "../career/Career";
+import Productions from "../productions/Productions";
 
 const MobileShell = observer((): JSX.Element => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -53,6 +54,7 @@ const MobileShell = observer((): JSX.Element => {
             <Home />
             <Services />
             <Career />
+            <Productions />
         </div>
     )
 });

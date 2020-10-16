@@ -1,6 +1,6 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
 import TabItem from './TabItem';
-import { SHELL_PADDING, TAB_PADDING } from "../../utils/globals";
+import { TAB_PADDING } from "../../utils/globals";
 import { Tab, TabKeys } from '../../stores/TabStore';
 import useStores from '../../stores';
 import { observer } from 'mobx-react-lite';
@@ -11,12 +11,12 @@ interface NavBarProps {
 }
 
 const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
-    const { tabStore, localeStore } = useStores();
+    const { tabStore, localeStore, responsiveStore } = useStores();
     const appKeys = localeStore.keys;
     const navBarContainerRef = useRef<HTMLUListElement >(null);
     const [underlineStyle, setUnderlineStyle] = useState<CSSProperties>();
 
-    const updateUnderlinePosition = (): void => {
+    const updateUnderlinePosition = useCallback(() => {
         const selected = document.querySelector(".navbar_container__item.selected")
         const containerPositions = navBarContainerRef?.current?.getBoundingClientRect();
 
@@ -24,19 +24,19 @@ const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
             const selectedPositions = selected.getBoundingClientRect();
             setUnderlineStyle({
                 width: selected.clientWidth - TAB_PADDING,
-                left: ((containerPositions.bottom - selectedPositions.bottom) + (containerPositions.top - SHELL_PADDING)) + (TAB_PADDING / 2),
-                top: (selectedPositions.left - SHELL_PADDING) + 30
+                left: ((containerPositions.bottom - selectedPositions.bottom) + (containerPositions.top - responsiveStore.shellPadding)) + (TAB_PADDING / 2),
+                top: (selectedPositions.left - responsiveStore.shellPadding) + 30
             });
         }
-    }
+    }, [responsiveStore]);
 
     useEffect(() => {
         if (navBarContainerRef?.current) {
             updateUnderlinePosition();
         }
-    }, [navBarContainerRef, tabStore.selectedtab])
+    }, [navBarContainerRef, tabStore.selectedtab, updateUnderlinePosition])
 
-    const shellHeight = document.documentElement.clientHeight - (SHELL_PADDING * 2);
+    const shellHeight = document.documentElement.clientHeight - (responsiveStore.shellPadding * 2);
     const tabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => isNaN(Number(i)))) as TabKeys[]).reverse();
 
     return (
