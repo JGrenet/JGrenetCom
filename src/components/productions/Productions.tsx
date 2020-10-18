@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useEffect, useLayoutEffect, useState }  from "react";
+import React, { CSSProperties, useCallback, useEffect, useLayoutEffect, useRef, useState }  from "react";
 import { Tab } from "../../stores/TabStore";
 import useStores from "../../stores";
 import Logo from "../logo/Logo";
@@ -20,6 +20,7 @@ const Productions = observer((): JSX.Element => {
     const [recover, setRecover] = useState<boolean>(false);
     const [recoverStyle, setRecoverStyle] = useState<RecoverStyle | null>(null);
     const [selectedItem, setSelectedItem] = useState<number | null>(null);
+    const productionsRef = useRef<HTMLDivElement >(null);
 
     const getRecoverStyle = useCallback(() => {
         setRecoverStyle({
@@ -50,9 +51,20 @@ const Productions = observer((): JSX.Element => {
         }
     }, [tabStore.selectedtab, setRecover])
 
-    const handleScroll = useCallback((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
+    const handleRecoverScroll = useCallback((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
         event.stopPropagation();
     }, []);
+
+    const handleProductionsScroll = useCallback(() => {
+        if (productionsRef.current) {
+            const offset = productionsRef.current?.offsetTop - window.scrollY;
+            if (offset <= 400) {
+                responsiveStore.updateBackgroundColor("white");
+            } else if (responsiveStore.backgroundColor === "white" && offset > 400) {
+                responsiveStore.updateBackgroundColor("black");
+            }
+        }
+    }, [productionsRef, responsiveStore]);
 
     const handleSelectItem = useCallback(() => {
         if (selectedItem) {
@@ -65,9 +77,17 @@ const Productions = observer((): JSX.Element => {
     if (!recoverStyle) return <></>;
 
     return (
-        <div className="productions tab-content">
+        <div
+            className="productions tab-content"
+            onWheel={handleProductionsScroll}
+            ref={productionsRef}
+        >
             <div className="productions_content">
-                <div className="productions_content__description">
+                <div className={clsx(
+                        "productions_content__description",
+                        {["productions_content__description--black"]: responsiveStore.backgroundColor === "white"}
+                    )}
+                >
                     <h2>{appKeys["PRODUCTIONS_TAB_TITLE"]}</h2>
                     <p>{appKeys["PRODUCTIONS_TAB_CONTENT"]}</p>
                 </div>
@@ -76,7 +96,7 @@ const Productions = observer((): JSX.Element => {
                 <div
                     className="productions_recover productions_recover"
                     style={recoverStyle.cover}
-                    onWheel={handleScroll}
+                    onWheel={handleRecoverScroll}
                 >
                     <div
                         className="productions_recover__content recover"
@@ -138,6 +158,47 @@ const Productions = observer((): JSX.Element => {
                         </div>
                     </div>
                 </div>
+            )}
+            {responsiveStore.isMobile && (
+                <>
+                    {selectedItem && (
+                        <div className="productions_mobile-details-container">
+                            <img
+                                src="./icon/cancel.svg"
+                                className="productions_mobile-details-container__close"
+                                alt="menu"
+                                onClick={handleSelectItem}
+                            />
+                            <ProductionsDetails
+                                title="Infinite Square"
+                                startDate="Septembre 2018"
+                                endDate="En cours"
+                                presentation="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                missions="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                skills={["Webpack", "React", "HTML"]}
+                                logo="/img/infinite-square_texte.png"
+                            />
+                        </div>
+                    )}
+                    <div className="productions_mobile-grid">
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                    </div>
+                </>
             )}
         </div>
     )

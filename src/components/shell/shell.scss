@@ -78,7 +78,11 @@
     background-color: $black;
     position: relative;
     min-height: 100vh;
-    overflow-y: auto;
+    transition: background-color 1s ease-in-out;
+
+    &--white {
+        background-color: $white;
+    }
 
     &_header {
         width: 100vw;
@@ -89,7 +93,12 @@
         justify-content: space-between;
         align-items: center;
         background-color: $black;
-        z-index: 1;
+        z-index: 2;
+        transition: background-color 1s ease-in-out;
+
+        &--white {
+            background-color: $white;
+        }
 
         &--open {
             background-color: $white;
@@ -126,5 +135,10 @@
     & > .mobileShell_header .icon {
         height: 35px;
         filter: invert(100%) sepia(95%) saturate(0%) hue-rotate(246deg) brightness(111%) contrast(101%);
+        transition: filter 1s ease-in-out;
+
+        &--black {
+            filter: unset;
+        }
     }
 }

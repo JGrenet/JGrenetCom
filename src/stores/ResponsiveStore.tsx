@@ -6,6 +6,7 @@ class ResponsiveStore {
     @observable shellHeight = 0;
     @observable shellWidth = 0;
     @observable shellPadding = 0;
+    @observable backgroundColor: "black" | "white" = "black";
 
     constructor() {
         this.updateResponsive();
@@ -25,6 +26,12 @@ class ResponsiveStore {
             this.isMobile = true;
         } else if (document.documentElement.clientWidth > MOBILE_BREAKPOINT && this.isMobile) {
             this.isMobile = false;
+        }
+    }
+
+    @action updateBackgroundColor(color: "black" | "white"): void {
+        if (this.isMobile) {
+            this.backgroundColor = color;
         }
     }
 }

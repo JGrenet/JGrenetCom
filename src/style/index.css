@@ -131,7 +131,6 @@ body, .app {
   font-family: "Montserrat", "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
   height: 100vh;
   width: 100vw;
-  overflow-y: auto;
 }
 
 .tab-content {
@@ -141,10 +140,8 @@ body, .app {
 @media (max-width: 768px) {
   .tab-content {
     height: unset;
-    margin-top: 60px;
     box-sizing: border-box;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 60px 20px 0 20px;
   }
 }
 

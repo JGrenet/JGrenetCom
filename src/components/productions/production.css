@@ -1,9 +1,15 @@
-/* Error: Undefined variable.
+/* Error: Undefined mixin.
  *    ,
- * 15 |             color: $white;
- *    |                    ^^^^^^
+ * 12 | /         @include media-breakpoint-down($sm) {
+ * 13 | |             width: 100%;
+ * 14 | |             height: unset;
+ * 15 | |             margin: 0;
+ * 16 | |             align-items: unset;
+ * 17 | |             justify-content: center;
+ * 18 | |             padding-bottom: 80px;
+ * 19 | \         }
  *    '
- *   src\components\productions\production.scss 15:20  root stylesheet */
+ *   src\components\productions\production.scss 12:9  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +19,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 15 \2502              color: $white;\d\a    \2502                     ^^^^^^\a    \2575 \a   src\\components\\productions\\production.scss 15:20  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 12 \2502  \250c          @include media-breakpoint-down($sm) {\a 13 \2502  \2502              width: 100%;\a 14 \2502  \2502              height: unset;\a 15 \2502  \2502              margin: 0;\a 16 \2502  \2502              align-items: unset;\a 17 \2502  \2502              justify-content: center;\a 18 \2502  \2502              padding-bottom: 80px;\a 19 \2502  \2514          }\a    \2575 \a   src\\components\\productions\\production.scss 12:9  root stylesheet";
 }

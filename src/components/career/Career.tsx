@@ -2,10 +2,10 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import useStores from "../../stores";
 import TimelineItem from "./TimelineItem";
-
+import clsx from "clsx";
 
 const Career = observer((): JSX.Element => {
-    const { localeStore } = useStores();
+    const { localeStore, responsiveStore } = useStores();
     const appKeys = localeStore.keys;
 
     return (
@@ -21,7 +21,11 @@ const Career = observer((): JSX.Element => {
                 </div>
             </div>
             <div className="career_timeline">
-                <div className="timeline">
+                <div className={clsx(
+                        "timeline",
+                        {["timeline--black"]: responsiveStore.backgroundColor === "white"}
+                    )}
+                >
                      <TimelineItem
                         year="2014"
                         logo={"/img/epitech.png"}

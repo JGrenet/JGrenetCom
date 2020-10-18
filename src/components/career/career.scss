@@ -86,7 +86,12 @@
 
         @include media-breakpoint-down($sm) {
             height: unset;
-            margin-top: 30px;
+            margin-top: 80px;
+        }
+
+        @include media-breakpoint-down($xs) {
+            height: unset;
+            margin-top: 50px;
         }
 
         .timeline {
@@ -109,6 +114,13 @@
                 height: 100%;
                 position: absolute;
                 right: -1px;
+                transition: background-color 1s ease-in-out;
+            }
+
+            &--black {
+                &::after {
+                    background-color: $black;
+                }
             }
 
             .timeline-item {

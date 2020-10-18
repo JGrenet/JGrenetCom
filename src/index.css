@@ -131,7 +131,6 @@ body, .app {
   font-family: "Montserrat", "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
   height: 100vh;
   width: 100vw;
-  overflow-y: auto;
 }
 
 .tab-content {
@@ -141,10 +140,8 @@ body, .app {
 @media (max-width: 768px) {
   .tab-content {
     height: unset;
-    margin-top: 60px;
     box-sizing: border-box;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 60px 20px 0 20px;
   }
 }
 
@@ -262,7 +259,10 @@ body, .app {
   background-color: black;
   position: relative;
   min-height: 100vh;
-  overflow-y: auto;
+  transition: background-color 1s ease-in-out;
+}
+.mobileShell--white {
+  background-color: white;
 }
 .mobileShell_header {
   width: 100vw;
@@ -273,7 +273,11 @@ body, .app {
   justify-content: space-between;
   align-items: center;
   background-color: black;
-  z-index: 1;
+  z-index: 2;
+  transition: background-color 1s ease-in-out;
+}
+.mobileShell_header--white {
+  background-color: white;
 }
 .mobileShell_header--open {
   background-color: white;
@@ -304,6 +308,10 @@ body, .app {
 .mobileShell > .mobileShell_header .icon {
   height: 35px;
   filter: invert(100%) sepia(95%) saturate(0%) hue-rotate(246deg) brightness(111%) contrast(101%);
+  transition: filter 1s ease-in-out;
+}
+.mobileShell > .mobileShell_header .icon--black {
+  filter: unset;
 }
 
 .navbar {
@@ -392,12 +400,14 @@ body, .app {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  transition: border 1s ease-in-out;
 }
 .logo_icon.dark {
   border: 2px solid black;
 }
 .logo_icon__text {
   color: white;
+  transition: color 1s ease-in-out;
 }
 .logo_icon__text.dark {
   color: black;
@@ -406,6 +416,7 @@ body, .app {
   margin-left: 10px;
   color: white;
   font-weight: 600;
+  transition: color 1s ease-in-out;
 }
 .logo_wordMark.dark {
   color: black;
@@ -479,7 +490,7 @@ body, .app {
   .home {
     justify-content: unset;
     height: calc(100vh - 60px);
-    padding-top: 100px;
+    padding-top: 160px;
     position: relative;
   }
 }
@@ -701,7 +712,7 @@ body, .app {
   .services_content__services-list, .services_content .services-list {
     position: static;
     transform: unset;
-    margin-top: 100px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -940,7 +951,13 @@ body, .app {
 @media (max-width: 768px) {
   .career_timeline {
     height: unset;
-    margin-top: 30px;
+    margin-top: 80px;
+  }
+}
+@media (max-width: 576px) {
+  .career_timeline {
+    height: unset;
+    margin-top: 50px;
   }
 }
 .career_timeline .timeline {
@@ -965,6 +982,10 @@ body, .app {
   height: 100%;
   position: absolute;
   right: -1px;
+  transition: background-color 1s ease-in-out;
+}
+.career_timeline .timeline--black::after {
+  background-color: black;
 }
 .career_timeline .timeline .timeline-item {
   position: absolute;
@@ -1086,10 +1107,29 @@ body, .app {
   justify-content: start;
   align-items: center;
 }
+@media (max-width: 768px) {
+  .productions_content {
+    width: 100%;
+    height: unset;
+    margin: 0;
+    align-items: unset;
+    justify-content: center;
+    padding-bottom: 80px;
+  }
+}
+@media (max-width: 576px) {
+  .productions_content {
+    padding-bottom: 50px;
+  }
+}
 .productions_content__description {
   margin-left: 100px;
   max-width: 500px;
   color: white;
+  transition: color 1s ease-in-out;
+}
+.productions_content__description--black {
+  color: black;
 }
 @media (max-width: 1500px) {
   .productions_content__description {
@@ -1105,6 +1145,12 @@ body, .app {
   .productions_content__description {
     margin-left: 25px;
     max-width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  .productions_content__description {
+    max-width: 400px;
+    text-align: center;
   }
 }
 .productions_content__description h2 {
@@ -1293,7 +1339,48 @@ body, .app {
 .productions_recover__productions-details--open {
   width: 50%;
 }
-.productions_recover__productions-details .productions-details {
+.productions_mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-auto-rows: 150px;
+  grid-gap: 20px;
+  padding: 0 40px 50px 40px;
+  justify-content: center;
+}
+.productions_mobile-grid .productions-grid_item {
+  height: 100%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.productions_mobile-grid .productions-grid_item__logo {
+  width: 100px;
+  height: 70px;
+  background-color: black;
+}
+.productions_mobile-details-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 1;
+}
+.productions_mobile-details-container__close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 20px;
+  z-index: 1;
+  background-color: white;
+}
+.productions_mobile-details-container .productions-details {
+  padding: 50px 30px 30px 30px;
+}
+
+.productions-details {
   overflow-y: auto;
   height: 100%;
   width: 100%;
@@ -1302,11 +1389,11 @@ body, .app {
   box-sizing: border-box;
 }
 @media (max-width: 1300px) {
-  .productions_recover__productions-details .productions-details {
+  .productions-details {
     padding: 0 30px 60px 0;
   }
 }
-.productions_recover__productions-details .productions-details_meta {
+.productions-details_meta {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1314,49 +1401,89 @@ body, .app {
   min-height: 70px;
   margin-bottom: 30px;
 }
-.productions_recover__productions-details .productions-details_meta img {
+.productions-details_meta img {
   max-width: 150px;
 }
-.productions_recover__productions-details .productions-details_meta__infos {
+@media (max-width: 768px) {
+  .productions-details_meta img {
+    max-width: 125px;
+  }
+}
+@media (max-width: 576px) {
+  .productions-details_meta img {
+    max-width: 100px;
+  }
+}
+.productions-details_meta__infos {
   margin-right: 30px;
 }
-.productions_recover__productions-details .productions-details_meta__infos___title {
+.productions-details_meta__infos___title {
   font-weight: 600;
   color: #fca311;
   font-size: 1.125em;
   margin-bottom: 10px;
   display: block;
 }
-.productions_recover__productions-details .productions-details_meta__infos___date {
+@media (max-width: 768px) {
+  .productions-details_meta__infos___title {
+    font-size: 1.1875em;
+  }
+}
+.productions-details_meta__infos___date {
   font-weight: 500;
   color: black;
   font-size: 1em;
 }
-.productions_recover__productions-details .productions-details_section {
+@media (max-width: 768px) {
+  .productions-details_meta__infos___date {
+    font-size: 1.0625em;
+  }
+}
+.productions-details_section {
   margin-top: 50px;
   width: 100%;
   color: black;
 }
-.productions_recover__productions-details .productions-details_section__presentation {
+@media (max-width: 768px) {
+  .productions-details_section {
+    margin-top: 30px;
+  }
+}
+.productions-details_section__presentation {
   margin-top: 80px;
 }
-.productions_recover__productions-details .productions-details_section__title {
+@media (max-width: 768px) {
+  .productions-details_section__presentation {
+    margin-top: 40px;
+  }
+}
+.productions-details_section__title {
   text-transform: uppercase;
   font-size: 1em;
   font-weight: 500;
 }
-.productions_recover__productions-details .productions-details_section__content {
+@media (max-width: 768px) {
+  .productions-details_section__title {
+    font-size: 1.125em;
+  }
+}
+.productions-details_section__content {
   margin-top: 20px;
   font-size: 0.875em;
   line-height: 18px;
 }
-.productions_recover__productions-details .productions-details_section__skills-list, .productions_recover__productions-details .productions-details_section .skills-list {
+@media (max-width: 768px) {
+  .productions-details_section__content {
+    font-size: 1em;
+  }
+}
+.productions-details_section__skills-list, .productions-details_section .skills-list {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
 }
-.productions_recover__productions-details .productions-details_section__skills-list_item, .productions_recover__productions-details .productions-details_section .skills-list_item {
+.productions-details_section__skills-list_item, .productions-details_section .skills-list_item {
   height: 25px;
   line-height: 25px;
   box-sizing: border-box;
@@ -1371,9 +1498,16 @@ body, .app {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-.productions_recover__productions-details .productions-details_section__skills-list_item:hover, .productions_recover__productions-details .productions-details_section .skills-list_item:hover {
+.productions-details_section__skills-list_item:hover, .productions-details_section .skills-list_item:hover {
   background-color: black;
   color: white;
+}
+@media (max-width: 768px) {
+  .productions-details_section__skills-list_item, .productions-details_section .skills-list_item {
+    font-size: 1.0625em;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
 }
 
 .recover-logo {

@@ -13,7 +13,7 @@
     @include media-breakpoint-down($sm) {
         justify-content: unset;
         height: calc(100vh - 60px);
-        padding-top: 100px;
+        padding-top: 160px;
         position: relative;
     }
 
