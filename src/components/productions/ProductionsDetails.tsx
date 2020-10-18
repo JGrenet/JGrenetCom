@@ -19,6 +19,7 @@ export const ProductionsDetails = ({
     skills,
     logo
 }: ProductionsDetailsProps): JSX.Element => {
+
     return (
         <div className="productions-details">
             <div className="productions-details_meta">

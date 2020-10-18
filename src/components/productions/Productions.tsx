@@ -69,10 +69,16 @@ const Productions = observer((): JSX.Element => {
     const handleSelectItem = useCallback(() => {
         if (selectedItem) {
             setSelectedItem(null);
+            if (responsiveStore.isMobile) {
+                document.getElementsByTagName('body')[0].classList.remove("stop-scrolling");
+            }
         } else {
             setSelectedItem(1);
+            if (responsiveStore.isMobile) {
+                document.getElementsByTagName('body')[0].classList.add("stop-scrolling");
+            }
         }
-    }, [setSelectedItem, selectedItem]);
+    }, [setSelectedItem, selectedItem, responsiveStore]);
 
     if (!recoverStyle) return <></>;
 
@@ -161,6 +167,24 @@ const Productions = observer((): JSX.Element => {
             )}
             {responsiveStore.isMobile && (
                 <>
+                    <div className="productions_mobile-grid">
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                        <ProductionsGridItem
+                            onSelectItem={handleSelectItem}
+                            selectedItem={selectedItem === 1}
+                        />
+                    </div>
                     {selectedItem && (
                         <div className="productions_mobile-details-container">
                             <img
@@ -180,24 +204,6 @@ const Productions = observer((): JSX.Element => {
                             />
                         </div>
                     )}
-                    <div className="productions_mobile-grid">
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
-                    </div>
                 </>
             )}
         </div>

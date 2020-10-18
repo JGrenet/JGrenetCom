@@ -132,6 +132,10 @@ body, .app {
   height: 100vh;
   width: 100vw;
 }
+body.stop-scrolling, .app.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
 
 .tab-content {
   height: 100%;
@@ -1149,6 +1153,7 @@ body, .app {
 }
 @media (max-width: 768px) {
   .productions_content__description {
+    margin-left: unset;
     max-width: 400px;
     text-align: center;
   }
@@ -1347,6 +1352,12 @@ body, .app {
   padding: 0 40px 50px 40px;
   justify-content: center;
 }
+@media (max-width: 576px) {
+  .productions_mobile-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px 30px 20px;
+  }
+}
 .productions_mobile-grid .productions-grid_item {
   height: 100%;
   border: 2px solid black;
@@ -1366,7 +1377,7 @@ body, .app {
   width: 100vw;
   height: 100vh;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
 }
 .productions_mobile-details-container__close {
   position: absolute;
@@ -1377,7 +1388,7 @@ body, .app {
   background-color: white;
 }
 .productions_mobile-details-container .productions-details {
-  padding: 50px 30px 30px 30px;
+  padding: 70px 30px 30px 30px;
 }
 
 .productions-details {
@@ -1401,21 +1412,25 @@ body, .app {
   min-height: 70px;
   margin-bottom: 30px;
 }
+@media (max-width: 768px) {
+  .productions-details_meta {
+    flex-direction: column-reverse;
+    justify-content: unset;
+    align-items: center;
+  }
+}
 .productions-details_meta img {
   max-width: 150px;
 }
-@media (max-width: 768px) {
-  .productions-details_meta img {
-    max-width: 125px;
-  }
-}
-@media (max-width: 576px) {
-  .productions-details_meta img {
-    max-width: 100px;
-  }
-}
 .productions-details_meta__infos {
   margin-right: 30px;
+}
+@media (max-width: 768px) {
+  .productions-details_meta__infos {
+    text-align: center;
+    margin-right: unset;
+    margin-top: 30px;
+  }
 }
 .productions-details_meta__infos___title {
   font-weight: 600;
@@ -1426,7 +1441,7 @@ body, .app {
 }
 @media (max-width: 768px) {
   .productions-details_meta__infos___title {
-    font-size: 1.1875em;
+    font-size: 1.375em;
   }
 }
 .productions-details_meta__infos___date {
@@ -1436,7 +1451,7 @@ body, .app {
 }
 @media (max-width: 768px) {
   .productions-details_meta__infos___date {
-    font-size: 1.0625em;
+    font-size: 1.25em;
   }
 }
 .productions-details_section {

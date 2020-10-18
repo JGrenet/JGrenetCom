@@ -46,6 +46,7 @@
             }
 
             @include media-breakpoint-down($sm) {
+                margin-left: unset;
                 max-width: 400px;
                 text-align: center;
             }
@@ -250,6 +251,11 @@
         padding: 0 40px 50px 40px;
         justify-content: center;
 
+        @include media-breakpoint-down($xs) {
+            grid-template-columns: 1fr;
+            padding: 0 20px 30px 20px;
+        }
+
         .productions-grid_item {
             height: 100%;
             border: 2px solid $black;
@@ -272,7 +278,7 @@
         width: 100vw;
         height: 100vh;
         background-color: $white;
-        z-index: 1;
+        z-index: 2;
 
         &__close {
             position: absolute;
@@ -284,7 +290,7 @@
         }
 
         .productions-details {
-            padding: 50px 30px 30px 30px;
+            padding: 70px 30px 30px 30px;
         }
     }
 }
@@ -309,20 +315,24 @@
         min-height: 70px;
         margin-bottom: 30px;
 
+        @include media-breakpoint-down($sm) {
+            flex-direction: column-reverse;
+            justify-content: unset;
+            align-items: center;
+        }
+
         img {
             max-width: 150px;
-
-            @include media-breakpoint-down($sm) {
-                max-width: 125px;
-            }
-
-            @include media-breakpoint-down($xs) {
-                max-width: 100px;
-            }
         }
 
         &__infos {
             margin-right: 30px;
+
+            @include media-breakpoint-down($sm) {
+                text-align: center;
+                margin-right: unset;
+                margin-top: 30px;
+            }
 
             &___title {
                 font-weight: 600;
@@ -332,7 +342,7 @@
                 display: block;
 
                 @include media-breakpoint-down($sm) {
-                    @include font-size(19px);
+                    @include font-size(22px);
                 }
             }
 
@@ -342,7 +352,7 @@
                 @include font-size(16px);
 
                 @include media-breakpoint-down($sm) {
-                    @include font-size(17px)
+                    @include font-size(20px)
                 }
             }
         }
