@@ -1528,3 +1528,191 @@ body.stop-scrolling, .app.stop-scrolling {
 .recover-logo {
   z-index: 1;
 }
+
+.skills {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+.skills_content {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .skills_content {
+    width: 100%;
+    height: unset;
+    margin: 0;
+    align-items: unset;
+    justify-content: center;
+    padding-bottom: 80px;
+  }
+}
+@media (max-width: 576px) {
+  .skills_content {
+    padding-bottom: 50px;
+  }
+}
+.skills_content__description {
+  margin-left: 100px;
+  max-width: 500px;
+  color: white;
+  transition: color 1s ease-in-out;
+}
+.skills_content__description--black {
+  color: black;
+}
+@media (max-width: 1500px) {
+  .skills_content__description {
+    margin-left: 50px;
+  }
+}
+@media (max-width: 1400px) {
+  .skills_content__description {
+    max-width: 400px;
+  }
+}
+@media (max-width: 1200px) {
+  .skills_content__description {
+    margin-left: 25px;
+    max-width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  .skills_content__description {
+    margin-left: unset;
+    max-width: 400px;
+    text-align: center;
+  }
+}
+.skills_content__description h2 {
+  font-weight: 700;
+  font-size: 3.75em;
+  padding-bottom: 20px;
+}
+@media (max-width: 1300px) {
+  .skills_content__description h2 {
+    font-size: 3.125em;
+  }
+}
+@media (max-width: 768px) {
+  .skills_content__description h2 {
+    font-size: 3.75em;
+  }
+}
+@media (max-width: 400px) {
+  .skills_content__description h2 {
+    font-size: 3.125em;
+  }
+}
+.skills_content__description p {
+  width: 100%;
+  font-size: 1.25em;
+}
+@media (max-width: 1300px) {
+  .skills_content__description p {
+    font-size: 1.0625em;
+  }
+}
+@media (max-width: 1200px) {
+  .skills_content__description p {
+    font-size: 1em;
+  }
+}
+@media (max-width: 768px) {
+  .skills_content__description p {
+    font-size: 1.375em;
+  }
+}
+.skills_recover {
+  position: relative;
+  width: 50%;
+  z-index: 2;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+.skills_recover__content, .skills_recover .recover {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+.skills_recover__content::after, .skills_recover .recover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}
+.skills_recover__content-content, .skills_recover .recover-content {
+  height: calc(100% - 150px);
+  padding: 0 40px;
+  margin: 150px auto 0 auto;
+}
+@media (max-width: 1520px) {
+  .skills_recover__content-content, .skills_recover .recover-content {
+    padding: 0;
+  }
+}
+.skills_recover__content-content_container, .skills_recover .recover-content_container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-auto-rows: 150px;
+  grid-gap: 35px;
+  padding: 0 40px 50px 40px;
+}
+@media (max-width: 1750px) {
+  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
+    grid-template-columns: repeat(auto-fill, 180px);
+    justify-content: center;
+  }
+}
+@media (max-width: 1520px) {
+  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
+    grid-template-columns: repeat(auto-fill, 150px);
+    justify-content: center;
+  }
+}
+@media (max-width: 1150px) {
+  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
+    grid-template-columns: repeat(auto-fill, 200px);
+    justify-content: center;
+  }
+}
+@media (max-width: 992px) {
+  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
+    grid-template-columns: repeat(auto-fill, 150px);
+  }
+}
+.skills_recover__content-content_container__grid_item, .skills_recover__content-content_container .productions-grid_item, .skills_recover .recover-content_container__grid_item, .skills_recover .recover-content_container .productions-grid_item {
+  height: 100%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+.skills_recover__content-content_container__grid_item:hover, .skills_recover__content-content_container__grid_item--selected, .skills_recover__content-content_container .productions-grid_item:hover, .skills_recover__content-content_container .productions-grid_item--selected, .skills_recover .recover-content_container__grid_item:hover, .skills_recover .recover-content_container__grid_item--selected, .skills_recover .recover-content_container .productions-grid_item:hover, .skills_recover .recover-content_container .productions-grid_item--selected {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.skills_recover__content-content_container__grid_item__logo, .skills_recover__content-content_container .productions-grid_item__logo, .skills_recover .recover-content_container__grid_item__logo, .skills_recover .recover-content_container .productions-grid_item__logo {
+  width: 100px;
+  height: 70px;
+  background-color: black;
+}

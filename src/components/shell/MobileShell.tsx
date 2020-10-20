@@ -9,6 +9,7 @@ import Career from "../career/Career";
 import Productions from "../productions/Productions";
 import useStores from "../../stores";
 import clsx from "clsx";
+import Skills from "../skills/Skills";
 
 const MobileShell = observer((): JSX.Element => {
     const { responsiveStore } = useStores();
@@ -74,6 +75,7 @@ const MobileShell = observer((): JSX.Element => {
             <Services />
             <Career />
             <Productions />
+            <Skills />
         </div>
     )
 });

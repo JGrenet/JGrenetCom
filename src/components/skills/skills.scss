@@ -1,0 +1,184 @@
+.skills {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+
+    &_content {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        @include media-breakpoint-down($sm) {
+            width: 100%;
+            height: unset;
+            margin: 0;
+            align-items: unset;
+            justify-content: center;
+            padding-bottom: 80px;
+        }
+
+        @include media-breakpoint-down($xs) {
+            padding-bottom: 50px;
+        }
+
+        &__description {
+            margin-left: 100px;
+            max-width: 500px;
+            color: $white;
+            transition: color 1s ease-in-out;
+
+            &--black {
+                color: $black;
+            }
+
+            @media (max-width: 1500px) {
+                margin-left: 50px;
+            }
+
+            @media (max-width: 1400px) {
+                max-width: 400px;
+            }
+
+            @media (max-width: 1200px) {
+                margin-left: 25px;
+                max-width: 300px;
+            }
+
+            @include media-breakpoint-down($sm) {
+                margin-left: unset;
+                max-width: 400px;
+                text-align: center;
+            }
+
+            h2 {
+                font-weight: 700;
+                @include font-size(60px);
+                padding-bottom: 20px;
+
+                @include media-breakpoint-down(1300px) {
+                    @include font-size(50px)
+                }
+
+                @include media-breakpoint-down($sm) {
+                    @include font-size(60px);
+                }
+
+                @include media-breakpoint-down($xxs) {
+                    @include font-size(50px);
+                }
+            }
+
+            p {
+                width: 100%;
+                @include font-size(20px);
+
+                @media (max-width: 1300px) {
+                    @include font-size(17px);
+                }
+
+                @media (max-width: 1200px) {
+                    @include font-size(16px);
+                }
+
+                @include media-breakpoint-down($sm) {
+                    @include font-size(22px);
+                }
+            }
+        }
+    }
+
+    &_recover {
+        position: relative;
+        width: 50%;
+        z-index: 2;
+        overflow: hidden;
+        transition: all 1s ease-in-out;
+
+        &__content, .recover {
+            background-color: $white;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 30px;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                background-color: $black;
+            }
+
+            &-content {
+                height: calc(100% - 150px);
+                padding: 0 40px;
+                margin: 150px auto 0 auto;
+
+                @media (max-width: 1520px) {
+                    padding: 0;
+                }  
+
+                &_container {
+                    height: 100%;
+                    width: 100%;
+                    overflow: auto;
+                    overflow-x: hidden;
+
+                    &__grid, .productions-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, 150px);
+                        grid-auto-rows: 150px;
+                        grid-gap: 35px;
+                        padding: 0 40px 50px 40px;
+
+                        @media (max-width: 1750px) {
+                            grid-template-columns: repeat(auto-fill, 180px);
+                            justify-content: center;
+                        }
+
+                        @media (max-width: 1520px) {
+                            grid-template-columns: repeat(auto-fill, 150px);
+                            justify-content: center;
+                        }
+
+                        @media (max-width: 1150px) {
+                            grid-template-columns: repeat(auto-fill, 200px);
+                            justify-content: center;
+                        }
+
+                        @include media-breakpoint-down($md) {
+                            grid-template-columns: repeat(auto-fill, 150px);
+                        }
+        
+                        &_item {
+                            height: 100%;
+                            border: 2px solid $black;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+                            cursor: pointer;
+        
+                            &:hover, &--selected {
+                                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+                            }
+        
+                            &__logo {
+                                width: 100px;
+                                height: 70px;
+                                background-color: $black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

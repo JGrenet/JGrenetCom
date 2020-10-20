@@ -100,7 +100,7 @@ const Productions = observer((): JSX.Element => {
             </div>
             {!responsiveStore.isMobile && (
                 <div
-                    className="productions_recover productions_recover"
+                    className="productions_recover"
                     style={recoverStyle.cover}
                     onWheel={handleRecoverScroll}
                 >
