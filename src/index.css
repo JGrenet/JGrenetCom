@@ -935,6 +935,11 @@ body.stop-scrolling, .app.stop-scrolling {
     font-size: 1.0625em;
   }
 }
+@media (max-width: 1200px) {
+  .career_description__content p {
+    font-size: 1em;
+  }
+}
 @media (max-width: 768px) {
   .career_description__content p {
     font-size: 1.375em;
@@ -1538,8 +1543,8 @@ body.stop-scrolling, .app.stop-scrolling {
   height: 100%;
   width: 50%;
   display: flex;
-  justify-content: start;
   align-items: center;
+  justify-content: center;
 }
 @media (max-width: 768px) {
   .skills_content {
@@ -1557,7 +1562,6 @@ body.stop-scrolling, .app.stop-scrolling {
   }
 }
 .skills_content__description {
-  margin-left: 100px;
   max-width: 500px;
   color: white;
   transition: color 1s ease-in-out;
@@ -1653,66 +1657,80 @@ body.stop-scrolling, .app.stop-scrolling {
   width: 100%;
   background-color: black;
 }
-.skills_recover__content-content, .skills_recover .recover-content {
+.skills_recover__content_content, .skills_recover .recover_content {
   height: calc(100% - 150px);
   padding: 0 40px;
-  margin: 150px auto 0 auto;
+  margin: 100px auto 0 auto;
 }
 @media (max-width: 1520px) {
-  .skills_recover__content-content, .skills_recover .recover-content {
+  .skills_recover__content_content, .skills_recover .recover_content {
     padding: 0;
   }
 }
-.skills_recover__content-content_container, .skills_recover .recover-content_container {
+.skills_recover__content_content__container, .skills_recover .recover_content__container {
   height: 100%;
   width: 100%;
   overflow: auto;
   overflow-x: hidden;
 }
-.skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
+.skills_recover__content_content__container___grid, .skills_recover__content_content__container .skills-grid, .skills_recover .recover_content__container___grid, .skills_recover .recover_content__container .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 150px);
-  grid-auto-rows: 150px;
-  grid-gap: 35px;
-  padding: 0 40px 50px 40px;
-}
-@media (max-width: 1750px) {
-  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
-    grid-template-columns: repeat(auto-fill, 180px);
-    justify-content: center;
-  }
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-auto-rows: 100px;
+  grid-gap: 20px;
+  padding: 50px 40px 50px 40px;
 }
 @media (max-width: 1520px) {
-  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
-    grid-template-columns: repeat(auto-fill, 150px);
+  .skills_recover__content_content__container___grid, .skills_recover__content_content__container .skills-grid, .skills_recover .recover_content__container___grid, .skills_recover .recover_content__container .skills-grid {
     justify-content: center;
   }
 }
-@media (max-width: 1150px) {
-  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
-    grid-template-columns: repeat(auto-fill, 200px);
-    justify-content: center;
+@media (max-width: 1400px) {
+  .skills_recover__content_content__container___grid, .skills_recover__content_content__container .skills-grid, .skills_recover .recover_content__container___grid, .skills_recover .recover_content__container .skills-grid {
+    padding: 50px 10px 50px 10px;
   }
 }
-@media (max-width: 992px) {
-  .skills_recover__content-content_container__grid, .skills_recover__content-content_container .productions-grid, .skills_recover .recover-content_container__grid, .skills_recover .recover-content_container .productions-grid {
-    grid-template-columns: repeat(auto-fill, 150px);
+@media (max-width: 1050px) {
+  .skills_recover__content_content__container___grid, .skills_recover__content_content__container .skills-grid, .skills_recover .recover_content__container___grid, .skills_recover .recover_content__container .skills-grid {
+    padding: 0 10px 50px 10px;
   }
 }
-.skills_recover__content-content_container__grid_item, .skills_recover__content-content_container .productions-grid_item, .skills_recover .recover-content_container__grid_item, .skills_recover .recover-content_container .productions-grid_item {
+.skills_recover__content_content__container___grid_item, .skills_recover__content_content__container___grid .skills-grid-item, .skills_recover__content_content__container .skills-grid_item, .skills_recover__content_content__container .skills-grid .skills-grid-item, .skills_recover .recover_content__container___grid_item, .skills_recover .recover_content__container___grid .skills-grid-item, .skills_recover .recover_content__container .skills-grid_item, .skills_recover .recover_content__container .skills-grid .skills-grid-item {
   height: 100%;
-  border: 2px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+  perspective: 1000px;
+  background-color: transparent;
+}
+.skills_recover__content_content__container___grid_item_flip-card, .skills_recover__content_content__container___grid_item .flip-card, .skills_recover__content_content__container___grid .skills-grid-item_flip-card, .skills_recover__content_content__container___grid .skills-grid-item .flip-card, .skills_recover__content_content__container .skills-grid_item_flip-card, .skills_recover__content_content__container .skills-grid_item .flip-card, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card, .skills_recover .recover_content__container___grid_item_flip-card, .skills_recover .recover_content__container___grid_item .flip-card, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card, .skills_recover .recover_content__container .skills-grid_item_flip-card, .skills_recover .recover_content__container .skills-grid_item .flip-card, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card {
+  height: 100%;
+  width: 100%;
   cursor: pointer;
+  position: relative;
+  transition: transform 0.4s ease-in-out;
+  transform-style: preserve-3d;
 }
-.skills_recover__content-content_container__grid_item:hover, .skills_recover__content-content_container__grid_item--selected, .skills_recover__content-content_container .productions-grid_item:hover, .skills_recover__content-content_container .productions-grid_item--selected, .skills_recover .recover-content_container__grid_item:hover, .skills_recover .recover-content_container__grid_item--selected, .skills_recover .recover-content_container .productions-grid_item:hover, .skills_recover .recover-content_container .productions-grid_item--selected {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+.skills_recover__content_content__container___grid_item_flip-card:hover, .skills_recover__content_content__container___grid_item .flip-card:hover, .skills_recover__content_content__container___grid .skills-grid-item_flip-card:hover, .skills_recover__content_content__container___grid .skills-grid-item .flip-card:hover, .skills_recover__content_content__container .skills-grid_item_flip-card:hover, .skills_recover__content_content__container .skills-grid_item .flip-card:hover, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card:hover, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card:hover, .skills_recover .recover_content__container___grid_item_flip-card:hover, .skills_recover .recover_content__container___grid_item .flip-card:hover, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card:hover, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card:hover, .skills_recover .recover_content__container .skills-grid_item_flip-card:hover, .skills_recover .recover_content__container .skills-grid_item .flip-card:hover, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card:hover, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card:hover {
+  transform: rotateY(180deg);
 }
-.skills_recover__content-content_container__grid_item__logo, .skills_recover__content-content_container .productions-grid_item__logo, .skills_recover .recover-content_container__grid_item__logo, .skills_recover .recover-content_container .productions-grid_item__logo {
-  width: 100px;
-  height: 70px;
-  background-color: black;
+.skills_recover__content_content__container___grid_item_flip-card_front, .skills_recover__content_content__container___grid_item_flip-card_back, .skills_recover__content_content__container___grid_item .flip-card_front, .skills_recover__content_content__container___grid_item .flip-card_back, .skills_recover__content_content__container___grid .skills-grid-item_flip-card_front, .skills_recover__content_content__container___grid .skills-grid-item_flip-card_back, .skills_recover__content_content__container___grid .skills-grid-item .flip-card_front, .skills_recover__content_content__container___grid .skills-grid-item .flip-card_back, .skills_recover__content_content__container .skills-grid_item_flip-card_front, .skills_recover__content_content__container .skills-grid_item_flip-card_back, .skills_recover__content_content__container .skills-grid_item .flip-card_front, .skills_recover__content_content__container .skills-grid_item .flip-card_back, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card_front, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card_back, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card_front, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card_back, .skills_recover .recover_content__container___grid_item_flip-card_front, .skills_recover .recover_content__container___grid_item_flip-card_back, .skills_recover .recover_content__container___grid_item .flip-card_front, .skills_recover .recover_content__container___grid_item .flip-card_back, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card_front, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card_back, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card_front, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card_back, .skills_recover .recover_content__container .skills-grid_item_flip-card_front, .skills_recover .recover_content__container .skills-grid_item_flip-card_back, .skills_recover .recover_content__container .skills-grid_item .flip-card_front, .skills_recover .recover_content__container .skills-grid_item .flip-card_back, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card_front, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card_back, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card_front, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card_back {
+  border: 2px solid black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills_recover__content_content__container___grid_item_flip-card_front__logo, .skills_recover__content_content__container___grid_item .flip-card_front__logo, .skills_recover__content_content__container___grid .skills-grid-item_flip-card_front__logo, .skills_recover__content_content__container___grid .skills-grid-item .flip-card_front__logo, .skills_recover__content_content__container .skills-grid_item_flip-card_front__logo, .skills_recover__content_content__container .skills-grid_item .flip-card_front__logo, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card_front__logo, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card_front__logo, .skills_recover .recover_content__container___grid_item_flip-card_front__logo, .skills_recover .recover_content__container___grid_item .flip-card_front__logo, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card_front__logo, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card_front__logo, .skills_recover .recover_content__container .skills-grid_item_flip-card_front__logo, .skills_recover .recover_content__container .skills-grid_item .flip-card_front__logo, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card_front__logo, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card_front__logo {
+  width: 70px;
+}
+.skills_recover__content_content__container___grid_item_flip-card_back, .skills_recover__content_content__container___grid_item .flip-card_back, .skills_recover__content_content__container___grid .skills-grid-item_flip-card_back, .skills_recover__content_content__container___grid .skills-grid-item .flip-card_back, .skills_recover__content_content__container .skills-grid_item_flip-card_back, .skills_recover__content_content__container .skills-grid_item .flip-card_back, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card_back, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card_back, .skills_recover .recover_content__container___grid_item_flip-card_back, .skills_recover .recover_content__container___grid_item .flip-card_back, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card_back, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card_back, .skills_recover .recover_content__container .skills-grid_item_flip-card_back, .skills_recover .recover_content__container .skills-grid_item .flip-card_back, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card_back, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card_back {
+  color: black;
+  transform: rotateY(180deg);
+  font-size: 0.9375em;
+  font-weight: 600;
 }

@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import useStores from "../../stores";
 import clsx from "clsx";
 import { Tab } from "../../stores/TabStore";
+import { SkillsGridItem } from "./SkillsGridItem";
 
 type RecoverStyle = {
     [key: string]: CSSProperties;
@@ -69,10 +70,41 @@ const Skills = observer(() => {
                         className="skills_recover__content recover"
                         style={recoverStyle?.coverContent || undefined}
                     >
-                        <div className="recover-content">
-                            <div className="recover-content_container">
-                                <div className="recover-content_container__grid skills-grid">
-                                    
+                        <div className="recover_content">
+                            <div className="recover_content__container">
+                                <div className="recover_content__container___grid skills-grid">
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
+                                    <SkillsGridItem
+                                        label="Webpack"
+                                        iconUrl="/icon/webpack.png"
+                                    />
                                 </div>
                             </div>
                         </div>
