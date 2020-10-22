@@ -60,57 +60,55 @@ const Skills = observer(() => {
                     <p>{appKeys["SKILLS_TAB_CONTENT"]}</p>
                 </div>
             </div>
-            {!responsiveStore.isMobile && (
                 <div
                     className="skills_recover"
-                    style={recoverStyle?.cover || undefined}
+                    style={responsiveStore.isMobile ? undefined : (recoverStyle?.cover || undefined)}
                     onWheel={handleRecoverScroll}
                 >
-                    <div
-                        className="skills_recover__content recover"
-                        style={recoverStyle?.coverContent || undefined}
-                    >
-                        <div className="recover_content">
-                            <div className="recover_content__container">
-                                <div className="recover_content__container___grid skills-grid">
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                    <SkillsGridItem
-                                        label="Webpack"
-                                        iconUrl="/icon/webpack.png"
-                                    />
-                                </div>
+                <div
+                    className="skills_recover__content recover"
+                    style={responsiveStore.isMobile ? undefined : (recoverStyle?.coverContent || undefined)}
+                >
+                    <div className="recover_content">
+                        <div className="recover_content__container">
+                            <div className="recover_content__container___grid skills-grid">
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
+                                <SkillsGridItem
+                                    label="Webpack"
+                                    iconUrl="/icon/webpack.png"
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
         </div>       
     )
 });

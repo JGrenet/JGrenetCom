@@ -1,15 +1,12 @@
 /* Error: Undefined mixin.
  *    ,
- * 13 | /         @include media-breakpoint-down($sm) {
- * 14 | |             width: 100%;
- * 15 | |             height: unset;
- * 16 | |             margin: 0;
- * 17 | |             align-items: unset;
- * 18 | |             justify-content: center;
- * 19 | |             padding-bottom: 80px;
- * 20 | \         }
+ * 6  | /     @include media-breakpoint-down($sm) {
+ * 7  | |         align-items: unset;
+ * 8  | |         justify-content: center;
+ * 9  | |         flex-direction: column;
+ * 10 | \     }
  *    '
- *   src\components\skills\skills.scss 13:9  root stylesheet */
+ *   src\components\skills\skills.scss 6:5  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -19,5 +16,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 13 \2502  \250c          @include media-breakpoint-down($sm) {\a 14 \2502  \2502              width: 100%;\a 15 \2502  \2502              height: unset;\a 16 \2502  \2502              margin: 0;\a 17 \2502  \2502              align-items: unset;\a 18 \2502  \2502              justify-content: center;\a 19 \2502  \2502              padding-bottom: 80px;\a 20 \2502  \2514          }\a    \2575 \a   src\\components\\skills\\skills.scss 13:9  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 6  \2502  \250c      @include media-breakpoint-down($sm) {\a 7  \2502  \2502          align-items: unset;\a 8  \2502  \2502          justify-content: center;\a 9  \2502  \2502          flex-direction: column;\a 10 \2502  \2514      }\a    \2575 \a   src\\components\\skills\\skills.scss 6:5  root stylesheet";
 }
