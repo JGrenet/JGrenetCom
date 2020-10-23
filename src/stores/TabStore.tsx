@@ -5,6 +5,7 @@ import Services from "../components/services/Services";
 import Career from "../components/career/Career";
 import Productions from "../components/productions/Productions";
 import Skills from "../components/skills/Skills";
+import Contact from "../components/contact/Contact";
 
 export enum Tab {
     HOME = 0,
@@ -82,7 +83,7 @@ class TabStore {
             case Tab.SKILLS:
                 return <Skills />
             case Tab.CONTACT:
-                return <span style={{color: "white"}}>CONTACT</span>;
+                return <Contact />
             default:
                 return <></>;
         }

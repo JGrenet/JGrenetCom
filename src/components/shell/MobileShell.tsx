@@ -10,6 +10,7 @@ import Productions from "../productions/Productions";
 import useStores from "../../stores";
 import clsx from "clsx";
 import Skills from "../skills/Skills";
+import Contact from "../contact/Contact";
 
 const MobileShell = observer((): JSX.Element => {
     const { responsiveStore } = useStores();
@@ -76,6 +77,7 @@ const MobileShell = observer((): JSX.Element => {
             <Career />
             <Productions />
             <Skills />
+            <Contact />
         </div>
     )
 });

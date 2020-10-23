@@ -1,0 +1,19 @@
+.contact {
+    &_title {
+        width: 100%;
+    }
+
+    &_content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &__contact-form {
+            width: 500px;
+        }
+
+        &__contact-infos {
+            width: 500px;
+        }
+    }
+}
