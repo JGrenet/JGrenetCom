@@ -1,19 +1,61 @@
 .contact {
+    color: white;
+
     &_title {
         width: 100%;
+        text-align: center;
+        padding-top: 80px;
+
+        h2 {
+            font-weight: 700;
+            @include font-size(60px);
+
+            @include media-breakpoint-down(1300px) {
+                @include font-size(50px)
+            }
+
+            @include media-breakpoint-down($sm) {
+                @include font-size(60px);
+            }
+
+            @include media-breakpoint-down($xxs) {
+                @include font-size(50px);
+            }
+        }
     }
 
     &_content {
+        margin-top: 100px;
         width: 100%;
         display: flex;
         justify-content: space-between;
+        padding: 0 200px;
+        box-sizing: border-box;
 
-        &__contact-form {
+        &__container, .content {
             width: 500px;
-        }
 
-        &__contact-infos {
-            width: 500px;
+            &_title {
+                position: relative;
+                padding-bottom: 10px;
+                @include font-size(22px);
+                stroke-dashoffset: 25px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 75px;
+                    height: 2px;
+                    background-color: $white;
+                    bottom: -5px;
+                }
+            }
+
+            &_form {
+                margin-top: 50px;
+                position: relative;
+            }
         }
     }
 }
