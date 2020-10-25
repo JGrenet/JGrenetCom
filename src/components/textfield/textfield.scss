@@ -29,4 +29,28 @@
     &.focused::after {
         width: 100%;
     }
+
+    &_error {
+        display: none;
+        color: $red;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        @include font-size(15px);
+    }
+
+    &--has-error {
+        .textfield_error {
+            display: block;
+        }
+
+        .textfield_input {
+            color: $red;
+        }
+
+        &::after {
+            width: 100%;
+            background-color: $red;
+        }
+    }
 }

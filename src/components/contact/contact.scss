@@ -53,8 +53,45 @@
             }
 
             &_form {
-                margin-top: 50px;
+                width: 100%;
+                margin-top: 75px;
                 position: relative;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                grid-template-areas:    "form-firstname form-lastname"
+                                        "form-email form-object"
+                                        "form-content form-content"
+                                        "form-submit form-submit";
+                grid-gap: 50px;
+
+
+                .form-firstname {
+                    grid-area: form-firstname;
+                }
+
+                .form-lastname {
+                    grid-area: form-lastname;
+                }
+
+                .form-email {
+                    grid-area: form-email;
+                }
+
+                .form-object {
+                    grid-area: form-object;
+                }
+
+                .form-content {
+                    grid-area: form-content;
+                }
+
+                .form-submit {
+                    grid-area: form-submit;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }

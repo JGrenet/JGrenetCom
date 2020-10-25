@@ -422,6 +422,24 @@ body.stop-scrolling, .app.stop-scrolling {
 .textfield.focused::after {
   width: 100%;
 }
+.textfield_error {
+  display: none;
+  color: #ef5777;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 0.9375em;
+}
+.textfield--has-error .textfield_error {
+  display: block;
+}
+.textfield--has-error .textfield_input {
+  color: #ef5777;
+}
+.textfield--has-error::after {
+  width: 100%;
+  background-color: #ef5777;
+}
 
 .logo {
   display: flex;
@@ -1851,6 +1869,33 @@ body.stop-scrolling, .app.stop-scrolling {
   bottom: -5px;
 }
 .contact_content__container_form, .contact_content .content_form {
-  margin-top: 50px;
+  width: 100%;
+  margin-top: 75px;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "form-firstname form-lastname" "form-email form-object" "form-content form-content" "form-submit form-submit";
+  grid-gap: 50px;
+}
+.contact_content__container_form .form-firstname, .contact_content .content_form .form-firstname {
+  grid-area: form-firstname;
+}
+.contact_content__container_form .form-lastname, .contact_content .content_form .form-lastname {
+  grid-area: form-lastname;
+}
+.contact_content__container_form .form-email, .contact_content .content_form .form-email {
+  grid-area: form-email;
+}
+.contact_content__container_form .form-object, .contact_content .content_form .form-object {
+  grid-area: form-object;
+}
+.contact_content__container_form .form-content, .contact_content .content_form .form-content {
+  grid-area: form-content;
+}
+.contact_content__container_form .form-submit, .contact_content .content_form .form-submit {
+  grid-area: form-submit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
