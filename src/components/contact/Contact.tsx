@@ -187,6 +187,27 @@ const Contact = (): JSX.Element => {
                     <div className="content_title">
                         Vous pouvez me contacter également via
                     </div>
+                    <div className="content_contact">
+                        <div className="content_contact__meta-title">
+                            <div>Email :</div>
+                            <div>Téléphone :</div>
+                        </div>
+                        <div className="content_contact__meta-infos">
+                            <div>contact@jeremygrenet.com</div>
+                            <div>06.08.89.58.17</div>
+                        </div>
+                    </div>
+                    <div className="content_title">
+                        Ou me retrouver sur mes réseaux :
+                    </div>
+                    <div className="content_socials">
+                        <div className="content_socials__item">
+                            <div className="content_socials__item___logo" />
+                        </div>
+                        <div className="content_socials__item">
+                            <div className="content_socials__item___logo" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
