@@ -183,29 +183,34 @@ const Contact = (): JSX.Element => {
                         </div>
                     </form>
                 </div>
-                <div className="contact_content__container content">
-                    <div className="content_title">
-                        Vous pouvez me contacter également via
-                    </div>
-                    <div className="content_contact">
-                        <div className="content_contact__meta-title">
-                            <div>Email :</div>
-                            <div>Téléphone :</div>
+                {/* Supprimer les reseaux sociaux et aplatir les infos*/}
+                <div className="contact_content__container content content_infos">
+                    <div className="content_infos__block block-contact">
+                        <div className="content_title content_title--align-right">
+                            Vous pouvez me contacter également via
                         </div>
-                        <div className="content_contact__meta-infos">
-                            <div>contact@jeremygrenet.com</div>
-                            <div>06.08.89.58.17</div>
+                        <div className="content_contact">
+                            <div className="content_contact__meta-title">
+                                <div>Email :</div>
+                                <div>Téléphone :</div>
+                            </div>
+                            <div className="content_contact__meta-infos">
+                                <div>contact@jeremygrenet.com</div>
+                                <div>06.08.89.58.17</div>
+                            </div>
                         </div>
                     </div>
-                    <div className="content_title">
-                        Ou me retrouver sur mes réseaux :
-                    </div>
-                    <div className="content_socials">
-                        <div className="content_socials__item">
-                            <div className="content_socials__item___logo" />
+                    <div className="content_infos__block block-socials">
+                        <div className="content_title content_title--align-right">
+                            Ou me retrouver sur mes réseaux :
                         </div>
-                        <div className="content_socials__item">
-                            <div className="content_socials__item___logo" />
+                        <div className="content_socials">
+                            <div className="content_socials__item">
+                                <div className="content_socials__item___logo" />
+                            </div>
+                            <div className="content_socials__item">
+                                <div className="content_socials__item___logo" />
+                            </div>
                         </div>
                     </div>
                 </div>
