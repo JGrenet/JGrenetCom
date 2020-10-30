@@ -1,5 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import clsx from "clsx";
+import useStores from "../../stores";
 
 interface TextFieldProps {
     placeholder?: string;
@@ -16,6 +17,7 @@ const TextField = ({
     onChange,
     hasErrors
 }: TextFieldProps): JSX.Element => {
+    const { responsiveStore } = useStores();
     const inputContainerRef = useRef<HTMLDivElement>(null);
 
     const handleOnBlur = useCallback(() => {
@@ -50,7 +52,10 @@ const TextField = ({
             ref={inputContainerRef}
         >
             <input
-                className="textfield_input"
+                className={clsx(
+                    "textfield_input",
+                    {["textfield_input--black"]: responsiveStore.backgroundColor === "white"}
+                )}
                 type="text"
                 placeholder={placeholder}
                 onChange={handleOnChange}

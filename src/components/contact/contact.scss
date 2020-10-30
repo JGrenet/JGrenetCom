@@ -1,5 +1,10 @@
 .contact {
-    color: white;
+    color: $white;
+    transition: color 1s ease-in-out;
+
+    &--black {
+        color: $black
+    }
 
     &_title {
         width: 100%;
@@ -133,6 +138,7 @@
                     height: 2px;
                     background-color: $white;
                     bottom: -5px;
+                    transition: background-color 1s ease-in-out;
                 }
 
                 &--align-right::after {
@@ -141,6 +147,10 @@
                     @media (max-width: 1300px) {
                         left: 0;
                     }
+                }
+
+                &--black::after {
+                    background-color: $black;
                 }
             }
 
@@ -242,6 +252,11 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    transition: background-color 1s ease-in-out;
+
+                    &--black {
+                        background-color: $black;
+                    }
 
                     @media (max-width: 1100px) {
                         height: 50px;

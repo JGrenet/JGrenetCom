@@ -36,12 +36,27 @@ const Productions = observer((): JSX.Element => {
         })
     }, [recover, responsiveStore]);
 
+    const handleProductionsScroll = useCallback(() => {
+        if (productionsRef.current) {
+            const offset = productionsRef.current?.offsetTop - window.scrollY;
+            if (offset <= 400 && responsiveStore.backgroundColor === "black") {
+                responsiveStore.updateBackgroundColor("white");
+            } else if (responsiveStore.backgroundColor === "white" && offset > 400) {
+                responsiveStore.updateBackgroundColor("black");
+            }
+        }
+    }, [productionsRef, responsiveStore]);
+
     useLayoutEffect(() => {
         getRecoverStyle();
-        window.addEventListener("resize", () => getRecoverStyle());
+        window.addEventListener("resize", getRecoverStyle);
+        window.addEventListener("scroll", handleProductionsScroll);
 
-        return () => window.removeEventListener("resize", () => getRecoverStyle());
-    }, [getRecoverStyle, recover]);
+        return () => {
+            window.removeEventListener("resize", getRecoverStyle);
+            window.removeEventListener("scroll", handleProductionsScroll);
+        }
+    }, [getRecoverStyle, recover, handleProductionsScroll]);
 
     useEffect(() => {
         if (tabStore.selectedtab === Tab.PRODUCTIONS) {
@@ -54,17 +69,6 @@ const Productions = observer((): JSX.Element => {
     const handleRecoverScroll = useCallback((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
         event.stopPropagation();
     }, []);
-
-    const handleProductionsScroll = useCallback(() => {
-        if (productionsRef.current) {
-            const offset = productionsRef.current?.offsetTop - window.scrollY;
-            if (offset <= 400) {
-                responsiveStore.updateBackgroundColor("white");
-            } else if (responsiveStore.backgroundColor === "white" && offset > 400) {
-                responsiveStore.updateBackgroundColor("black");
-            }
-        }
-    }, [productionsRef, responsiveStore]);
 
     const handleSelectItem = useCallback(() => {
         if (selectedItem) {
@@ -85,7 +89,6 @@ const Productions = observer((): JSX.Element => {
     return (
         <div
             className="productions tab-content"
-            onWheel={handleProductionsScroll}
             ref={productionsRef}
         >
             <div className="productions_content">

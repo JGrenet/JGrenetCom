@@ -112,13 +112,18 @@
         }
 
         &__content, .recover {
-            background-color: $white;
+            background-color: $black;
             position: absolute;
             bottom: 0;
             right: 0;
             width: 100%;
             box-sizing: border-box;
             padding: 0 30px;
+            transition: background-color 1s ease-in-out;
+
+            &--white {
+                background-color: $white;
+            }
 
             &::after {
                 content: "";

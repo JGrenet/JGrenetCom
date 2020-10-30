@@ -41,7 +41,6 @@ const Skills = observer(() => {
 
     useEffect(() => {
         if (tabStore.selectedtab === Tab.SKILLS) {
-            console.log("HERE");
             setRecover(true);
         } else {
             setRecover(false);
@@ -66,7 +65,10 @@ const Skills = observer(() => {
                     onWheel={handleRecoverScroll}
                 >
                 <div
-                    className="skills_recover__content recover"
+                    className={clsx(
+                        "skills_recover__content recover",
+                        {["recover--white"]: responsiveStore.backgroundColor === "white"}
+                    )}
                     style={responsiveStore.isMobile ? undefined : (recoverStyle?.coverContent || undefined)}
                 >
                     <div className="recover_content">

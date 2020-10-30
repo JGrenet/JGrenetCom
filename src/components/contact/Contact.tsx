@@ -1,8 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import useStores from "../../stores";
 import Button from "../button/Button";
 import TextField from "../textfield/TextField";
+import clsx from "clsx";
 
 const Contact = (): JSX.Element => {
+    const { responsiveStore } = useStores();
+    const contactRef = useRef<HTMLDivElement>(null);
+
     /* First name */
     const [firstName, setFirstName] = useState<string>("");
     const [hasFirstNameErrors, setHasFirstNameErrors] = useState<string>("");
@@ -129,16 +134,43 @@ const Contact = (): JSX.Element => {
         content,
         hasContentErrors,
         setHasContentErrors
-    ])
+    ]);
+
+    const handleContactsScroll = useCallback(() => {
+        if (contactRef.current) {
+            const offset = contactRef.current?.offsetTop - window.scrollY;
+            if (offset <= 400 && responsiveStore.backgroundColor === "white") {
+                responsiveStore.updateBackgroundColor("black");
+            } else if (responsiveStore.backgroundColor === "black" && offset > 400 && offset < 600) {
+                responsiveStore.updateBackgroundColor("white");
+            }
+        }
+    }, [contactRef, responsiveStore]);
+
+    useLayoutEffect(() => {
+        window.addEventListener("scroll", handleContactsScroll);
+
+        return () => window.removeEventListener("scroll", handleContactsScroll);
+    }, [handleContactsScroll]);
 
     return (
-        <div className="contact tab-content">
+        <div
+            className={clsx(
+                "contact tab-content",
+                {["contact--black"]: responsiveStore.backgroundColor === "white"}
+            )}
+            ref={contactRef}
+        >
             <div className="contact_title">
                 <h2>Contact</h2>
             </div>
             <div className="contact_content">
                 <div className="contact_content__container content">
-                    <span className="content_title">
+                    <span className={clsx(
+                            "content_title",
+                            {["content_title--black"]: responsiveStore.backgroundColor === "white"}
+                        )}
+                    >
                         Formulaire de contact
                     </span>
 
@@ -183,10 +215,13 @@ const Contact = (): JSX.Element => {
                         </div>
                     </form>
                 </div>
-                {/* Supprimer les reseaux sociaux et aplatir les infos*/}
                 <div className="contact_content__container content content_infos">
                     <div className="content_infos__block block-contact">
-                        <div className="content_title content_title--align-right">
+                        <div className={clsx(
+                                "content_title content_title--align-right",
+                                {["content_title--black"]: responsiveStore.backgroundColor === "white"}
+                            )}
+                        >
                             Vous pouvez me contacter également via
                         </div>
                         <div className="content_contact">
@@ -201,14 +236,26 @@ const Contact = (): JSX.Element => {
                         </div>
                     </div>
                     <div className="content_infos__block block-socials">
-                        <div className="content_title content_title--align-right">
+                        <div className={clsx(
+                                "content_title content_title--align-right",
+                                {["content_title--black"]: responsiveStore.backgroundColor === "white"}
+                            )}
+                        >
                             Ou me retrouver sur mes réseaux :
                         </div>
                         <div className="content_socials">
-                            <div className="content_socials__item">
+                            <div className={clsx(
+                                    "content_socials__item",
+                                    {["content_socials__item--black"]: responsiveStore.backgroundColor === "white"}
+                                )}
+                            >
                                 <div className="content_socials__item___logo" />
                             </div>
-                            <div className="content_socials__item">
+                            <div className={clsx(
+                                    "content_socials__item",
+                                    {["content_socials__item--black"]: responsiveStore.backgroundColor === "white"}
+                                )}
+                            >
                                 <div className="content_socials__item___logo" />
                             </div>
                         </div>

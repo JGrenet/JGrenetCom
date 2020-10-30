@@ -405,6 +405,10 @@ body.stop-scrolling, .app.stop-scrolling {
   border-bottom: 3px solid white;
   padding: 0 0 7px 0;
   width: 100%;
+  transition: border-bottom 1s ease-in-out;
+}
+.textfield_input--black {
+  border-bottom: 3px solid black;
 }
 .textfield_input:focus {
   outline: none;
@@ -1706,13 +1710,17 @@ body.stop-scrolling, .app.stop-scrolling {
   }
 }
 .skills_recover__content, .skills_recover .recover {
-  background-color: white;
+  background-color: black;
   position: absolute;
   bottom: 0;
   right: 0;
   width: 100%;
   box-sizing: border-box;
   padding: 0 30px;
+  transition: background-color 1s ease-in-out;
+}
+.skills_recover__content--white, .skills_recover .recover--white {
+  background-color: white;
 }
 .skills_recover__content::after, .skills_recover .recover::after {
   content: "";
@@ -1817,6 +1825,10 @@ body.stop-scrolling, .app.stop-scrolling {
 
 .contact {
   color: white;
+  transition: color 1s ease-in-out;
+}
+.contact--black {
+  color: black;
 }
 .contact_title {
   width: 100%;
@@ -1945,6 +1957,7 @@ body.stop-scrolling, .app.stop-scrolling {
   height: 2px;
   background-color: white;
   bottom: -5px;
+  transition: background-color 1s ease-in-out;
 }
 .contact_content__container_title--align-right::after, .contact_content .content_title--align-right::after {
   right: 0;
@@ -1953,6 +1966,9 @@ body.stop-scrolling, .app.stop-scrolling {
   .contact_content__container_title--align-right::after, .contact_content .content_title--align-right::after {
     left: 0;
   }
+}
+.contact_content__container_title--black::after, .contact_content .content_title--black::after {
+  background-color: black;
 }
 .contact_content__container_form, .contact_content .content_form {
   width: 100%;
@@ -2037,6 +2053,10 @@ body.stop-scrolling, .app.stop-scrolling {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 1s ease-in-out;
+}
+.contact_content__container_socials__item--black, .contact_content .content_socials__item--black {
+  background-color: black;
 }
 @media (max-width: 1100px) {
   .contact_content__container_socials__item, .contact_content .content_socials__item {

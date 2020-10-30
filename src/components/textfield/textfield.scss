@@ -10,6 +10,12 @@
         border-bottom: 3px solid $white;
         padding: 0 0 7px 0;
         width: 100%;
+        transition: border-bottom 1s ease-in-out;
+
+        &--black {
+            border-bottom: 3px solid $black;
+        }
+
         &:focus {
             outline: none;
         }
