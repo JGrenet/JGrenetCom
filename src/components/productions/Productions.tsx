@@ -39,7 +39,7 @@ const Productions = observer((): JSX.Element => {
     const handleProductionsScroll = useCallback(() => {
         if (productionsRef.current) {
             const offset = productionsRef.current?.offsetTop - window.scrollY;
-            if (offset <= 400 && responsiveStore.backgroundColor === "black") {
+            if (offset <= 400 && offset >= 0 && responsiveStore.backgroundColor === "black") {
                 responsiveStore.updateBackgroundColor("white");
             } else if (responsiveStore.backgroundColor === "white" && offset > 400) {
                 responsiveStore.updateBackgroundColor("black");

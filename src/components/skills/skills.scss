@@ -212,6 +212,11 @@
                                     display: flex;
                                     align-items: center;
                                     justify-content: center;
+                                    transition: border 1s ease-in-out;
+
+                                    &--white {
+                                        border: 2px solid $white;
+                                    }
                                 }
     
                                 &_front {
@@ -225,6 +230,11 @@
                                     transform: rotateY(180deg);
                                     @include font-size(15px);
                                     font-weight: 600;
+                                    transition: color 1s ease-in-out;
+
+                                    &--white {
+                                        color: $white;
+                                    }
                                 }
                             }
                         }

@@ -1,9 +1,9 @@
-/* Error: Undefined mixin.
+/* Error: Undefined variable.
  *   ,
- * 5 |     @include font-size(20px);
- *   |     ^^^^^^^^^^^^^^^^^^^^^^^^
+ * 3 |     border: 2px solid $white;
+ *   |                       ^^^^^^
  *   '
- *   src\components\button\button.scss 5:5  root stylesheet */
+ *   src\components\button\button.scss 3:23  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a   \2577 \a 5 \2502      @include font-size(20px);\d\a   \2502      ^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src\\components\\button\\button.scss 5:5  root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 3 \2502      border: 2px solid $white;\d\a   \2502                        ^^^^^^\a   \2575 \a   src\\components\\button\\button.scss 3:23  root stylesheet";
 }

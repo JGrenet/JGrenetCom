@@ -1,28 +1,44 @@
 
 .button {
-    height: 60px;
-    line-height: 60px;
-    @include font-size(20px);
     border: 2px solid $white;
     background-color: $black;
     color: $white;
     box-sizing: content-box;
-    padding: 0 30px;
     transition: all .1s ease-in;
     cursor: pointer;
+
+    &--big {
+        height: 60px;
+        line-height: 60px;
+        padding: 0 30px;
+        @include font-size(20px);
+
+        @include media-breakpoint-down($sm) {
+            @include font-size(40px);
+        }
+    
+        @include media-breakpoint-down($xxs) {
+            @include font-size(30px);
+        }
+    }
+
+    &--medium {
+        height: 50px;
+        line-height: 50px;
+        padding: 0 25px;
+        @include font-size(18px);
+
+        @include media-breakpoint-down($sm) {
+            @include font-size(35px);
+        }
+    
+        @include media-breakpoint-down($xxs) {
+            @include font-size(25px);
+        }
+    }
 
     &:hover {
         background-color: $white;
         color: $black;
-    }
-
-    @include media-breakpoint-down($sm) {
-        @include font-size(40px);
-    }
-
-    @include media-breakpoint-down($xxs) {
-        @include font-size(30px);
-        height: 50px;
-        line-height: 50px;
     }
 }

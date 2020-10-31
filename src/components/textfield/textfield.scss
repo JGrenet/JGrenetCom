@@ -12,6 +12,10 @@
         width: 100%;
         transition: border-bottom 1s ease-in-out;
 
+        @include media-breakpoint-down($sm) {
+            @include font-size(25px);
+        }
+
         &--black {
             border-bottom: 3px solid $black;
         }

@@ -211,7 +211,7 @@ const Contact = (): JSX.Element => {
                             hasErrors={hasContentErrors}
                         />
                         <div className="form-submit">
-                            <Button label="Envoyer" onClick={handleSubmit} />
+                            <Button label="Envoyer" onClick={handleSubmit} size="medium" />
                         </div>
                     </form>
                 </div>

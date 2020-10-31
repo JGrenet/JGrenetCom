@@ -1,15 +1,18 @@
 import React, { useCallback } from "react";
+import clsx from "clsx";
 
 interface ButtonProps {
     onClick?: () => void;
     label: string;
-    inForm?: boolean
+    inForm?: boolean;
+    size?: "medium" | "big";
 }
 
 const Button = ({
     onClick,
     label,
-    inForm = false
+    inForm = false,
+    size = "big"
 }: ButtonProps): JSX.Element => {
     
     const handleClick = useCallback((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -19,7 +22,11 @@ const Button = ({
 
     return (
         <button
-            className="button"
+            className={clsx(
+                "button",
+                {["button--big"]: size === "big"},
+                {["button--medium"]: size === "medium"}
+            )}
             onClick={handleClick}
             type={inForm ? "submit" : "button"}
         >
