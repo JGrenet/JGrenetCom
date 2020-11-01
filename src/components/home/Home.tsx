@@ -22,7 +22,7 @@ const Home = observer(() => {
                 </div>
             </div>
             <div className="home_image">
-                <img src="./img/photo_pro.jpg" alt="photo_pro"/>
+                <img src="/img/photo_pro.jpg" alt="photo_pro"/>
             </div>
             {responsiveStore.isMobile && (
                 <div className="home_contact">
