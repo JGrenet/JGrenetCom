@@ -155,6 +155,7 @@ const Contact = (): JSX.Element => {
 
     return (
         <div
+            id="contact"
             className={clsx(
                 "contact tab-content",
                 {["contact--black"]: responsiveStore.backgroundColor === "white"}

@@ -10,6 +10,7 @@ const Career = observer((): JSX.Element => {
 
     return (
         <div
+            id="career"
             className="career tab-content"
         >
             <div className="career_description">

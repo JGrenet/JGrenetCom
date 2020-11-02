@@ -65,6 +65,10 @@ const DesktopShell = observer((): JSX.Element => {
         node.addEventListener("transitionend", done, false);
     }, []);
 
+    const handleRedirectToContactTab = useCallback(() => {
+        tabStore.selectTab(Tab.CONTACT);
+    }, [tabStore]);
+
     if (!shellStyle) return <></>;
 
     return (
@@ -93,9 +97,11 @@ const DesktopShell = observer((): JSX.Element => {
             <div className="shell_language stroke-hidder">
                 <LanguageSelector />
             </div>
-            <div className="shell_contact-btn stroke-hidder">
-                <Button label={appKeys["ACTION_CONTACT_ME"]} />
-            </div>
+            {tabStore.selectedtab !== Tab.CONTACT && (
+                <div className="shell_contact-btn stroke-hidder">
+                    <Button label={appKeys["ACTION_CONTACT_ME"]} onClick={handleRedirectToContactTab} />
+                </div>
+            )}
             <NavBar variant="white" />
         </div>
     );

@@ -18,7 +18,7 @@ const MobileTabItem = observer(({
     const { tabStore } = useStores();
 
     const handleUpdateSelectTab = useCallback(() => {
-        tabStore.selectTab(tab)
+        tabStore.selectTab(tab, true);
     }, [tabStore, tab]);
 
     return (

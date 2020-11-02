@@ -4,6 +4,7 @@ import useStores from "../../stores";
 import clsx from "clsx";
 import { Tab } from "../../stores/TabStore";
 import { SkillsGridItem } from "./SkillsGridItem";
+import skillsList from "./skills_list";
 
 type RecoverStyle = {
     [key: string]: CSSProperties;
@@ -48,7 +49,7 @@ const Skills = observer(() => {
     }, [tabStore.selectedtab, setRecover]);
 
     return (
-        <div className="skills tab-content">
+        <div id="skills" className="skills tab-content">
             <div className="skills_content">
                 <div className={clsx(
                         "skills_content__description",
@@ -74,38 +75,12 @@ const Skills = observer(() => {
                     <div className="recover_content">
                         <div className="recover_content__container">
                             <div className="recover_content__container___grid skills-grid">
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
-                                <SkillsGridItem
-                                    label="Webpack"
-                                    iconUrl="/icon/webpack.png"
-                                />
+                                {skillsList.map((skill) => 
+                                    <SkillsGridItem
+                                        label={skill}
+                                        iconUrl={`/icon/${skill.toLowerCase()}.png`}
+                                    />
+                                )}
                             </div>
                         </div>
                     </div>

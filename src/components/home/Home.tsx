@@ -9,14 +9,14 @@ const Home = observer(() => {
 
     //TODO Inverser le front-end avec la premiere phrase en Anglais !
     return (
-        <div className="home tab-content">
-            
+        <div id="home" className="home tab-content">
             <div className="home_content">
                 <div className="home_content__main-content">
                     <h1 className="bold">{appKeys["HOME_HELLO"]}</h1>
                     <h2>{appKeys["HOME_NAME"]}</h2>
                     <h2>
-                    {appKeys["HOME_JOB"]} <span className="yellow bold">{appKeys["HOME_FRONT_END"]}</span>
+                        {appKeys["HOME_JOB"]}
+                        <span className="yellow bold">{appKeys["HOME_FRONT_END"]}</span>
                     </h2>
                     <h4>{appKeys["HOME_CATCHPHRASE"]}</h4>
                 </div>

@@ -75,6 +75,7 @@ const Services = observer(() => {
 
     return (
         <div
+            id="services"
             className="services tab-content"
             style={serviceStyle ? serviceStyle.services : undefined}
         >

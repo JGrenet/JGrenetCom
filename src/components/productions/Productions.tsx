@@ -88,6 +88,7 @@ const Productions = observer((): JSX.Element => {
 
     return (
         <div
+            id="productions"
             className="productions tab-content"
             ref={productionsRef}
         >

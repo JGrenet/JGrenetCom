@@ -145,7 +145,7 @@ body.stop-scrolling, .app.stop-scrolling {
   .tab-content {
     height: unset;
     box-sizing: border-box;
-    padding: 60px 20px 0 20px;
+    padding: 100px 20px 0 20px;
   }
 }
 
@@ -968,6 +968,11 @@ body.stop-scrolling, .app.stop-scrolling {
     text-align: center;
     height: unset;
     width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .career_description {
+    padding-top: 0;
   }
 }
 .career_description__content {

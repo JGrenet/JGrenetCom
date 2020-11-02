@@ -38,7 +38,7 @@ body, .app {
     @include media-breakpoint-down($sm) {
         height: unset;
         box-sizing: border-box;
-        padding: 60px 20px 0 20px;
+        padding: 100px 20px 0 20px;
     }
 }
 

@@ -22,8 +22,36 @@ class TabStore {
 
     @observable selectedtab: Tab = Tab.HOME;
 
-    @action selectTab(newTab: Tab): void {
+    scrollTo(hash: string): void {
+        location.hash = "#" + hash;
+    }
+
+    @action selectTab(newTab: Tab, isMobile = false): void {
         this.selectedtab = newTab;
+        if (isMobile) {
+            switch (this.selectedtab) {
+                case Tab.HOME:
+                    this.scrollTo("home");
+                    break;
+                case Tab.SERVICES:
+                    this.scrollTo("services");
+                    break;
+                case Tab.CAREER:
+                    this.scrollTo("career");
+                    break;
+                case Tab.PRODUCTIONS:
+                    this.scrollTo("productions");
+                    break;
+                case Tab.SKILLS:
+                    this.scrollTo("skills");
+                    break;
+                case Tab.CONTACT:
+                    this.scrollTo("contact");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     @action goNextTab(): void {
