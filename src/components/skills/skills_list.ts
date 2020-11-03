@@ -3,7 +3,7 @@ const skillsList: string[] = [
     "Webpack",
     "Typescript",
     "Babel",
-    "Mobx",
+    "MobX",
     "HTML5",
     "CSS3",
     "Redux",

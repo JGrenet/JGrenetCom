@@ -20,14 +20,14 @@ export const SkillsGridItem = ({
             <div className="skills-grid-item_flip-card flip-card">
                 <div className={clsx(
                         "flip-card_front",
-                        {["flip-card_front--white"]: responsiveStore.backgroundColor === "black"}
+                        {["flip-card_front--white"]: responsiveStore.isMobile && responsiveStore.backgroundColor === "black"}
                     )}
                 >
                     <img src={iconUrl} className="flip-card_front__logo"/>
                 </div>
                 <div className={clsx(
                         "flip-card_back",
-                        {["flip-card_back--white"]: responsiveStore.backgroundColor === "black"}
+                        {["flip-card_back--white"]: responsiveStore.isMobile && responsiveStore.backgroundColor === "black"}
                     )}
                 >
                     {label}

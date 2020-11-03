@@ -277,7 +277,7 @@ body.stop-scrolling, .app.stop-scrolling {
   justify-content: space-between;
   align-items: center;
   background-color: black;
-  z-index: 2;
+  z-index: 3;
   transition: background-color 1s ease-in-out;
 }
 .mobileShell_header--white {
@@ -1761,6 +1761,7 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 768px) {
   .skills_recover__content, .skills_recover .recover {
     position: relative;
+    padding: 0;
   }
   .skills_recover__content::after, .skills_recover .recover::after {
     display: none;
@@ -1768,7 +1769,6 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .skills_recover__content_content, .skills_recover .recover_content {
   height: calc(100% - 150px);
-  padding: 0 40px;
   margin: 100px auto 0 auto;
 }
 @media (max-width: 1520px) {

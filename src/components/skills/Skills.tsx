@@ -68,7 +68,7 @@ const Skills = observer(() => {
                 <div
                     className={clsx(
                         "skills_recover__content recover",
-                        {["recover--white"]: responsiveStore.backgroundColor === "white"}
+                        {["recover--white"]: !responsiveStore.isMobile || responsiveStore.backgroundColor === "white"}
                     )}
                     style={responsiveStore.isMobile ? undefined : (recoverStyle?.coverContent || undefined)}
                 >
@@ -78,7 +78,7 @@ const Skills = observer(() => {
                                 {skillsList.map((skill) => 
                                     <SkillsGridItem
                                         label={skill}
-                                        iconUrl={`/icon/${skill.toLowerCase()}.png`}
+                                        iconUrl={`/icon/${skill.toLowerCase()}${responsiveStore.isMobile && responsiveStore.backgroundColor === "black" ? "_black" : ""}.png`}
                                     />
                                 )}
                             </div>
