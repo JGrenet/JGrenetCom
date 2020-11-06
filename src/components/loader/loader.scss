@@ -21,11 +21,8 @@
         rect {
             stroke: $white;
             stroke-width: 3px;
-            //stroke-dasharray: 400px;
-            //stroke-dashoffset: 400;
             stroke-dasharray: 80px;
             animation: loader_dash 5s ease-in-out infinite;
-            //animation-fill-mode: forwards;
         }
     }
 

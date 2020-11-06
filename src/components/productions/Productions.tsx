@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { ProductionsGridItem } from "./ProductionsGridItem";
 import { ProductionsDetails } from "./ProductionsDetails";
 import { observer } from "mobx-react-lite";
+import { Production, productions_list } from "./productions_list";
 
 type RecoverStyle = {
     [key: string]: CSSProperties;
@@ -70,19 +71,19 @@ const Productions = observer((): JSX.Element => {
         event.stopPropagation();
     }, []);
 
-    const handleSelectItem = useCallback(() => {
-        if (selectedItem) {
+    const handleSelectItem = useCallback((event: React.MouseEvent<HTMLImageElement, MouseEvent>, itemIndex?: number) => {
+        if (itemIndex !== undefined) {
+            setSelectedItem(itemIndex);
+            if (responsiveStore.isMobile) {
+                document.getElementsByTagName('body')[0].classList.add("stop-scrolling");
+            }
+        } else {
             setSelectedItem(null);
             if (responsiveStore.isMobile) {
                 document.getElementsByTagName('body')[0].classList.remove("stop-scrolling");
             }
-        } else {
-            setSelectedItem(1);
-            if (responsiveStore.isMobile) {
-                document.getElementsByTagName('body')[0].classList.add("stop-scrolling");
-            }
-        }
-    }, [setSelectedItem, selectedItem, responsiveStore]);
+        } 
+    }, [setSelectedItem, responsiveStore]);
 
     if (!recoverStyle) return <></>;
 
@@ -119,22 +120,14 @@ const Productions = observer((): JSX.Element => {
                         <div className="recover-content">
                             <div className="recover-content_container">
                                 <div className="recover-content_container__grid productions-grid">
-                                    <ProductionsGridItem
-                                        onSelectItem={handleSelectItem}
-                                        selectedItem={selectedItem === 1}
-                                    />
-                                    <ProductionsGridItem
-                                        onSelectItem={handleSelectItem}
-                                        selectedItem={selectedItem === 1}
-                                    />
-                                    <ProductionsGridItem
-                                        onSelectItem={handleSelectItem}
-                                        selectedItem={selectedItem === 1}
-                                    />
-                                    <ProductionsGridItem
-                                        onSelectItem={handleSelectItem}
-                                        selectedItem={selectedItem === 1}
-                                    />
+                                    {productions_list.map((production: Production, index: number) =>
+                                        <ProductionsGridItem
+                                            onSelectItem={handleSelectItem}
+                                            index={index}
+                                            selectedItem={selectedItem === index}
+                                            logoPath={production.logo}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -172,22 +165,14 @@ const Productions = observer((): JSX.Element => {
             {responsiveStore.isMobile && (
                 <>
                     <div className="productions_mobile-grid">
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
-                        <ProductionsGridItem
-                            onSelectItem={handleSelectItem}
-                            selectedItem={selectedItem === 1}
-                        />
+                        {productions_list.map((production: Production, index: number) =>
+                            <ProductionsGridItem
+                                onSelectItem={handleSelectItem}
+                                index={index}
+                                selectedItem={selectedItem === index}
+                                logoPath={production.logo}
+                            />
+                        )}
                     </div>
                     {selectedItem && (
                         <div className="productions_mobile-details-container">
@@ -198,13 +183,13 @@ const Productions = observer((): JSX.Element => {
                                 onClick={handleSelectItem}
                             />
                             <ProductionsDetails
-                                title="Infinite Square"
-                                startDate="Septembre 2018"
-                                endDate="En cours"
-                                presentation="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                missions="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                skills={["Webpack", "React", "HTML"]}
-                                logo="/img/infinite-square_texte.png"
+                                title={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_TITLE`]}
+                                startDate={productions_list[selectedItem].startDate}
+                                endDate={productions_list[selectedItem].endDate}
+                                presentation={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_INTRODUCING`]}
+                                missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
+                                skills={productions_list[selectedItem].skills}
+                                logo={productions_list[selectedItem].txtlogo}
                             />
                         </div>
                     )}

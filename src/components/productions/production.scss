@@ -172,9 +172,8 @@
                             }
         
                             &__logo {
-                                width: 100px;
-                                height: 70px;
-                                background-color: $black;
+                                max-width: 100px;
+                                max-height: 100px;
                             }
                         }
                     }
@@ -264,9 +263,8 @@
             align-items: center;
 
             &__logo {
-                width: 100px;
-                height: 70px;
-                background-color: $black;
+                max-width: 100px;
+                max-height: 100px;
             }
         }
     }
