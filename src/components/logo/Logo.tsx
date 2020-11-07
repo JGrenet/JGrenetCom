@@ -30,7 +30,7 @@ const Logo = ({ size, wordMark = false, variant = "white", className }: LogoProp
         <div className={clsx("logo", className)}>
             <div className={clsx("logo_icon", {["dark"]: variant === "dark"})} style={style.icon}>
                 <span className={clsx("logo_icon__text", {["dark"]: variant === "dark"})} style={style.text}>
-                    JG
+                    Jg
                 </span>
             </div>
             {wordMark && (

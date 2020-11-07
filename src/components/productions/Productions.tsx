@@ -122,6 +122,7 @@ const Productions = observer((): JSX.Element => {
                                 <div className="recover-content_container__grid productions-grid">
                                     {productions_list.map((production: Production, index: number) =>
                                         <ProductionsGridItem
+                                            key={index}
                                             onSelectItem={handleSelectItem}
                                             index={index}
                                             selectedItem={selectedItem === index}
@@ -135,30 +136,32 @@ const Productions = observer((): JSX.Element => {
                     <div
                         className={clsx(
                             "productions_recover__productions-details",
-                            {["productions_recover__productions-details--open"]: selectedItem}
+                            {["productions_recover__productions-details--open"]: selectedItem !== null}
                         )}
                         style={recoverStyle.coverContent}
                     >
-                        <div
-                            className="productions_recover__productions-details___container"
-                            style={recoverStyle.detailsContainer}
-                        >
-                            <img
-                                src="./icon/cancel.svg"
-                                className="productions_recover__productions-details___container____close"
-                                alt="menu"
-                                onClick={handleSelectItem}
-                            />
-                            <ProductionsDetails
-                                title="Infinite Square"
-                                startDate="Septembre 2018"
-                                endDate="En cours"
-                                presentation="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                missions="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                skills={["Webpack", "React", "HTML"]}
-                                logo="/img/infinite-square_texte.png"
-                            />
-                        </div>
+                         {selectedItem !== null && (
+                            <div
+                                className="productions_recover__productions-details___container"
+                                style={recoverStyle.detailsContainer}
+                            >
+                                <img
+                                    src="./icon/cancel.svg"
+                                    className="productions_recover__productions-details___container____close"
+                                    alt="menu"
+                                    onClick={handleSelectItem}
+                                />
+                                <ProductionsDetails
+                                    title={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_TITLE`]}
+                                    startDate={productions_list[selectedItem].startDate}
+                                    endDate={productions_list[selectedItem].endDate}
+                                    presentation={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_INTRODUCING`]}
+                                    missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
+                                    skills={productions_list[selectedItem].skills}
+                                    logo={productions_list[selectedItem].txtlogo}
+                                />
+                            </div>
+                         )}
                     </div>
                 </div>
             )}
@@ -167,6 +170,7 @@ const Productions = observer((): JSX.Element => {
                     <div className="productions_mobile-grid">
                         {productions_list.map((production: Production, index: number) =>
                             <ProductionsGridItem
+                                key={index}
                                 onSelectItem={handleSelectItem}
                                 index={index}
                                 selectedItem={selectedItem === index}
@@ -174,7 +178,7 @@ const Productions = observer((): JSX.Element => {
                             />
                         )}
                     </div>
-                    {selectedItem && (
+                    {selectedItem !== null && (
                         <div className="productions_mobile-details-container">
                             <img
                                 src="./icon/cancel.svg"
