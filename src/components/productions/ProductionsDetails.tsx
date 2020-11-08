@@ -37,17 +37,13 @@ export const ProductionsDetails = ({
                 <span className="productions-details_section__title">
                     PRESENTATION
                 </span>
-                <p className="productions-details_section__content">
-                    {presentation}
-                </p>
+                <p className="productions-details_section__content" dangerouslySetInnerHTML={{__html: presentation}} />
             </div>
             <div className="productions-details_section">
                 <span className="productions-details_section__title">
                     MISSIONS
                 </span>
-                <p className="productions-details_section__content">
-                    {missions}
-                </p>
+                <p className="productions-details_section__content" dangerouslySetInnerHTML={{__html: missions}} />
             </div>
             <div className="productions-details_section">
                 <span className="productions-details_section__title">

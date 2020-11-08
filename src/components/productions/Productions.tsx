@@ -20,7 +20,8 @@ const Productions = observer((): JSX.Element => {
     const appKeys = localeStore.keys;
     const [recover, setRecover] = useState<boolean>(false);
     const [recoverStyle, setRecoverStyle] = useState<RecoverStyle | null>(null);
-    const [selectedItem, setSelectedItem] = useState<number | null>(null);
+    const [isRecoverOpen, setIsRecoverOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState<number>(0);
     const productionsRef = useRef<HTMLDivElement >(null);
 
     const getRecoverStyle = useCallback(() => {
@@ -36,6 +37,14 @@ const Productions = observer((): JSX.Element => {
             }
         })
     }, [recover, responsiveStore]);
+
+    const openRecover = useCallback(() => {
+        setIsRecoverOpen(true);
+    }, [setIsRecoverOpen]);
+
+    const closeRecover = useCallback(() => {
+        setIsRecoverOpen(false);
+    }, [setIsRecoverOpen])
 
     const handleProductionsScroll = useCallback(() => {
         if (productionsRef.current) {
@@ -72,18 +81,19 @@ const Productions = observer((): JSX.Element => {
     }, []);
 
     const handleSelectItem = useCallback((event: React.MouseEvent<HTMLImageElement, MouseEvent>, itemIndex?: number) => {
-        if (itemIndex !== undefined) {
-            setSelectedItem(itemIndex);
-            if (responsiveStore.isMobile) {
-                document.getElementsByTagName('body')[0].classList.add("stop-scrolling");
-            }
-        } else {
-            setSelectedItem(null);
+        if (itemIndex === undefined || (itemIndex === selectedItem && isRecoverOpen === true)) {
+            closeRecover();
             if (responsiveStore.isMobile) {
                 document.getElementsByTagName('body')[0].classList.remove("stop-scrolling");
             }
-        } 
-    }, [setSelectedItem, responsiveStore]);
+        } else if (itemIndex !== undefined) {
+            setSelectedItem(itemIndex);
+            openRecover();
+            if (responsiveStore.isMobile) {
+                document.getElementsByTagName('body')[0].classList.add("stop-scrolling");
+            }
+        }
+    }, [setSelectedItem, responsiveStore, isRecoverOpen, openRecover, closeRecover, selectedItem]);
 
     if (!recoverStyle) return <></>;
 
@@ -136,32 +146,30 @@ const Productions = observer((): JSX.Element => {
                     <div
                         className={clsx(
                             "productions_recover__productions-details",
-                            {["productions_recover__productions-details--open"]: selectedItem !== null}
+                            {["productions_recover__productions-details--open"]: isRecoverOpen}
                         )}
                         style={recoverStyle.coverContent}
                     >
-                         {selectedItem !== null && (
-                            <div
-                                className="productions_recover__productions-details___container"
-                                style={recoverStyle.detailsContainer}
-                            >
-                                <img
-                                    src="./icon/cancel.svg"
-                                    className="productions_recover__productions-details___container____close"
-                                    alt="menu"
-                                    onClick={handleSelectItem}
-                                />
-                                <ProductionsDetails
-                                    title={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_TITLE`]}
-                                    startDate={productions_list[selectedItem].startDate}
-                                    endDate={productions_list[selectedItem].endDate}
-                                    presentation={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_INTRODUCING`]}
-                                    missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
-                                    skills={productions_list[selectedItem].skills}
-                                    logo={productions_list[selectedItem].txtlogo}
-                                />
-                            </div>
-                         )}
+                        <div
+                            className="productions_recover__productions-details___container"
+                            style={recoverStyle.detailsContainer}
+                        >
+                            <img
+                                src="./icon/cancel.svg"
+                                className="productions_recover__productions-details___container____close"
+                                alt="menu"
+                                onClick={handleSelectItem}
+                            />
+                            <ProductionsDetails
+                                title={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_TITLE`]}
+                                startDate={productions_list[selectedItem].startDate}
+                                endDate={productions_list[selectedItem].endDate}
+                                presentation={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_INTRODUCING`]}
+                                missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
+                                skills={productions_list[selectedItem].skills}
+                                logo={productions_list[selectedItem].txtlogo}
+                            />
+                        </div>
                     </div>
                 </div>
             )}
@@ -178,7 +186,7 @@ const Productions = observer((): JSX.Element => {
                             />
                         )}
                     </div>
-                    {selectedItem !== null && (
+                    {isRecoverOpen && (
                         <div className="productions_mobile-details-container">
                             <img
                                 src="./icon/cancel.svg"
