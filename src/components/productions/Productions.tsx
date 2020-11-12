@@ -135,7 +135,7 @@ const Productions = observer((): JSX.Element => {
                                             key={index}
                                             onSelectItem={handleSelectItem}
                                             index={index}
-                                            selectedItem={selectedItem === index}
+                                            selectedItem={selectedItem === index && isRecoverOpen}
                                             logoPath={production.logo}
                                         />
                                     )}
@@ -168,6 +168,7 @@ const Productions = observer((): JSX.Element => {
                                 missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
                                 skills={productions_list[selectedItem].skills}
                                 logo={productions_list[selectedItem].txtlogo}
+                                experienceType={productions_list[selectedItem].experienceType}
                             />
                         </div>
                     </div>
@@ -181,7 +182,7 @@ const Productions = observer((): JSX.Element => {
                                 key={index}
                                 onSelectItem={handleSelectItem}
                                 index={index}
-                                selectedItem={selectedItem === index}
+                                selectedItem={selectedItem === index && isRecoverOpen}
                                 logoPath={production.logo}
                             />
                         )}
@@ -202,6 +203,7 @@ const Productions = observer((): JSX.Element => {
                                 missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
                                 skills={productions_list[selectedItem].skills}
                                 logo={productions_list[selectedItem].txtlogo}
+                                experienceType={productions_list[selectedItem].experienceType}
                             />
                         </div>
                     )}

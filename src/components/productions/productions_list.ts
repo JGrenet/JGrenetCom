@@ -1,3 +1,12 @@
+export enum ExperienceType {
+    FULL_TIME = 1,
+    INFINITE_SQUARE_MISSION,
+    EPITECH_PROJECT,
+    FREE_PROJECT,
+    FREELANCE,
+    INTERNSHIP
+}
+
 export interface Production {
     key: string;
     startDate: string;
@@ -5,6 +14,7 @@ export interface Production {
     skills: string[];
     logo: string;
     txtlogo: string;
+    experienceType: ExperienceType;
 }
 
 export const productions_list: Production[] = [
@@ -28,7 +38,8 @@ export const productions_list: Production[] = [
             "Less"
         ],
         logo: "/img/infinite_square_logo.png",
-        txtlogo: "/img/infinite_square_logo_text.png"
+        txtlogo: "/img/infinite_square_logo_text.png",
+        experienceType: ExperienceType.FULL_TIME
     },
     {
         key: "hokifish_site_vitrine",
@@ -43,7 +54,8 @@ export const productions_list: Production[] = [
             "Less"
         ],
         logo: "/img/hokifish_logo.png",
-        txtlogo: "/img/hokifish_logo_text.png"
+        txtlogo: "/img/hokifish_logo_text.png",
+        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
     },
     {
         key: "hokifish_web_app",
@@ -60,7 +72,8 @@ export const productions_list: Production[] = [
             "Less"
         ],
         logo: "/img/hokifish_logo.png",
-        txtlogo: "/img/hokifish_logo_text.png"
+        txtlogo: "/img/hokifish_logo_text.png",
+        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
     },
     {
         key: "lumapps",
@@ -78,7 +91,8 @@ export const productions_list: Production[] = [
             "Sass"
         ],
         logo: "/img/lumapps_logo.png",
-        txtlogo: "/img/lumapps_logo_text.png"
+        txtlogo: "/img/lumapps_logo_text.png",
+        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
     },
     {
         key: "pernod_ricard_les_embiez",
@@ -95,7 +109,8 @@ export const productions_list: Production[] = [
             "Sass"
         ],
         logo: "/img/pernod_ricard_logo.png",
-        txtlogo: "/img/pernod_ricard_logo_text.png"
+        txtlogo: "/img/pernod_ricard_logo_text.png",
+        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
     },
     {
         key: "talentsoft",
@@ -112,10 +127,11 @@ export const productions_list: Production[] = [
             "Material-UI"
         ],
         logo: "/img/talentsoft_logo.png",
-        txtlogo: "/img/talentsoft_logo_text.png"
+        txtlogo: "/img/talentsoft_logo_text.png",
+        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
     },
     {
-        key: "jeremygrenet.com",
+        key: "jeremygrenet_com",
         startDate: "09/2020",
         endDate: "11/2020",
         skills: [
@@ -130,7 +146,8 @@ export const productions_list: Production[] = [
             "Sass",
         ],
         logo: "/img/jeremygrenet_logo--black.png",
-        txtlogo: "/img/jeremygrenet_logo_text--black.png"
+        txtlogo: "/img/jeremygrenet_logo_text--black.png",
+        experienceType: ExperienceType.FREE_PROJECT
     },
     {
         key: "pinty",
@@ -142,9 +159,60 @@ export const productions_list: Production[] = [
             "HTML5",
             "CSS3",
             "Git",
-            "Sass"
+            "Sass",
+            "Trello",
+            "Adobe XD",
+            "Adobe Photoshop"
         ],
         logo: "/img/pinty_logo.png",
-        txtlogo: "/img/pinty_logo_text.png"
+        txtlogo: "/img/pinty_logo_text.png",
+        experienceType: ExperienceType.EPITECH_PROJECT
+    },
+    {
+        key: "mrmarguerite",
+        startDate: "03/2018",
+        endDate: "04/2018",
+        skills: [
+            "HTML",
+            "CSS",
+            "Sass",
+            "Bootstrap",
+            "Grunt",
+            "Git",
+            "Javascript"
+        ],
+        logo: "/img/mrmarguerite_logo.png",
+        txtlogo: "/img/mrmarguerite_logo_text.png",
+        experienceType: ExperienceType.FREELANCE
+    },
+    {
+        key: "meolia",
+        startDate: "11/2016",
+        endDate: "03/2017",
+        skills: [
+            "HTML",
+            "CSS",
+            "JQuery",
+            "Google Maps APIs",
+            "Leaflet.js"
+        ],
+        logo: "/img/meolia_logo.png",
+        txtlogo: "/img/meolia_logo_text.png",
+        experienceType: ExperienceType.INTERNSHIP
+    },
+    {
+        key: "mgmobile",
+        startDate: "09/2015",
+        endDate: "12/2015",
+        skills: [
+            "HTML",
+            "CSS",
+            "JQuery",
+            "PHP",
+            "SQL"
+        ],
+        logo: "/img/mgmobile_logo.png",
+        txtlogo: "/img/mgmobile_logo_text.png",
+        experienceType: ExperienceType.INTERNSHIP
     },
 ]
