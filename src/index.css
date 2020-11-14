@@ -13,7 +13,7 @@
   opacity: 1;
 }
 .animation-fade-exit-active {
-  opacity: 0.5;
+  opacity: 1;
   transition: opacity 500ms ease-in-out;
 }
 .animation-fade-exit-done {
@@ -1045,6 +1045,8 @@ body.stop-scrolling, .app.stop-scrolling {
   .career_timeline {
     height: unset;
     margin-top: 50px;
+    position: relative;
+    left: 10px;
   }
 }
 .career_timeline .timeline {
@@ -1076,7 +1078,7 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .career_timeline .timeline .timeline-item {
   position: absolute;
-  right: -10px;
+  right: -8px;
   display: inline-flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -1098,12 +1100,12 @@ body.stop-scrolling, .app.stop-scrolling {
   }
 }
 .career_timeline .timeline .timeline-item_point {
-  width: 20px;
+  width: 15px;
   background-color: #fca311;
 }
 .career_timeline .timeline .timeline-item_point--single {
   border-radius: 50%;
-  height: 20px;
+  height: 15px;
 }
 .career_timeline .timeline .timeline-item_point--multiple {
   border-radius: 50px;
@@ -1111,16 +1113,16 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 @media (max-width: 1300px) {
   .career_timeline .timeline .timeline-item_point {
-    width: 14px;
+    width: 12px;
   }
   .career_timeline .timeline .timeline-item_point--single {
-    height: 14px;
+    height: 12px;
   }
 }
 .career_timeline .timeline .timeline-item_arrow {
   height: 2px;
   width: 50px;
-  margin: 0 10px;
+  margin: 0 20px;
   background-color: #fca311;
   position: relative;
 }
@@ -1136,7 +1138,7 @@ body.stop-scrolling, .app.stop-scrolling {
   left: 50%;
   transform: translateX(-50%);
   top: -25px;
-  font-weight: 700;
+  font-weight: 500;
   color: #fca311;
 }
 @media (max-width: 768px) {
@@ -1153,15 +1155,14 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .career_timeline .timeline .timeline-item_name {
   max-width: 200px;
-  text-align: center;
+  text-align: right;
   line-height: 22px;
-  font-size: 1.25em;
+  font-size: 1em;
   color: #fca311;
-  font-weight: 500;
 }
 @media (max-width: 1300px) {
   .career_timeline .timeline .timeline-item_name {
-    font-size: 0.9375em;
+    font-size: 0.875em;
     line-height: 20px;
   }
 }
@@ -1174,7 +1175,7 @@ body.stop-scrolling, .app.stop-scrolling {
   .career_timeline .timeline .timeline-item_name {
     width: 100px;
     line-height: 15px;
-    font-size: 1.125em;
+    font-size: 1.0625em;
   }
 }
 @media (max-width: 300px) {
@@ -1286,7 +1287,7 @@ body.stop-scrolling, .app.stop-scrolling {
   bottom: 0;
   left: 0;
   z-index: 2;
-  transition: height 1s ease-in-out;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.6, 1);
   overflow: hidden;
 }
 .productions_recover__content, .productions_recover .recover {
@@ -1376,7 +1377,7 @@ body.stop-scrolling, .app.stop-scrolling {
   bottom: 0;
   left: 50%;
   width: 0%;
-  transition: width 1s ease-in-out;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.6, 1);
   overflow: hidden;
 }
 .productions_recover__productions-details___container {
@@ -1743,7 +1744,7 @@ body.stop-scrolling, .app.stop-scrolling {
   width: 50%;
   z-index: 2;
   overflow: hidden;
-  transition: all 1s ease-in-out;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.6, 1);
 }
 @media (max-width: 768px) {
   .skills_recover {

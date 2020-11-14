@@ -52,9 +52,9 @@ const Career = observer((): JSX.Element => {
                     />
                     <TimelineItem
                         year="2020"
+                        logo={"/img/jeremygrenet_logo_text--white.png"}
                         bottom={85}
                         label={appKeys["CAREER_TAB_XP_5"]}
-                        applogo
                     />
                 </div>
             </div>

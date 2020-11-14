@@ -100,6 +100,8 @@
         @include media-breakpoint-down($xs) {
             height: unset;
             margin-top: 50px;
+            position: relative;
+            left: 10px;
         }
 
         .timeline {
@@ -133,7 +135,7 @@
 
             .timeline-item {
                 position: absolute;
-                right: -10px;
+                right: -8px;
                 display: inline-flex;
                 flex-direction: row-reverse;
                 align-items: center;
@@ -154,12 +156,12 @@
                 }
 
                 &_point {
-                    width: 20px;
+                    width: 15px;
                     background-color: $yellow;
 
                     &--single {
                         border-radius: 50%;
-                        height: 20px;
+                        height: 15px;
                     }
 
                     &--multiple {
@@ -168,10 +170,10 @@
                     }
 
                     @media (max-width: 1300px) {
-                        width: 14px;
+                        width: 12px;
 
                         &--single {
-                            height: 14px;
+                            height: 12px;
                         }
                     }
                 }
@@ -179,7 +181,7 @@
                 &_arrow {
                     height: 2px;
                     width: 50px;
-                    margin: 0 10px;
+                    margin: 0 20px;
                     background-color: $yellow;
                     position: relative;
 
@@ -194,7 +196,7 @@
                         left: 50%;
                         transform: translateX(-50%);
                         top: -25px;
-                        font-weight: 700;
+                        font-weight: 500;
                         color: $yellow;
 
                         @include media-breakpoint-down($sm) {
@@ -213,14 +215,13 @@
 
                 &_name {
                     max-width: 200px;
-                    text-align: center;
+                    text-align: right;
                     line-height: 22px;
-                    @include font-size(20px);
+                    @include font-size(16px);
                     color: $yellow;
-                    font-weight: 500;
 
                     @media (max-width: 1300px) {
-                        @include font-size(15px);
+                        @include font-size(14px);
                         line-height: 20px;
                     }
 
@@ -231,7 +232,7 @@
                     @include media-breakpoint-down($sm) {
                         width: 100px;
                         line-height: 15px;
-                        @include font-size(18px);
+                        @include font-size(17px);
                     }
 
                     @media (max-width: 300px) {

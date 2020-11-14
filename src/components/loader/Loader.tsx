@@ -12,7 +12,7 @@ const Loader = (): JSX.Element => {
                     height="100%"
                 />
             </svg>
-            <span className="loader_txt">JG</span>
+            <span className="loader_txt">Jg</span>
         </div>
     );
 }

@@ -12,7 +12,7 @@
   opacity: 1;
 }
 .animation-fade-exit-active {
-  opacity: 0.5;
+  opacity: 1;
   transition: opacity 500ms ease-in-out;
 }
 .animation-fade-exit-done {

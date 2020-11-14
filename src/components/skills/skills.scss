@@ -104,7 +104,7 @@
         width: 50%;
         z-index: 2;
         overflow: hidden;
-        transition: all 1s ease-in-out;
+        transition: all $recover_duration $recover_speed;
 
         @include media-breakpoint-down($sm) {
             width: 100%;
