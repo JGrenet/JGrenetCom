@@ -26,20 +26,26 @@ export const ProductionsDetails = ({
 
     const { localeStore } = useStores();
 
+    const appKeys = localeStore.keys;
+
     const getExperienceTypeLabel = useMemo(() => {
         switch (experienceType) {
             case ExperienceType.FULL_TIME:
-                return localeStore.keys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_FULL_TIME"];
+                return appKeys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_FULL_TIME"];
             case ExperienceType.INFINITE_SQUARE_MISSION:
-                return localeStore.keys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_INFINITE_SQUARE_MISSION"];
+                return appKeys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_INFINITE_SQUARE_MISSION"];
             case ExperienceType.EPITECH_PROJECT:
-                return localeStore.keys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_EPITECH_PROJECT"];
+                return appKeys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_EPITECH_PROJECT"];
             case ExperienceType.FREE_PROJECT:
-                return localeStore.keys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_FREE_PROJECT"];
+                return appKeys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_FREE_PROJECT"];
             case ExperienceType.FREELANCE:
-                return localeStore.keys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_FREELANCE"];
+                return appKeys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_FREELANCE"];
+            case ExperienceType.INTERNSHIP:
+                return appKeys["PRODUCTIONS_DETAILS_EXPERIENCETYPE_INTERNSHIP"];
+            default:
+                return "";
         }
-    }, [experienceType, localeStore.keys]);
+    }, [experienceType, appKeys]);
 
     return (
         <div className="productions-details">
@@ -49,7 +55,7 @@ export const ProductionsDetails = ({
                         {title}
                     </span>
                     <span className="productions-details_meta__infos___date">
-                        {startDate} - {endDate}
+                        {startDate} - {endDate || appKeys["PRODUCTIONS_DETAILS_ENDDATE_ONGOING"]}
                     </span>
                 </div>
                 <img src={logo} alt="productions_logo" />
@@ -61,19 +67,19 @@ export const ProductionsDetails = ({
             </div>
             <div className="productions-details_section">
                 <span className="productions-details_section__title">
-                    PRESENTATION
+                    {appKeys["PRODUCTIONS_DETAILS_PRESENTATION"]}
                 </span>
                 <p className="productions-details_section__content" dangerouslySetInnerHTML={{__html: presentation}} />
             </div>
             <div className="productions-details_section">
                 <span className="productions-details_section__title">
-                    MISSIONS
+                    {appKeys["PRODUCTIONS_DETAILS_MISSIONS"]}
                 </span>
                 <p className="productions-details_section__content" dangerouslySetInnerHTML={{__html: missions}} />
             </div>
             <div className="productions-details_section">
                 <span className="productions-details_section__title">
-                    COMPETENCES
+                    {appKeys["PRODUCTIONS_DETAILS_SKILLS_AND_TOOLS"]}
                 </span>
                 <div className="productions-details_section__skills-list skills-list">
                     {skills.map((skill) =>

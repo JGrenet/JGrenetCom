@@ -1458,7 +1458,7 @@ body.stop-scrolling, .app.stop-scrolling {
   width: 100vw;
   height: 100vh;
   background-color: white;
-  z-index: 2;
+  z-index: 3;
 }
 .productions_mobile-details-container__close {
   position: absolute;
@@ -1502,6 +1502,7 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .productions-details_meta img {
   max-width: 150px;
+  max-height: 50px;
 }
 .productions-details_meta__infos {
   margin-right: 30px;
@@ -1804,8 +1805,8 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .skills_recover__content_content__container___grid, .skills_recover__content_content__container .skills-grid, .skills_recover .recover_content__container___grid, .skills_recover .recover_content__container .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 100px);
-  grid-auto-rows: 100px;
+  grid-template-columns: repeat(auto-fill, 125px);
+  grid-auto-rows: 125px;
   grid-gap: 20px;
   padding: 50px 40px 50px 40px;
 }
@@ -1822,6 +1823,12 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 1050px) {
   .skills_recover__content_content__container___grid, .skills_recover__content_content__container .skills-grid, .skills_recover .recover_content__container___grid, .skills_recover .recover_content__container .skills-grid {
     padding: 0 10px 50px 10px;
+  }
+}
+@media (max-width: 768px) {
+  .skills_recover__content_content__container___grid, .skills_recover__content_content__container .skills-grid, .skills_recover .recover_content__container___grid, .skills_recover .recover_content__container .skills-grid {
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-auto-rows: 100px;
   }
 }
 .skills_recover__content_content__container___grid_item, .skills_recover__content_content__container___grid .skills-grid-item, .skills_recover__content_content__container .skills-grid_item, .skills_recover__content_content__container .skills-grid .skills-grid-item, .skills_recover .recover_content__container___grid_item, .skills_recover .recover_content__container___grid .skills-grid-item, .skills_recover .recover_content__container .skills-grid_item, .skills_recover .recover_content__container .skills-grid .skills-grid-item {

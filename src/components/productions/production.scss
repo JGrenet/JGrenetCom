@@ -276,7 +276,7 @@
         width: 100vw;
         height: 100vh;
         background-color: $white;
-        z-index: 2;
+        z-index: 3;
 
         &__close {
             position: absolute;
@@ -321,6 +321,7 @@
 
         img {
             max-width: 150px;
+            max-height: 50px;
         }
 
         &__infos {

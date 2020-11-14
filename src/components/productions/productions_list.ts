@@ -112,24 +112,24 @@ export const productions_list: Production[] = [
         txtlogo: "/img/pernod_ricard_logo_text.png",
         experienceType: ExperienceType.INFINITE_SQUARE_MISSION
     },
-    {
-        key: "talentsoft",
-        startDate: "03/2020",
-        endDate: "11/2020",
-        skills: [
-            "React",
-            "Webpack",
-            "Typescript",
-            "MobX",
-            "HTML5",
-            "CSS3",
-            "Git",
-            "Material-UI"
-        ],
-        logo: "/img/talentsoft_logo.png",
-        txtlogo: "/img/talentsoft_logo_text.png",
-        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
-    },
+    // {
+    //     key: "talentsoft",
+    //     startDate: "03/2020",
+    //     endDate: "11/2020",
+    //     skills: [
+    //         "React",
+    //         "Webpack",
+    //         "Typescript",
+    //         "MobX",
+    //         "HTML5",
+    //         "CSS3",
+    //         "Git",
+    //         "Material-UI"
+    //     ],
+    //     logo: "/img/talentsoft_logo.png",
+    //     txtlogo: "/img/talentsoft_logo_text.png",
+    //     experienceType: ExperienceType.INFINITE_SQUARE_MISSION
+    // },
     {
         key: "jeremygrenet_com",
         startDate: "09/2020",
