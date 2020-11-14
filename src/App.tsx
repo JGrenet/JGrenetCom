@@ -3,14 +3,17 @@ import Loader from "./components/loader/Loader";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import Shell from "./components/shell/Shell";
 import useStores from "./stores";
+import { Helmet } from "react-helmet";
+import { observer } from "mobx-react-lite";
 
-const App = (): JSX.Element  => {
+const App = observer((): JSX.Element  => {
     const [isLoaded, setIsLoaded] = useState(false);
-    const { tabStore } = useStores();
+    const { tabStore, localeStore } = useStores();
     const [scrollDisabled, setScrollDisabled] = useState(false);
+
+    const appKeys = localeStore.keys;
     
     useEffect(() => {
-        // Fake Loading
         (async () => setTimeout(() => {
             setIsLoaded(true);
         }, 4000))();
@@ -27,6 +30,7 @@ const App = (): JSX.Element  => {
                 tabStore.goNextTab();
             } else {
                 tabStore.goPreviousTab();
+                
             }
             setTimeout(() => {
                 setScrollDisabled(false);
@@ -36,6 +40,10 @@ const App = (): JSX.Element  => {
 
     return (
         <div className="app" onWheel={handleScroll} >
+            <Helmet>
+                <title>{appKeys["SITE_META_TITLE"]}</title>
+                <meta name="description" content={appKeys["SITE_META_DESCRIPTION"]} />
+            </Helmet>
             <SwitchTransition mode="out-in">
                 <CSSTransition
                     addEndListener={handleAddEnd}
@@ -51,7 +59,7 @@ const App = (): JSX.Element  => {
             </SwitchTransition>
         </div>
     );
-}
+});
     
 export default App;
     

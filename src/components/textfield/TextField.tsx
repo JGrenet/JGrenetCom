@@ -8,6 +8,7 @@ interface TextFieldProps {
     value: string;
     onChange: (value: string) => void;
     hasErrors: string;
+    textarea?: boolean;
 }
 
 const TextField = ({
@@ -15,7 +16,8 @@ const TextField = ({
     className,
     value,
     onChange,
-    hasErrors
+    hasErrors,
+    textarea = false
 }: TextFieldProps): JSX.Element => {
     const { responsiveStore } = useStores();
     const inputContainerRef = useRef<HTMLDivElement>(null);
@@ -37,10 +39,22 @@ const TextField = ({
         inputContainerRef.current.classList.add("focused")
     }, [inputContainerRef])
 
-    const handleOnChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOnChange = useCallback((event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         onChange(event.target.value);
         handleOnFocus();
     }, [onChange, handleOnFocus])
+
+    const props = {
+        className: clsx(
+            "textfield_input",
+            {["textfield_input--black"]: responsiveStore.backgroundColor === "white"}
+        ),
+        placeholder: placeholder,
+        onChange: handleOnChange,
+        value: value,
+        onBlur: handleOnBlur,
+        onFocus: handleOnFocus
+    }
 
     return (
         <div
@@ -51,18 +65,8 @@ const TextField = ({
             )}
             ref={inputContainerRef}
         >
-            <input
-                className={clsx(
-                    "textfield_input",
-                    {["textfield_input--black"]: responsiveStore.backgroundColor === "white"}
-                )}
-                type="text"
-                placeholder={placeholder}
-                onChange={handleOnChange}
-                value={value}
-                onBlur={handleOnBlur}
-                onFocus={handleOnFocus}
-            />
+            {!textarea && <input type="text" {...props} />}
+            {textarea && <textarea {...props} /> }
             {hasErrors && (
                 <div className="textfield_error">
                     {hasErrors}

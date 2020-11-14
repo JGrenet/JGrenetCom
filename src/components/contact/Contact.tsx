@@ -210,6 +210,7 @@ const Contact = (): JSX.Element => {
                             value={content}
                             onChange={handleContentChange}
                             hasErrors={hasContentErrors}
+                            textarea
                         />
                         <div className="form-submit">
                             <Button label="Envoyer" onClick={handleSubmit} size="medium" />
