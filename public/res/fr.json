@@ -75,5 +75,7 @@
     "PRODUCTIONS_DETAILS_ENDDATE_ONGOING": "En cours",
     "PRODUCTIONS_DETAILS_PRESENTATION": "Présentation",
     "PRODUCTIONS_DETAILS_MISSIONS": "Mission(s)",
-    "PRODUCTIONS_DETAILS_SKILLS_AND_TOOLS": "Compétences et outils"
+    "PRODUCTIONS_DETAILS_SKILLS_AND_TOOLS": "Compétences et outils",
+    "CONTACT_SENDING_SUCCESS": "Votre message à été envoyé",
+    "CONTACT_SENDING_FAILED": "Il a eu une erreur dans l'envoie de votre message. Veuillez réessayer plus tard ou contactez-moi directement par email."
 }

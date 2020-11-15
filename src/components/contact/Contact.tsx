@@ -3,10 +3,14 @@ import useStores from "../../stores";
 import Button from "../button/Button";
 import TextField from "../textfield/TextField";
 import clsx from "clsx";
+import emailjs from 'emailjs-com';
+import { emailjs_userId } from "../../ressources";
 
 const Contact = (): JSX.Element => {
-    const { responsiveStore } = useStores();
+    const { responsiveStore, localeStore } = useStores();
     const contactRef = useRef<HTMLDivElement>(null);
+    const [sentSuccess, setSentSuccess] = useState<boolean | null>(null);
+    const appKeys = localeStore.keys;
 
     /* First name */
     const [firstName, setFirstName] = useState<string>("");
@@ -66,7 +70,7 @@ const Contact = (): JSX.Element => {
         setContent,
         hasContentErrors,
         setHasContentErrors
-    ])
+    ]);
 
     const handleSubmit = useCallback(() => {
         let hasErrors = false;
@@ -99,7 +103,7 @@ const Contact = (): JSX.Element => {
             );
         }
 
-        /* First name */
+        /* Object */
         if (object) {
             hasObjectErrors && setHasObjectErrors("");
         } else {
@@ -107,7 +111,7 @@ const Contact = (): JSX.Element => {
             setHasObjectErrors("Ce champ est requis");
         }
 
-        /* First name */
+        /* Content */
         if (content) {
             hasContentErrors && setHasContentErrors("");
         } else {
@@ -116,7 +120,22 @@ const Contact = (): JSX.Element => {
         }
 
         if (!hasErrors) {
-            // submit
+            emailjs.send('default_service', 'template_20lp063', {
+                from_name: `${firstName} ${lastName}`,
+                object: object,
+                message: content,
+                email: email
+            }, emailjs_userId).then(() => {
+                handleFirstNameChange("");
+                handleLastNameChange("");
+                handleEmailChange("");
+                handleObjectChange("");
+                handleContentChange("");
+
+                setSentSuccess(true);
+            }, () => {
+                setSentSuccess(false);
+            });
         }
     }, [
         firstName,
@@ -133,7 +152,12 @@ const Contact = (): JSX.Element => {
         setHasObjectErrors,
         content,
         hasContentErrors,
-        setHasContentErrors
+        setHasContentErrors,
+        handleFirstNameChange,
+        handleLastNameChange,
+        handleEmailChange,
+        handleObjectChange,
+        handleContentChange
     ]);
 
     const handleContactsScroll = useCallback(() => {
@@ -214,6 +238,16 @@ const Contact = (): JSX.Element => {
                         />
                         <div className="form-submit">
                             <Button label="Envoyer" onClick={handleSubmit} size="medium" />
+                            {sentSuccess !== null && (
+                                <div className={clsx(
+                                        "form-submit_status",
+                                        sentSuccess && "form-submit_status--success",
+                                        !sentSuccess && "form-submit_status--failed"
+                                    )}
+                                >
+                                    {sentSuccess ? appKeys["CONTACT_SENDING_SUCCESS"] : appKeys["CONTACT_SENDING_FAILED"]}
+                                </div>
+                            )}
                         </div>
                     </form>
                 </div>

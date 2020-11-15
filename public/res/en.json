@@ -75,5 +75,7 @@
     "PRODUCTIONS_DETAILS_ENDDATE_ONGOING": "Ongoing",
     "PRODUCTIONS_DETAILS_PRESENTATION": "Presentation",
     "PRODUCTIONS_DETAILS_MISSIONS": "Mission(s)",
-    "PRODUCTIONS_DETAILS_SKILLS_AND_TOOLS": "Skills and tools"
+    "PRODUCTIONS_DETAILS_SKILLS_AND_TOOLS": "Skills and tools",
+    "CONTACT_SENDING_SUCCESS": "Your message has been sent",
+    "CONTACT_SENDING_FAILED": "There is an error with sending your message. Please try again later or contact me directly by mail"
 }

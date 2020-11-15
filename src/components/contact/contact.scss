@@ -80,7 +80,7 @@
 
                 @media (max-width: 1300px) {
                     flex-direction: row;
-                    margin-top: 40px;
+                    margin-top: 60px;
                     justify-content: space-between;
                 }
 
@@ -265,6 +265,34 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    position: relative;
+
+                    &_status {
+                        position: absolute;
+                        @include font-size(15px);
+                        bottom: -40px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 100%;
+                        text-align: center;
+
+                        @media (max-width: 1300px) {
+                            bottom: -30px;
+                        }
+
+                        @include media-breakpoint-down($sm) {
+                            bottom: -40px;
+                            @include font-size(20px);
+                        }
+
+                        &--success {
+                            color: $green;
+                        }
+
+                        &--failed {
+                            color: $red;
+                        }
+                    }
                 }
             }
 

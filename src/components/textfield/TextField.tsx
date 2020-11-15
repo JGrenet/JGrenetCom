@@ -1,5 +1,6 @@
 import React, { useCallback, useRef } from "react";
 import clsx from "clsx";
+import TextareaAutosize from 'react-textarea-autosize';
 import useStores from "../../stores";
 
 interface TextFieldProps {
@@ -47,7 +48,8 @@ const TextField = ({
     const props = {
         className: clsx(
             "textfield_input",
-            {["textfield_input--black"]: responsiveStore.backgroundColor === "white"}
+            responsiveStore.backgroundColor === "white" && "textfield_input--black",
+            textarea && "textfield_input--textarea"
         ),
         placeholder: placeholder,
         onChange: handleOnChange,
@@ -61,12 +63,19 @@ const TextField = ({
             className={clsx(
                 "textfield",
                 className,
-                hasErrors && "textfield--has-error"
+                hasErrors && "textfield--has-error",
+                textarea && "textfield--textarea"
             )}
             ref={inputContainerRef}
         >
             {!textarea && <input type="text" {...props} />}
-            {textarea && <textarea {...props} /> }
+            {textarea && (
+                <TextareaAutosize
+                    minRows={1}
+                    maxRows={responsiveStore.isMobile ? undefined : 3}
+                    {...props} 
+                />
+            )}
             {hasErrors && (
                 <div className="textfield_error">
                     {hasErrors}

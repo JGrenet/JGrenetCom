@@ -422,6 +422,7 @@ body.stop-scrolling, .app.stop-scrolling {
   padding: 0 0 7px 0;
   width: 100%;
   transition: border-bottom 1s ease-in-out;
+  font-family: "Montserrat";
 }
 @media (max-width: 768px) {
   .textfield_input {
@@ -430,6 +431,15 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .textfield_input--black {
   border-bottom: 3px solid black;
+}
+.textfield_input--textarea {
+  font-size: 1.125em;
+  resize: none;
+}
+@media (max-width: 768px) {
+  .textfield_input--textarea {
+    font-size: 1.5625em;
+  }
 }
 .textfield_input:focus {
   outline: none;
@@ -443,6 +453,14 @@ body.stop-scrolling, .app.stop-scrolling {
   bottom: 0;
   height: 3px;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.textfield--textarea::after {
+  bottom: 2px;
+}
+@media (max-width: 768px) {
+  .textfield--textarea::after {
+    bottom: 1px;
+  }
 }
 .textfield.focused::after {
   width: 100%;
@@ -1971,7 +1989,7 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 1300px) {
   .contact_content__container_infos, .contact_content .content_infos {
     flex-direction: row;
-    margin-top: 40px;
+    margin-top: 60px;
     justify-content: space-between;
   }
 }
@@ -2130,6 +2148,33 @@ body.stop-scrolling, .app.stop-scrolling {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.contact_content__container_form .form-submit_status, .contact_content .content_form .form-submit_status {
+  position: absolute;
+  font-size: 0.9375em;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+@media (max-width: 1300px) {
+  .contact_content__container_form .form-submit_status, .contact_content .content_form .form-submit_status {
+    bottom: -30px;
+  }
+}
+@media (max-width: 768px) {
+  .contact_content__container_form .form-submit_status, .contact_content .content_form .form-submit_status {
+    bottom: -40px;
+    font-size: 1.25em;
+  }
+}
+.contact_content__container_form .form-submit_status--success, .contact_content .content_form .form-submit_status--success {
+  color: #75e67c;
+}
+.contact_content__container_form .form-submit_status--failed, .contact_content .content_form .form-submit_status--failed {
+  color: #ef5777;
 }
 .contact_content__container_contact, .contact_content .content_contact {
   margin-top: 75px;
