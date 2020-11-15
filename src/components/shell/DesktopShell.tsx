@@ -69,6 +69,10 @@ const DesktopShell = observer((): JSX.Element => {
         tabStore.selectTab(Tab.CONTACT);
     }, [tabStore]);
 
+    const handleDownloadCV = useCallback(() => {
+        window.open("/files/CV-jeremy-grenet.pdf", "_blank");
+    }, []);
+
     if (!shellStyle) return <></>;
 
     return (
@@ -97,11 +101,14 @@ const DesktopShell = observer((): JSX.Element => {
             <div className="shell_language stroke-hidder">
                 <LanguageSelector />
             </div>
-            {tabStore.selectedtab !== Tab.CONTACT && (
-                <div className="shell_contact-btn stroke-hidder">
+            <div className="shell_contact-btn stroke-hidder">
+                {tabStore.selectedtab !== Tab.CONTACT && (
                     <Button label={appKeys["ACTION_CONTACT_ME"]} onClick={handleRedirectToContactTab} />
-                </div>
-            )}
+                )}
+                {tabStore.selectedtab === Tab.CONTACT && (
+                    <Button label={appKeys["ACTION_DOWNLOAD_CV"]} onClick={handleDownloadCV} />
+                )}
+            </div>
             <NavBar variant="white" />
         </div>
     );
