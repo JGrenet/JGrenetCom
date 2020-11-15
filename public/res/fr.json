@@ -77,5 +77,19 @@
     "PRODUCTIONS_DETAILS_MISSIONS": "Mission(s)",
     "PRODUCTIONS_DETAILS_SKILLS_AND_TOOLS": "Compétences et outils",
     "CONTACT_SENDING_SUCCESS": "Votre message à été envoyé",
-    "CONTACT_SENDING_FAILED": "Il a eu une erreur dans l'envoie de votre message. Veuillez réessayer plus tard ou contactez-moi directement par email."
+    "CONTACT_SENDING_FAILED": "Il a eu une erreur dans l'envoie de votre message. Veuillez réessayer plus tard ou contactez-moi directement par email.",
+    "CONTACT_FORM_ERROR_REQUIRED": "Ce champs est requis",
+    "CONTACT_FORM_ERROR_MAIL_INVALID": "L'adresse email est invalide",
+    "CONTACT_TAB_TITLE": "Contact",
+    "CONTACT_FORM_TITLE": "Formulaire de contact",
+    "CONTACT_FORM_FIRSTNAME_PLACEHOLDER": "Prenom",
+    "CONTACT_FORM_LASTNAME_PLACEHOLDER": "Nom",
+    "CONTACT_FORM_EMAIL_PLACEHOLDER": "Email",
+    "CONTACT_FORM_OBJECT_PLACEHOLDER": "Objet",
+    "CONTACT_FORM_CONTENT_PLACEHOLDER": "Texte libre",
+    "CONTACT_FORM_SUBMIT": "Envoyer",
+    "CONTACT_FORM_INFOS": "Vous pouvez me contacter également via",
+    "CONTACT_FORM_INFOS_EMAIL": "Email :",
+    "CONTACT_FORM_INFOS_PHONE": "Téléphone :",
+    "CONTACT_FORM_NETWORKS": "Ou me retrouver sur mes réseaux :"
 }

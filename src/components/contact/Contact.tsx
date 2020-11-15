@@ -5,8 +5,9 @@ import TextField from "../textfield/TextField";
 import clsx from "clsx";
 import emailjs from 'emailjs-com';
 import { emailjs_userId } from "../../ressources";
+import { observer } from "mobx-react-lite";
 
-const Contact = (): JSX.Element => {
+const Contact = observer((): JSX.Element => {
     const { responsiveStore, localeStore } = useStores();
     const contactRef = useRef<HTMLDivElement>(null);
     const [sentSuccess, setSentSuccess] = useState<boolean | null>(null);
@@ -80,7 +81,7 @@ const Contact = (): JSX.Element => {
             hasFirstNameErrors && setHasFirstNameErrors("");
         } else {
             hasErrors = true;
-            setHasFirstNameErrors("Ce champ est requis");
+            setHasFirstNameErrors(appKeys["CONTACT_FORM_ERROR_REQUIRED"]);
         }
 
         /* Last name */
@@ -88,7 +89,7 @@ const Contact = (): JSX.Element => {
             hasLastNameErrors && setHasLastNameErrors("");
         } else {
             hasErrors = true;
-            setHasLastNameErrors("Ce champ est requis");
+            setHasLastNameErrors(appKeys["CONTACT_FORM_ERROR_REQUIRED"]);
         }
 
         /* Email */
@@ -98,8 +99,8 @@ const Contact = (): JSX.Element => {
         } else {
             hasErrors = true;
             setHasEmailErrors(email
-                ? "L'adresse email est invalide"
-                : "Ce champ est requis"
+                ? appKeys["CONTACT_FORM_ERROR_MAIL_INVALID"]
+                : appKeys["CONTACT_FORM_ERROR_REQUIRED"]
             );
         }
 
@@ -108,7 +109,7 @@ const Contact = (): JSX.Element => {
             hasObjectErrors && setHasObjectErrors("");
         } else {
             hasErrors = true;
-            setHasObjectErrors("Ce champ est requis");
+            setHasObjectErrors(appKeys["CONTACT_FORM_ERROR_REQUIRED"]);
         }
 
         /* Content */
@@ -116,7 +117,7 @@ const Contact = (): JSX.Element => {
             hasContentErrors && setHasContentErrors("");
         } else {
             hasErrors = true;
-            setHasContentErrors("Ce champ est requis");
+            setHasContentErrors(appKeys["CONTACT_FORM_ERROR_REQUIRED"]);
         }
 
         if (!hasErrors) {
@@ -157,7 +158,8 @@ const Contact = (): JSX.Element => {
         handleLastNameChange,
         handleEmailChange,
         handleObjectChange,
-        handleContentChange
+        handleContentChange,
+        appKeys
     ]);
 
     const handleContactsScroll = useCallback(() => {
@@ -187,7 +189,7 @@ const Contact = (): JSX.Element => {
             ref={contactRef}
         >
             <div className="contact_title">
-                <h2>Contact</h2>
+                <h2>{appKeys["CONTACT_TAB_TITLE"]}</h2>
             </div>
             <div className="contact_content">
                 <div className="contact_content__container content">
@@ -196,40 +198,40 @@ const Contact = (): JSX.Element => {
                             {["content_title--black"]: responsiveStore.backgroundColor === "white"}
                         )}
                     >
-                        Formulaire de contact
+                        {appKeys["CONTACT_FORM_TITLE"]}
                     </span>
 
                     <form action="#" className="content_form">
                         <TextField
-                            placeholder="Prenom"
+                            placeholder={appKeys["CONTACT_FORM_FIRSTNAME_PLACEHOLDER"]}
                             className="form-firstname"
                             value={firstName}
                             onChange={handleFirstNameChange}
                             hasErrors={hasFirstNameErrors}
                         />
                         <TextField
-                            placeholder="Nom"
+                            placeholder={appKeys["CONTACT_FORM_LASTNAME_PLACEHOLDER"]}
                             className="form-lastname"
                             value={lastName}
                             onChange={handleLastNameChange}
                             hasErrors={hasLastNameErrors}
                         />
                         <TextField
-                            placeholder="Email"
+                            placeholder={appKeys["CONTACT_FORM_EMAIL_PLACEHOLDER"]}
                             className="form-email"
                             value={email}
                             onChange={handleEmailChange}
                             hasErrors={hasEmailErrors}
                         />
                         <TextField
-                            placeholder="Objet"
+                            placeholder={appKeys["CONTACT_FORM_OBJECT_PLACEHOLDER"]}
                             className="form-object"
                             value={object}
                             onChange={handleObjectChange}
                             hasErrors={hasObjectErrors}
                         />
                         <TextField
-                            placeholder="Texte libre"
+                            placeholder={appKeys["CONTACT_FORM_CONTENT_PLACEHOLDER"]}
                             className="form-content"
                             value={content}
                             onChange={handleContentChange}
@@ -237,7 +239,7 @@ const Contact = (): JSX.Element => {
                             textarea
                         />
                         <div className="form-submit">
-                            <Button label="Envoyer" onClick={handleSubmit} size="medium" />
+                            <Button label={appKeys["CONTACT_FORM_SUBMIT"]} onClick={handleSubmit} size="medium" />
                             {sentSuccess !== null && (
                                 <div className={clsx(
                                         "form-submit_status",
@@ -258,12 +260,12 @@ const Contact = (): JSX.Element => {
                                 {["content_title--black"]: responsiveStore.backgroundColor === "white"}
                             )}
                         >
-                            Vous pouvez me contacter également via
+                            {appKeys["CONTACT_FORM_INFOS"]}
                         </div>
                         <div className="content_contact">
                             <div className="content_contact__meta-title">
-                                <div>Email :</div>
-                                <div>Téléphone :</div>
+                                <div>{appKeys["CONTACT_FORM_INFOS_EMAIL"]}</div>
+                                <div>{appKeys["CONTACT_FORM_INFOS_PHONE"]}</div>
                             </div>
                             <div className="content_contact__meta-infos">
                                 <div>contact@jeremygrenet.com</div>
@@ -277,7 +279,7 @@ const Contact = (): JSX.Element => {
                                 {["content_title--black"]: responsiveStore.backgroundColor === "white"}
                             )}
                         >
-                            Ou me retrouver sur mes réseaux :
+                            {appKeys["CONTACT_FORM_NETWORKS"]}
                         </div>
                         <div className="content_socials">
                             <div className={clsx(
@@ -300,6 +302,6 @@ const Contact = (): JSX.Element => {
             </div>
         </div>
     )
-}
+});
 
 export default Contact;

@@ -77,5 +77,19 @@
     "PRODUCTIONS_DETAILS_MISSIONS": "Mission(s)",
     "PRODUCTIONS_DETAILS_SKILLS_AND_TOOLS": "Skills and tools",
     "CONTACT_SENDING_SUCCESS": "Your message has been sent",
-    "CONTACT_SENDING_FAILED": "There is an error with sending your message. Please try again later or contact me directly by mail"
+    "CONTACT_SENDING_FAILED": "There is an error with sending your message. Please try again later or contact me directly by mail",
+    "CONTACT_FORM_ERROR_REQUIRED": "This field is required",
+    "CONTACT_FORM_ERROR_MAIL_INVALID": "The mail adress is not valid",
+    "CONTACT_TAB_TITLE": "Contact",
+    "CONTACT_FORM_TITLE": "Contact form",
+    "CONTACT_FORM_FIRSTNAME_PLACEHOLDER": "Fistname",
+    "CONTACT_FORM_LASTNAME_PLACEHOLDER": "Lastname",
+    "CONTACT_FORM_EMAIL_PLACEHOLDER": "Mail",
+    "CONTACT_FORM_OBJECT_PLACEHOLDER": "Object",
+    "CONTACT_FORM_CONTENT_PLACEHOLDER": "Free text",
+    "CONTACT_FORM_SUBMIT": "Send",
+    "CONTACT_FORM_INFOS": "You can also contact me by",
+    "CONTACT_FORM_INFOS_EMAIL": "Mail :",
+    "CONTACT_FORM_INFOS_PHONE": "Phone :",
+    "CONTACT_FORM_NETWORKS": "Or you can find me on my networks :"
 }

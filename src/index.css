@@ -102,6 +102,10 @@ table {
   border-spacing: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
 html {
   font-size: 90%;
 }
