@@ -16,6 +16,11 @@
             &--selected {
                 font-weight: 600;
             }
+
+            &--action {
+                margin-top: 20px;
+                text-decoration: underline;
+            }
         }
     }
 }
