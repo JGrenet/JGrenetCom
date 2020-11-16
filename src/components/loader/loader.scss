@@ -29,6 +29,10 @@
     &_txt {
         @include font-size(55px);
         font-weight: 300;
+
+        @include media-breakpoint-down($sm) {
+            @include font-size(100px);
+        }
     }
 }
 

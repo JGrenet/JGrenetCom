@@ -139,6 +139,7 @@
                     width: 300px;
                     color: $grey;
                     text-align: center;
+                    line-height: 18px;
 
                     @include media-breakpoint-down(1400px) {
                         width: 400px;

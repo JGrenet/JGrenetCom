@@ -72,9 +72,11 @@
             p {
                 width: 100%;
                 @include font-size(20px);
+                line-height: 22px;
 
                 @media (max-width: 1300px) {
                     @include font-size(17px);
+                    line-height: 16px;
                 }
 
                 @media (max-width: 1200px) {
@@ -83,6 +85,7 @@
 
                 @include media-breakpoint-down($sm) {
                     @include font-size(22px);
+                    line-height: 18px;
                 }
             }
         }

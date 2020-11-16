@@ -192,6 +192,11 @@ body.stop-scrolling, .app.stop-scrolling {
   font-size: 3.4375em;
   font-weight: 300;
 }
+@media (max-width: 768px) {
+  .loader_txt {
+    font-size: 6.25em;
+  }
+}
 
 @keyframes loader_dash {
   to {
@@ -910,6 +915,7 @@ body.stop-scrolling, .app.stop-scrolling {
   width: 300px;
   color: #e5e5e5;
   text-align: center;
+  line-height: 18px;
 }
 @media (max-width: 1400px) {
   .services_content__services-list_item__content, .services_content .services-list_item__content {
@@ -1033,10 +1039,12 @@ body.stop-scrolling, .app.stop-scrolling {
 .career_description__content p {
   width: 100%;
   font-size: 1.25em;
+  line-height: 22px;
 }
 @media (max-width: 1300px) {
   .career_description__content p {
     font-size: 1.0625em;
+    line-height: 16px;
   }
 }
 @media (max-width: 1200px) {
@@ -1047,6 +1055,7 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 768px) {
   .career_description__content p {
     font-size: 1.375em;
+    line-height: 18px;
   }
 }
 .career_timeline {
@@ -1112,7 +1121,7 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 @media (max-width: 1300px) {
   .career_timeline .timeline .timeline-item {
-    right: -7px;
+    right: -6px;
   }
 }
 .career_timeline .timeline .timeline-item_logo {
@@ -1291,10 +1300,12 @@ body.stop-scrolling, .app.stop-scrolling {
 .productions_content__description p {
   width: 100%;
   font-size: 1.25em;
+  line-height: 22px;
 }
 @media (max-width: 1300px) {
   .productions_content__description p {
     font-size: 1.0625em;
+    line-height: 16px;
   }
 }
 @media (max-width: 1200px) {
@@ -1305,6 +1316,7 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 768px) {
   .productions_content__description p {
     font-size: 1.375em;
+    line-height: 18px;
   }
 }
 .productions_recover {
@@ -1749,10 +1761,12 @@ body.stop-scrolling, .app.stop-scrolling {
 .skills_content__description p {
   width: 100%;
   font-size: 1.25em;
+  line-height: 22px;
 }
 @media (max-width: 1300px) {
   .skills_content__description p {
     font-size: 1.0625em;
+    line-height: 16px;
   }
 }
 @media (max-width: 1200px) {
@@ -1763,6 +1777,7 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 768px) {
   .skills_content__description p {
     font-size: 1.375em;
+    line-height: 18px;
   }
 }
 .skills_recover {

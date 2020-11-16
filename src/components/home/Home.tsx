@@ -14,10 +14,7 @@ const Home = observer(() => {
                 <div className="home_content__main-content">
                     <h1 className="bold">{appKeys["HOME_HELLO"]}</h1>
                     <h2>{appKeys["HOME_NAME"]}</h2>
-                    <h2>
-                        {appKeys["HOME_JOB"]}
-                        <span className="yellow bold">{appKeys["HOME_FRONT_END"]}</span>
-                    </h2>
+                    <h2 dangerouslySetInnerHTML={{__html: appKeys["HOME_JOB"]}} />
                     <h4>{appKeys["HOME_CATCHPHRASE"]}</h4>
                 </div>
             </div>
