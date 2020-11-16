@@ -781,6 +781,7 @@ body.stop-scrolling, .app.stop-scrolling {
   color: white;
 }
 .services_content h2 {
+  font-weight: 700;
   text-align: center;
   font-size: 3.75em;
 }
@@ -873,6 +874,7 @@ body.stop-scrolling, .app.stop-scrolling {
   text-align: center;
   color: #fca311;
   font-size: 0.875em;
+  font-weight: 600;
 }
 @media (max-width: 768px) {
   .services_content__services-list_item__icon span, .services_content .services-list_item__icon span {
@@ -899,7 +901,7 @@ body.stop-scrolling, .app.stop-scrolling {
   transform: translate(-50%, -50%);
   width: 1px;
   background-color: white;
-  height: 40px;
+  height: 60px;
 }
 @media (max-width: 768px) {
   .services_content__services-list_item__separator, .services_content .services-list_item__separator {

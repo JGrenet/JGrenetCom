@@ -64,6 +64,12 @@ export const ProductionsDetails = ({
                 <div className="productions-details_section__type-chip">
                     {getExperienceTypeLabel}
                 </div>
+                <div className="productions-details_section__type-chip">
+                    {getExperienceTypeLabel}
+                </div>
+                <div className="productions-details_section__type-chip">
+                    {getExperienceTypeLabel}
+                </div>
             </div>
             <div className="productions-details_section">
                 <span className="productions-details_section__title">

@@ -371,6 +371,9 @@
 
         &--first {
             margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+
         }
 
         &__type-chip {
@@ -385,6 +388,34 @@
             border-radius: 2px;
             display: inline-block;
             padding: 0 15px;
+        }
+
+        &__github-chip {
+            background-color: $white;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 25px;
+            }
+        }
+
+        &__browser-chip {
+            background-color: $white;
+            border: 2px solid $lightyellow;
+            box-sizing: border-box;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 25px;
+            }
         }
 
         &__presentation {
