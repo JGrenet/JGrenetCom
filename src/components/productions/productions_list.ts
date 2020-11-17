@@ -41,7 +41,8 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/infinite_square_logo.png",
         txtlogo: "/img/infinite_square_logo_text.png",
-        experienceType: ExperienceType.FULL_TIME
+        experienceType: ExperienceType.FULL_TIME,
+        outlink: "http://www.infinitesquare.com/"
     },
     {
         key: "hokifish_site_vitrine",
@@ -95,7 +96,8 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/lumapps_logo.png",
         txtlogo: "/img/lumapps_logo_text.png",
-        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
+        experienceType: ExperienceType.INFINITE_SQUARE_MISSION,
+        outlink: "https://www.lumapps.com/fr/"
     },
     {
         key: "pernod_ricard_les_embiez",
@@ -115,24 +117,6 @@ export const productions_list: Production[] = [
         txtlogo: "/img/pernod_ricard_logo_text.png",
         experienceType: ExperienceType.INFINITE_SQUARE_MISSION
     },
-    // {
-    //     key: "talentsoft",
-    //     startDate: "03/2020",
-    //     endDate: "11/2020",
-    //     skills: [
-    //         "React",
-    //         "Webpack",
-    //         "Typescript",
-    //         "MobX",
-    //         "HTML5",
-    //         "CSS3",
-    //         "Git",
-    //         "Material-UI"
-    //     ],
-    //     logo: "/img/talentsoft_logo.png",
-    //     txtlogo: "/img/talentsoft_logo_text.png",
-    //     experienceType: ExperienceType.INFINITE_SQUARE_MISSION
-    // },
     {
         key: "jeremygrenet_com",
         startDate: "09/2020",
@@ -171,7 +155,8 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/pinty_logo.png",
         txtlogo: "/img/pinty_logo_text.png",
-        experienceType: ExperienceType.EPITECH_PROJECT
+        experienceType: ExperienceType.EPITECH_PROJECT,
+        githubLink: "https://github.com/JGrenet/EIP-Pinty-Web"
     },
     {
         key: "mrmarguerite",
@@ -188,7 +173,8 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/mrmarguerite_logo.png",
         txtlogo: "/img/mrmarguerite_logo_text.png",
-        experienceType: ExperienceType.FREELANCE
+        experienceType: ExperienceType.FREELANCE,
+        githubLink: "https://github.com/JGrenet/mrmarguerite-landingpage"
     },
     {
         key: "meolia",
@@ -203,7 +189,8 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/meolia_logo.png",
         txtlogo: "/img/meolia_logo_text.png",
-        experienceType: ExperienceType.INTERNSHIP
+        experienceType: ExperienceType.INTERNSHIP,
+        outlink: "https://meolia.fr/"
     },
     {
         key: "mgmobile",
@@ -218,6 +205,7 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/mgmobile_logo.png",
         txtlogo: "/img/mgmobile_logo_text.png",
-        experienceType: ExperienceType.INTERNSHIP
+        experienceType: ExperienceType.INTERNSHIP,
+        outlink: "https://www.mgmobile.fr/"
     },
 ]
