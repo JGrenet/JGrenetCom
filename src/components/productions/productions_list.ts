@@ -15,6 +15,8 @@ export interface Production {
     logo: string;
     txtlogo: string;
     experienceType: ExperienceType;
+    outlink?: string;
+    githubLink?: string;
 }
 
 export const productions_list: Production[] = [
@@ -55,7 +57,8 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/hokifish_logo.png",
         txtlogo: "/img/hokifish_logo_text.png",
-        experienceType: ExperienceType.INFINITE_SQUARE_MISSION
+        experienceType: ExperienceType.INFINITE_SQUARE_MISSION,
+        outlink: "https://hokifish.com"
     },
     {
         key: "hokifish_web_app",
@@ -147,7 +150,9 @@ export const productions_list: Production[] = [
         ],
         logo: "/img/jeremygrenet_logo--black.png",
         txtlogo: "/img/jeremygrenet_logo_text--black.png",
-        experienceType: ExperienceType.FREE_PROJECT
+        experienceType: ExperienceType.FREE_PROJECT,
+        outlink: "https://jeremygrenet.com",
+        githubLink: "https://github.com/JGrenet/JGrenetCom"
     },
     {
         key: "pinty",

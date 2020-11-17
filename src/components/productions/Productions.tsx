@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useEffect, useLayoutEffect, useRef, useState }  from "react";
+import React, { CSSProperties, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState }  from "react";
 import { Tab } from "../../stores/TabStore";
 import useStores from "../../stores";
 import Logo from "../logo/Logo";
@@ -95,6 +95,17 @@ const Productions = observer((): JSX.Element => {
         }
     }, [setSelectedItem, responsiveStore, isRecoverOpen, openRecover, closeRecover, selectedItem]);
 
+    const productions_items = useMemo(() =>
+        productions_list.map((production: Production, index: number) =>
+            <ProductionsGridItem
+                key={index}
+                onSelectItem={handleSelectItem}
+                index={index}
+                selectedItem={selectedItem === index && isRecoverOpen}
+                logoPath={production.logo}
+            />
+    ), [handleSelectItem, selectedItem, isRecoverOpen]);
+
     if (!recoverStyle) return <></>;
 
     return (
@@ -130,15 +141,7 @@ const Productions = observer((): JSX.Element => {
                         <div className="recover-content">
                             <div className="recover-content_container">
                                 <div className="recover-content_container__grid productions-grid">
-                                    {productions_list.map((production: Production, index: number) =>
-                                        <ProductionsGridItem
-                                            key={index}
-                                            onSelectItem={handleSelectItem}
-                                            index={index}
-                                            selectedItem={selectedItem === index && isRecoverOpen}
-                                            logoPath={production.logo}
-                                        />
-                                    )}
+                                    {productions_items}
                                 </div>
                             </div>
                         </div>
@@ -161,14 +164,7 @@ const Productions = observer((): JSX.Element => {
                                 onClick={handleSelectItem}
                             />
                             <ProductionsDetails
-                                title={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_TITLE`]}
-                                startDate={productions_list[selectedItem].startDate}
-                                endDate={productions_list[selectedItem].endDate}
-                                presentation={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_INTRODUCING`]}
-                                missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
-                                skills={productions_list[selectedItem].skills}
-                                logo={productions_list[selectedItem].txtlogo}
-                                experienceType={productions_list[selectedItem].experienceType}
+                                production={productions_list[selectedItem]}
                             />
                         </div>
                     </div>
@@ -177,15 +173,7 @@ const Productions = observer((): JSX.Element => {
             {responsiveStore.isMobile && (
                 <>
                     <div className="productions_mobile-grid">
-                        {productions_list.map((production: Production, index: number) =>
-                            <ProductionsGridItem
-                                key={index}
-                                onSelectItem={handleSelectItem}
-                                index={index}
-                                selectedItem={selectedItem === index && isRecoverOpen}
-                                logoPath={production.logo}
-                            />
-                        )}
+                        {productions_items}
                     </div>
                     {isRecoverOpen && (
                         <div className="productions_mobile-details-container">
@@ -196,14 +184,7 @@ const Productions = observer((): JSX.Element => {
                                 onClick={handleSelectItem}
                             />
                             <ProductionsDetails
-                                title={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_TITLE`]}
-                                startDate={productions_list[selectedItem].startDate}
-                                endDate={productions_list[selectedItem].endDate}
-                                presentation={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_INTRODUCING`]}
-                                missions={appKeys[`PRODUCTIONS_${productions_list[selectedItem].key.toUpperCase()}_MISSIONS`]}
-                                skills={productions_list[selectedItem].skills}
-                                logo={productions_list[selectedItem].txtlogo}
-                                experienceType={productions_list[selectedItem].experienceType}
+                                production={productions_list[selectedItem]}
                             />
                         </div>
                     )}

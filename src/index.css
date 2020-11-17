@@ -1589,6 +1589,9 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .productions-details_section--first {
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .productions-details_section__type-chip {
   background-color: #fdcc7d;
@@ -1602,6 +1605,40 @@ body.stop-scrolling, .app.stop-scrolling {
   border-radius: 2px;
   display: inline-block;
   padding: 0 15px;
+}
+.productions-details_section_outlinks {
+  display: flex;
+}
+.productions-details_section_outlinks .outlink-chip-container {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  display: block;
+}
+.productions-details_section_outlinks .outlink-chip-container:not(:first-child) {
+  margin-left: 10px;
+}
+.productions-details_section_outlinks .outlink-chip-container .outlink-chip {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+}
+.productions-details_section__github-chip {
+  background-color: #222831;
+}
+.productions-details_section__github-chip img {
+  width: 100%;
+}
+.productions-details_section__browser-chip {
+  background-color: white;
+  border: 1px solid #222831;
+  box-sizing: border-box;
+}
+.productions-details_section__browser-chip img {
+  width: 20px;
 }
 .productions-details_section__presentation {
   margin-top: 80px;
