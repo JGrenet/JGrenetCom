@@ -209,6 +209,8 @@ body.stop-scrolling, .app.stop-scrolling {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  height: calc(100vh - calc(100px * 2));
+  width: calc(100vw - calc(100px * 2));
 }
 .shell svg {
   position: absolute;
@@ -217,7 +219,7 @@ body.stop-scrolling, .app.stop-scrolling {
   height: 100%;
   width: 100%;
 }
-.shell svg rect {
+.shell svg .shell-border {
   stroke: white;
   stroke-width: 3px;
   height: 100%;
@@ -225,8 +227,24 @@ body.stop-scrolling, .app.stop-scrolling {
   transition-property: width, stroke-dashoffset;
   transition-duration: 1.5s;
   transition-timing-function: ease-in-out;
+  stroke-dasharray: calc(calc(calc(100vw - calc(100px * 2)) * 2) + calc(calc(100vh - calc(100px * 2)) * 2));
+  stroke-dashoffset: calc(calc(calc(100vw - calc(100px * 2)) * 2) + calc(calc(100vh - calc(100px * 2)) * 2));
+  width: calc(100vw - calc(100px * 2));
 }
-.shell svg.animation-stroke-appear-active rect, .shell svg.animation-stroke-appear-done rect {
+.shell svg .shell-border--services {
+  width: calc(calc(calc(100vw - calc(100px * 2)) / 2) - 15px);
+}
+@media (max-width: 1600px) {
+  .shell svg .shell-border--services {
+    width: calc(calc(calc(100vw - calc(100px * 2)) * 0.6) - 15px);
+  }
+}
+@media (max-width: 1400px) {
+  .shell svg .shell-border--services {
+    width: calc(100vw - calc(100px * 2));
+  }
+}
+.shell svg.animation-stroke-appear-active .shell-border, .shell svg.animation-stroke-appear-done .shell-border {
   stroke-dashoffset: 0 !important;
 }
 .shell_language {

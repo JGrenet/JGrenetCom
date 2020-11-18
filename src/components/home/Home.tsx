@@ -7,7 +7,6 @@ const Home = observer(() => {
     const { localeStore, responsiveStore } = useStores();
     const appKeys = localeStore.keys;
 
-    //TODO Inverser le front-end avec la premiere phrase en Anglais !
     return (
         <div id="home" className="home tab-content">
             <div className="home_content">

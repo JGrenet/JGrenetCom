@@ -4,6 +4,10 @@ $shell_padding: 100px;
     $shell_padding: 50px;
 }
 
+$shell_width: calc(100vw - calc(#{$shell_padding} * 2));
+
+$shell_height: calc(100vh - calc(#{$shell_padding} * 2));
+
 $xxs: 400px;
 $xs: 576px;
 $sm: 768px;

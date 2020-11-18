@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useLayoutEffect, useState } from "react";
+import React, { useCallback } from "react";
 import { CSSTransition } from "react-transition-group";
 import Button from "../button/Button";
 import LanguageSelector from "../language-selector/LanguageSelector";
@@ -8,58 +8,11 @@ import { observer } from "mobx-react-lite";
 import Logo from "../logo/Logo";
 import Routes from "../routes";
 import { Tab } from "../../stores/TabStore";
-
-type ShellStyle = {
-    [key: string]: CSSProperties;
-}
+import clsx from "clsx";
 
 const DesktopShell = observer((): JSX.Element => {
-    const { localeStore, tabStore, responsiveStore } = useStores();
+    const { localeStore, tabStore } = useStores();
     const appKeys= localeStore.keys;
-    const [shellStyle, setShellStyle] = useState<ShellStyle | null>(null);
-
-    const getShellStyle = useCallback(() => {
-        const shellBorderWidth = (responsiveStore.shellWidth * 2) + (responsiveStore.shellHeight * 2);
-
-        const getRectWidth = (): number => {
-            const getHalfWidth = (): number => {
-                if (responsiveStore.shellWidth <= 1200) {
-                    return responsiveStore.shellWidth;
-                }
-                else if (responsiveStore.shellWidth <= 1400) {
-                    return (responsiveStore.shellWidth * 0.6) - 15;
-                } 
-                return (responsiveStore.shellWidth / 2) - 15;
-            }
-
-            return tabStore.selectedtab === Tab.SERVICES ? 
-                getHalfWidth() : responsiveStore.shellWidth;
-        }
-
-        setShellStyle({
-            shell: {
-                width: responsiveStore.shellWidth,
-                height: responsiveStore.shellHeight
-            },
-            rect: {
-                strokeDasharray: shellBorderWidth,
-                strokeDashoffset: shellBorderWidth,
-                width: getRectWidth()
-            },
-            
-        })
-    }, [
-        setShellStyle,
-        tabStore.selectedtab,
-        responsiveStore
-    ]);
-
-    useLayoutEffect(() => {
-        getShellStyle();
-        window.addEventListener("resize", () => getShellStyle());
-
-        return () => window.removeEventListener("resize", () => getShellStyle());
-    }, [getShellStyle]);
 
     const handleAddEnd = useCallback((node, done) => {
         node.addEventListener("transitionend", done, false);
@@ -73,10 +26,8 @@ const DesktopShell = observer((): JSX.Element => {
         window.open("/files/CV-jeremy-grenet.pdf", "_blank");
     }, []);
 
-    if (!shellStyle) return <></>;
-
     return (
-        <div className="shell" style={shellStyle.shell}>
+        <div className="shell">
             <CSSTransition
                 addEndListener={handleAddEnd}
                 classNames='animation-stroke'
@@ -87,9 +38,12 @@ const DesktopShell = observer((): JSX.Element => {
                 <>
                     <svg>
                         <rect
+                            className={clsx(
+                                "shell-border",
+                                tabStore.selectedtab === Tab.SERVICES && "shell-border--services",
+                            )}
                             x="0"
                             y="0"
-                            style={shellStyle.rect}
                         />
                     </svg>
                     <Routes />
