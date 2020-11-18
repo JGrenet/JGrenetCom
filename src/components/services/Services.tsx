@@ -1,19 +1,14 @@
 import { observer } from "mobx-react-lite";
-import React, { CSSProperties, useCallback, useLayoutEffect, useMemo, useState } from "react";
+import React, {useCallback, useMemo, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import useStores from "../../stores";
 import ServiceItem from "./ServiceItem";
 import { Tab } from "../../stores/TabStore";
 
-type ServicesStyles = {
-    [key: string]: CSSProperties
-}
-
 const Services = observer(() => {
     const { localeStore, responsiveStore, tabStore } = useStores();
     const appKeys = localeStore.keys;
     const [selectedItem, setSelectedItem] = useState<number>(0);
-    const [serviceStyle, setServiceStyle] = useState<ServicesStyles | null>(null);
     const imgUrl = useMemo(() => {
         switch (selectedItem) {
             case 0:
@@ -29,56 +24,10 @@ const Services = observer(() => {
         node.addEventListener("transitionend", done, false);
     }, []);
 
-    const getServiceStyle = useCallback(() => {
-
-        const getContentWidth = (): number => {
-            const contentWidth = responsiveStore.shellWidth <= 1400
-            ? (responsiveStore.shellWidth <= 1200
-                ? responsiveStore.shellWidth
-                : (responsiveStore.shellWidth * 0.6))
-            : (responsiveStore.shellWidth / 2);
-            return responsiveStore.shellWidth <= 1200 ? contentWidth : contentWidth - 15;
-        }
-
-        const getIllustrationWidth = (): number => {
-            const illustrationWidth = responsiveStore.shellWidth <= 1400
-            ? (responsiveStore.shellWidth * 0.4)
-            : (responsiveStore.shellWidth / 2);
-            return illustrationWidth - 15;
-        }
-
-        const contentWidth = getContentWidth();
-        const illustrationWidth = getIllustrationWidth();
-
-        setServiceStyle({
-            services: {
-                width: contentWidth
-            },
-            illustrations: {
-                width: getIllustrationWidth(),
-                height: responsiveStore.shellHeight,
-                right: -(illustrationWidth) - 30
-            }
-        })
-    }, [responsiveStore]);
-
-    useLayoutEffect(() => {
-        if (!responsiveStore.isMobile) {
-            getServiceStyle();
-            window.addEventListener("resize", () => getServiceStyle());
-
-            return () => window.removeEventListener("resize", () => getServiceStyle());
-        }
-    }, [getServiceStyle, responsiveStore.isMobile]);
-
-    if (!serviceStyle && !responsiveStore.isMobile) return <></>;
+    if (!responsiveStore.isMobile) return <></>;
 
     return (
-        <div
-            id="services"
-            className="services tab-content"
-            style={serviceStyle ? serviceStyle.services : undefined}
-        >
+        <div id="services" className="services tab-content">
             <div className="services_content">
                 <h2>{appKeys["SERVICES_TAB_TITLE"]}</h2>
                 <div className="services_content__services-list services-list">
@@ -116,10 +65,7 @@ const Services = observer(() => {
                     in={tabStore.selectedtab === Tab.SERVICES}
                     timeout={1500}
                 >
-                    <div
-                        className="services_illustration"
-                        style={serviceStyle?.illustrations}
-                    >
+                    <div className="services_illustration">
                         <img src={imgUrl} alt="illustration" />
                     </div>
                 </CSSTransition>

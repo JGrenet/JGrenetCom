@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
+import React, { CSSProperties, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import TabItem from './TabItem';
 import { TAB_PADDING } from "../../utils/globals";
 import { Tab, TabKeys } from '../../stores/TabStore';
@@ -30,17 +30,16 @@ const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
         }
     }, [responsiveStore]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (navBarContainerRef?.current) {
             updateUnderlinePosition();
         }
     }, [navBarContainerRef, tabStore.selectedtab, updateUnderlinePosition])
 
-    const shellHeight = document.documentElement.clientHeight - (responsiveStore.shellPadding * 2);
     const tabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => isNaN(Number(i)))) as TabKeys[]).reverse();
 
     return (
-        <nav className="navbar" style={{width: shellHeight}}>
+        <nav className="navbar">
             <ul className="navbar_container" ref={navBarContainerRef} >
                 {tabKeys.map((t: TabKeys, index: number) => <TabItem
                         key={index}

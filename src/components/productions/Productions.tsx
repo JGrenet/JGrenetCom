@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState }  from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState }  from "react";
 import { Tab } from "../../stores/TabStore";
 import useStores from "../../stores";
 import Logo from "../logo/Logo";
@@ -9,34 +9,13 @@ import { ProductionsDetails } from "./ProductionsDetails";
 import { observer } from "mobx-react-lite";
 import { Production, productions_list } from "./productions_list";
 
-type RecoverStyle = {
-    [key: string]: CSSProperties;
-}
-
-const RECOVER_OVERFLOW = 50;
-
 const Productions = observer((): JSX.Element => {
     const { responsiveStore, tabStore, localeStore } = useStores();
     const appKeys = localeStore.keys;
     const [recover, setRecover] = useState<boolean>(false);
-    const [recoverStyle, setRecoverStyle] = useState<RecoverStyle | null>(null);
     const [isRecoverOpen, setIsRecoverOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState<number>(0);
     const productionsRef = useRef<HTMLDivElement >(null);
-
-    const getRecoverStyle = useCallback(() => {
-        setRecoverStyle({
-            cover: {
-                height: recover ? responsiveStore.shellHeight + RECOVER_OVERFLOW : 0
-            },
-            coverContent: {
-                height: responsiveStore.shellHeight + RECOVER_OVERFLOW
-            },
-            detailsContainer: {
-                width: responsiveStore.shellWidth / 2
-            }
-        })
-    }, [recover, responsiveStore]);
 
     const openRecover = useCallback(() => {
         setIsRecoverOpen(true);
@@ -58,19 +37,16 @@ const Productions = observer((): JSX.Element => {
     }, [productionsRef, responsiveStore]);
 
     useLayoutEffect(() => {
-        getRecoverStyle();
-        window.addEventListener("resize", getRecoverStyle);
         window.addEventListener("scroll", handleProductionsScroll);
 
-        return () => {
-            window.removeEventListener("resize", getRecoverStyle);
-            window.removeEventListener("scroll", handleProductionsScroll);
-        }
-    }, [getRecoverStyle, recover, handleProductionsScroll]);
+        return () => window.removeEventListener("scroll", handleProductionsScroll);
+    }, [handleProductionsScroll]);
 
     useEffect(() => {
         if (tabStore.selectedtab === Tab.PRODUCTIONS) {
-            setRecover(true);
+            setTimeout(() => {
+                setRecover(true);
+            }, 100);
         } else {
             setRecover(false);
         }
@@ -106,8 +82,6 @@ const Productions = observer((): JSX.Element => {
             />
     ), [handleSelectItem, selectedItem, isRecoverOpen]);
 
-    if (!recoverStyle) return <></>;
-
     return (
         <div
             id="productions"
@@ -126,14 +100,13 @@ const Productions = observer((): JSX.Element => {
             </div>
             {!responsiveStore.isMobile && (
                 <div
-                    className="productions_recover"
-                    style={recoverStyle.cover}
+                    className={clsx(
+                        "productions_recover",
+                        recover && "productions_recover--open"
+                    )}
                     onWheel={handleRecoverScroll}
                 >
-                    <div
-                        className="productions_recover__content recover"
-                        style={recoverStyle.coverContent}
-                    >
+                    <div className="productions_recover__content recover">
                         <div className="shell_logo stroke-hidder dark recover-logo">
                             <Logo size={60} wordMark variant="dark"/>
                         </div>
@@ -151,12 +124,8 @@ const Productions = observer((): JSX.Element => {
                             "productions_recover__productions-details",
                             {["productions_recover__productions-details--open"]: isRecoverOpen}
                         )}
-                        style={recoverStyle.coverContent}
                     >
-                        <div
-                            className="productions_recover__productions-details___container"
-                            style={recoverStyle.detailsContainer}
-                        >
+                        <div className="productions_recover__productions-details___container">
                             <img
                                 src="./icon/cancel.svg"
                                 className="productions_recover__productions-details___container____close"

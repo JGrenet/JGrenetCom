@@ -1,5 +1,18 @@
 .services {
     position: relative;
+    width: calc(calc(#{$shell_width} / 2) - 15px);
+
+    @media (max-width: 1600px) {
+        width: calc(calc(#{$shell_width} * 0.6) - 15px);
+    }
+
+    @media (max-width: 1400px) {
+        width: $shell_width;
+    }
+
+    @include media-breakpoint-down($sm) {
+        width: 100%;
+    }
 
     &_content {
         width: 100%;
@@ -176,6 +189,15 @@
         box-sizing: border-box;
         border: 8px solid $white;
         overflow: hidden;
+        width: calc(calc(#{$shell_width} / 2) - 15px);
+        // right: calc(calc(#{$shell_width} / 2) - 45px);
+        right: calc(calc(calc(#{$shell_width} / 2) - -15px) * -1);
+        height: $shell_height;
+
+        @media (max-width: 1600px) {
+            width: calc(calc(#{$shell_width} * 0.4) - 15px);
+            right: calc(calc(calc(#{$shell_width} * 0.4) - -15px) * -1);
+        }
 
         &.animation-slide-bottom-appear {
             &-active, &-done {

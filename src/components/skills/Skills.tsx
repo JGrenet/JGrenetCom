@@ -1,4 +1,4 @@
-import React, { CSSProperties, useCallback, useEffect, useLayoutEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import useStores from "../../stores";
 import clsx from "clsx";
@@ -6,43 +6,20 @@ import { Tab } from "../../stores/TabStore";
 import { SkillsGridItem } from "./SkillsGridItem";
 import skillsList from "./skills_list";
 
-type RecoverStyle = {
-    [key: string]: CSSProperties;
-}
-
-const RECOVER_OVERFLOW = 50;
-
 const Skills = observer(() => {
     const { localeStore, responsiveStore, tabStore } = useStores();
-    const [recoverStyle, setRecoverStyle] = useState<RecoverStyle | null>(null);
     const [recover, setRecover] = useState<boolean>(false);
     const appKeys = localeStore.keys;
-
-    const getRecoverStyle = useCallback(() => {
-        setRecoverStyle({
-            cover: {
-                height: recover ? responsiveStore.shellHeight + RECOVER_OVERFLOW : 0
-            },
-            coverContent: {
-                height: responsiveStore.shellHeight + RECOVER_OVERFLOW
-            }
-        })
-    }, [recover, responsiveStore]);
 
     const handleRecoverScroll = useCallback((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
         event.stopPropagation();
     }, []);
 
-    useLayoutEffect(() => {
-        getRecoverStyle();
-        window.addEventListener("resize", () => getRecoverStyle());
-
-        return () => window.removeEventListener("resize", () => getRecoverStyle());
-    }, [getRecoverStyle, recover]);
-
     useEffect(() => {
         if (tabStore.selectedtab === Tab.SKILLS) {
-            setRecover(true);
+            setTimeout(() => {
+                setRecover(true);
+            }, 100);
         } else {
             setRecover(false);
         }
@@ -61,8 +38,10 @@ const Skills = observer(() => {
                 </div>
             </div>
                 <div
-                    className="skills_recover"
-                    style={responsiveStore.isMobile ? undefined : (recoverStyle?.cover || undefined)}
+                    className={clsx(
+                        "skills_recover",
+                        !responsiveStore.isMobile && recover && "skills_recover--open"
+                    )}
                     onWheel={handleRecoverScroll}
                 >
                 <div
@@ -70,7 +49,6 @@ const Skills = observer(() => {
                         "skills_recover__content recover",
                         {["recover--white"]: !responsiveStore.isMobile || responsiveStore.backgroundColor === "white"}
                     )}
-                    style={responsiveStore.isMobile ? undefined : (recoverStyle?.coverContent || undefined)}
                 >
                     <div className="recover_content">
                         <div className="recover_content__container">

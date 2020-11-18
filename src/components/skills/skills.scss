@@ -108,8 +108,14 @@
         z-index: 2;
         overflow: hidden;
         transition: all $recover_duration $recover_speed;
+        height: 0;
+
+        &--open {
+            height: calc(#{$shell_height} + #{$recover_overflow});
+        }
 
         @include media-breakpoint-down($sm) {
+            height: unset;
             width: 100%;
             overflow: unset;
         }
@@ -123,6 +129,7 @@
             box-sizing: border-box;
             padding: 0 30px;
             transition: background-color 1s ease-in-out;
+            height: calc(#{$shell_height} + #{$recover_overflow});;
 
             &--white {
                 background-color: $white;
@@ -140,6 +147,7 @@
             }
 
             @include media-breakpoint-down($sm) {
+                height: unset;
                 position: relative;
                 padding: 0;
 
