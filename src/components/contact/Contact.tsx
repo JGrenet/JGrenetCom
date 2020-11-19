@@ -287,14 +287,13 @@ const Contact = observer((): JSX.Element => {
                                     {["content_socials__item--black"]: responsiveStore.backgroundColor === "white"}
                                 )}
                             >
-                                <div className="content_socials__item___logo" />
-                            </div>
-                            <div className={clsx(
-                                    "content_socials__item",
-                                    {["content_socials__item--black"]: responsiveStore.backgroundColor === "white"}
-                                )}
-                            >
-                                <div className="content_socials__item___logo" />
+                                <a
+                                    className="content_socials__item___logo"
+                                    target="_blank"
+                                    href="https://www.linkedin.com/in/j%C3%A9r%C3%A9my-grenet-652144b6/"
+                                >
+                                    <img src="/icon/linkedin.png" />
+                                </a>
                             </div>
                         </div>
                     </div>
