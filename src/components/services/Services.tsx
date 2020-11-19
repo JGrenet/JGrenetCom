@@ -24,8 +24,6 @@ const Services = observer(() => {
         node.addEventListener("transitionend", done, false);
     }, []);
 
-    if (!responsiveStore.isMobile) return <></>;
-
     return (
         <div id="services" className="services tab-content">
             <div className="services_content">
@@ -50,8 +48,8 @@ const Services = observer(() => {
                     <ServiceItem
                         index={2}
                         img={"/icon/back_office"}
-                        title={appKeys["SERVICES_ITEM_BACKOFFICE_TITLE"]}
-                        content={appKeys["SERVICES_ITEM_BACKOFFICE_CONTENT"]}
+                        title={appKeys["SERVICES_ITEM_MAINTENANCE_TITLE"]}
+                        content={appKeys["SERVICES_ITEM_MAINTENANCE_CONTENT"]}
                         selected={selectedItem === 2}
                         selectItem={setSelectedItem}
                     />
