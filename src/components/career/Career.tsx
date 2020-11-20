@@ -16,9 +16,7 @@ const Career = observer((): JSX.Element => {
             <div className="career_description">
                 <div className="career_description__content">
                     <h2>{appKeys["CAREER_TAB_TITLE"]}</h2>
-                    <p>
-                        {appKeys["CAREER_TAB_DESCRIPTION"]}
-                    </p>
+                    <p dangerouslySetInnerHTML={{__html: appKeys["CAREER_TAB_DESCRIPTION"]}} />
                 </div>
             </div>
             <div className="career_timeline">

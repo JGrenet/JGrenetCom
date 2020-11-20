@@ -95,7 +95,7 @@ const Productions = observer((): JSX.Element => {
                     )}
                 >
                     <h2>{appKeys["PRODUCTIONS_TAB_TITLE"]}</h2>
-                    <p>{appKeys["PRODUCTIONS_TAB_CONTENT"]}</p>
+                    <p dangerouslySetInnerHTML={{__html: appKeys["PRODUCTIONS_TAB_CONTENT"]}} />
                 </div>
             </div>
             {!responsiveStore.isMobile && (

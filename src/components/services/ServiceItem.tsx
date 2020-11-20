@@ -41,9 +41,7 @@ const ServiceItem = observer(({
                 <span>{title}</span>
             </div>
             <div className="services-list_item__separator" />
-            <div className="services-list_item__content">
-                {content}
-            </div>
+            <p className="services-list_item__content" dangerouslySetInnerHTML={{__html: content}} />
         </div>
     )
 });

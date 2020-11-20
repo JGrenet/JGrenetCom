@@ -20,6 +20,7 @@
         position: relative;
         padding-top: 75px;
         color: $white;
+        box-sizing: border-box;
 
         h2 {
             font-weight: 700;
@@ -49,10 +50,12 @@
         }
 
         &__services-list, .services-list {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            top: calc(50% - 30px);
+            transform: translateY(-50%);
 
             @include media-breakpoint-down($sm) {
                 position: static;
@@ -68,16 +71,15 @@
             }
 
             &_item {
-                display: flex;
+                display: inline-flex;
                 align-items: center;
-                height: 70px;
                 cursor: pointer;
 
                 &:not(:first-child) {
-                    margin-top: 100px;
+                    margin-top: 80px;
 
                     @media (max-height: 900px) {
-                        margin-top: 75px;
+                        margin-top: 65px;
                     }
                 }
 
@@ -92,7 +94,7 @@
                     color: $grey;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
+                    justify-content: center;
                     align-items: center;
 
                     img {
@@ -107,6 +109,7 @@
                         display: block;
                         text-align: center;
                         color: $yellow;
+                        margin-top: 15px;
 
                         @include font-size(14px);
                         font-weight: 600;
@@ -151,17 +154,17 @@
                 }
 
                 &__content {
-                    width: 300px;
+                    width: 450px;
                     color: $grey;
                     text-align: center;
                     line-height: 18px;
 
-                    @include media-breakpoint-down(1400px) {
+                    @include media-breakpoint-down(1800px) {
                         width: 400px;
                     }
 
                     @include media-breakpoint-down($md) {
-                        width: 250px;
+                        width: 350px;
                     }
 
                     @include media-breakpoint-down($sm) {

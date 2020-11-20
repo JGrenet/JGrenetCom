@@ -34,7 +34,7 @@ const Skills = observer(() => {
                     )}
                 >
                     <h2>{appKeys["SKILLS_TAB_TITLE"]}</h2>
-                    <p>{appKeys["SKILLS_TAB_CONTENT"]}</p>
+                    <p dangerouslySetInnerHTML={{__html: appKeys["SKILLS_TAB_CONTENT"]}} />
                 </div>
             </div>
                 <div
