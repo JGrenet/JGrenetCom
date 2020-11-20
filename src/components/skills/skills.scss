@@ -204,17 +204,20 @@
                             perspective: 1000px;
                             background-color: transparent;
 
+
+                            &:hover {
+                                .flip-card {
+                                    transform: rotateY(180deg);
+                                }
+                            }
+
                             &_flip-card, .flip-card {
                                 height: 100%;
                                 width: 100%;
                                 cursor: pointer;
                                 position: relative;
                                 transition: transform 0.4s ease-in-out;
-                                transform-style: preserve-3d;    
-
-                                &:hover {
-                                    transform: rotateY(180deg);
-                                }
+                                transform-style: preserve-3d;
     
                                 &_front, &_back {
                                     border: 2px solid $black;
