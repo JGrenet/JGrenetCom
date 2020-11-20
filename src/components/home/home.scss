@@ -12,21 +12,17 @@
 
     @include media-breakpoint-down($sm) {
         justify-content: unset;
-        height: calc(100vh - 60px);
+        height: 100vh;
         padding-top: 160px;
         position: relative;
     }
 
     @media (max-height: 750px) {
-        padding-top: 70px;
-    }
-
-    @media (max-height: 750px) {
-        padding-top: 70px;
+        padding-top: 140px;
     }
 
     @media (max-height: 700px) {
-        padding-top: 50px;
+        padding-top: 100px;
     }
 
     &_content {
@@ -90,11 +86,6 @@
 
                 .yellow {
                     color: $yellow;
-
-                    @include media-breakpoint-down($sm) {
-                        display: block;
-                        margin-top: 10px;
-                    }
                 }
             }
 
@@ -151,7 +142,7 @@
         }
 
         @include media-breakpoint-down($xxs) {
-            margin-top: 25%;
+            margin-top: 30%;
             width: 125px;
         }
 
@@ -162,13 +153,10 @@
 
     &_contact {
         position: absolute;
-        bottom: 60px;
         width: 100%;
         display: flex;
         justify-content: center;
-
-        @include media-breakpoint-down($xxs) {
-            bottom: 40px;
-        }
+        top: 85%;
+        transform: translateY(-50%);
     }
 }

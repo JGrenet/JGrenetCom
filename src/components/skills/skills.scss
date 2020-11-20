@@ -251,6 +251,10 @@
                                     font-weight: 600;
                                     transition: color 1s ease-in-out;
 
+                                    @include media-breakpoint-down($sm) {
+                                        @include font-size(25px);
+                                    }
+
                                     &--white {
                                         color: $white;
                                     }

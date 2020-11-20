@@ -68,6 +68,10 @@
         bottom: -20px;
         left: 0;
         @include font-size(15px);
+
+        @include media-breakpoint-down($sm) {
+            @include font-size(20px);
+        }
     }
 
     &--has-error {

@@ -501,6 +501,11 @@ body.stop-scrolling, .app.stop-scrolling {
   left: 0;
   font-size: 0.9375em;
 }
+@media (max-width: 768px) {
+  .textfield_error {
+    font-size: 1.25em;
+  }
+}
 .textfield--has-error .textfield_error {
   display: block;
 }
@@ -616,24 +621,19 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 768px) {
   .home {
     justify-content: unset;
-    height: calc(100vh - 60px);
+    height: 100vh;
     padding-top: 160px;
     position: relative;
   }
 }
 @media (max-height: 750px) {
   .home {
-    padding-top: 70px;
-  }
-}
-@media (max-height: 750px) {
-  .home {
-    padding-top: 70px;
+    padding-top: 140px;
   }
 }
 @media (max-height: 700px) {
   .home {
-    padding-top: 50px;
+    padding-top: 100px;
   }
 }
 .home_content {
@@ -706,12 +706,6 @@ body.stop-scrolling, .app.stop-scrolling {
 .home_content__main-content h2 .yellow {
   color: #fca311;
 }
-@media (max-width: 768px) {
-  .home_content__main-content h2 .yellow {
-    display: block;
-    margin-top: 10px;
-  }
-}
 .home_content__main-content h4 {
   position: absolute;
   left: 0;
@@ -769,7 +763,7 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 @media (max-width: 400px) {
   .home_image {
-    margin-top: 25%;
+    margin-top: 30%;
     width: 125px;
   }
 }
@@ -778,15 +772,11 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 .home_contact {
   position: absolute;
-  bottom: 60px;
   width: 100%;
   display: flex;
   justify-content: center;
-}
-@media (max-width: 400px) {
-  .home_contact {
-    bottom: 40px;
-  }
+  top: 85%;
+  transform: translateY(-50%);
 }
 
 .services {
@@ -2016,6 +2006,11 @@ body.stop-scrolling, .app.stop-scrolling {
   font-size: 0.9375em;
   font-weight: 600;
   transition: color 1s ease-in-out;
+}
+@media (max-width: 768px) {
+  .skills_recover__content_content__container___grid_item_flip-card_back, .skills_recover__content_content__container___grid_item .flip-card_back, .skills_recover__content_content__container___grid .skills-grid-item_flip-card_back, .skills_recover__content_content__container___grid .skills-grid-item .flip-card_back, .skills_recover__content_content__container .skills-grid_item_flip-card_back, .skills_recover__content_content__container .skills-grid_item .flip-card_back, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card_back, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card_back, .skills_recover .recover_content__container___grid_item_flip-card_back, .skills_recover .recover_content__container___grid_item .flip-card_back, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card_back, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card_back, .skills_recover .recover_content__container .skills-grid_item_flip-card_back, .skills_recover .recover_content__container .skills-grid_item .flip-card_back, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card_back, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card_back {
+    font-size: 1.5625em;
+  }
 }
 .skills_recover__content_content__container___grid_item_flip-card_back--white, .skills_recover__content_content__container___grid_item .flip-card_back--white, .skills_recover__content_content__container___grid .skills-grid-item_flip-card_back--white, .skills_recover__content_content__container___grid .skills-grid-item .flip-card_back--white, .skills_recover__content_content__container .skills-grid_item_flip-card_back--white, .skills_recover__content_content__container .skills-grid_item .flip-card_back--white, .skills_recover__content_content__container .skills-grid .skills-grid-item_flip-card_back--white, .skills_recover__content_content__container .skills-grid .skills-grid-item .flip-card_back--white, .skills_recover .recover_content__container___grid_item_flip-card_back--white, .skills_recover .recover_content__container___grid_item .flip-card_back--white, .skills_recover .recover_content__container___grid .skills-grid-item_flip-card_back--white, .skills_recover .recover_content__container___grid .skills-grid-item .flip-card_back--white, .skills_recover .recover_content__container .skills-grid_item_flip-card_back--white, .skills_recover .recover_content__container .skills-grid_item .flip-card_back--white, .skills_recover .recover_content__container .skills-grid .skills-grid-item_flip-card_back--white, .skills_recover .recover_content__container .skills-grid .skills-grid-item .flip-card_back--white {
   color: white;
