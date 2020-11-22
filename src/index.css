@@ -1,13 +1,4 @@
 /** Palette **/
-html {
-  toto: (100px) (calc(100vw - calc(100px * 2))) (calc(100vh - calc(100px * 2))) (calc(100px / 2));
-}
-@media (max-width: 1000px), (max-height: 750px) {
-  html {
-    toto: (50px) (calc(100vw - calc(50px * 2))) (calc(100vh - calc(50px * 2))) (calc(50px / 2));
-  }
-}
-
 .animation-fade-enter {
   opacity: 0;
 }
@@ -1155,6 +1146,11 @@ body.stop-scrolling, .app.stop-scrolling {
     width: 100%;
   }
 }
+@media (max-width: 1300px) and (max-height: 850px) {
+  .career_description {
+    padding-top: 30px;
+  }
+}
 @media (max-width: 768px) {
   .career_description {
     padding-top: 0;
@@ -1167,6 +1163,11 @@ body.stop-scrolling, .app.stop-scrolling {
 @media (max-width: 1400px) {
   .career_description__content {
     max-width: 400px;
+  }
+}
+@media (max-width: 1300px) and (max-height: 850px) {
+  .career_description__content {
+    max-width: calc(100% - 200px);
   }
 }
 .career_description__content h2 {
@@ -1223,6 +1224,12 @@ body.stop-scrolling, .app.stop-scrolling {
     width: 100%;
   }
 }
+@media (max-width: 1300px) and (max-height: 850px) {
+  .career_timeline {
+    display: block;
+    padding-top: 30px;
+  }
+}
 @media (max-width: 768px) {
   .career_timeline {
     height: unset;
@@ -1242,9 +1249,19 @@ body.stop-scrolling, .app.stop-scrolling {
   height: calc(100% - 200px);
   position: relative;
 }
+@media (max-height: 750px) {
+  .career_timeline .timeline {
+    height: calc(100% - 100px);
+  }
+}
 @media (max-width: 1300px) {
   .career_timeline .timeline {
     height: calc(100% - 120px);
+  }
+}
+@media (max-width: 1300px) and (max-height: 850px) {
+  .career_timeline .timeline {
+    height: calc(100% - 50px);
   }
 }
 @media (max-width: 768px) {
@@ -1328,6 +1345,11 @@ body.stop-scrolling, .app.stop-scrolling {
   top: -25px;
   font-weight: 500;
   color: #fca311;
+}
+@media (max-width: 1300px) and (max-height: 850px) {
+  .career_timeline .timeline .timeline-item_arrow__year {
+    top: -20px;
+  }
 }
 @media (max-width: 768px) {
   .career_timeline .timeline .timeline-item_arrow__year {
@@ -1483,11 +1505,11 @@ body.stop-scrolling, .app.stop-scrolling {
   height: 0;
 }
 .productions_recover--open {
-  height: calc(calc(100vh - calc(100px * 2)) + calc(100px / 2));
+  height: calc(calc(calc(100vh - calc(100px * 2)) + 50px) - 0px);
 }
 @media (max-width: 1000px), (max-height: 750px) {
   .productions_recover--open {
-    height: calc(calc(100vh - calc(50px * 2)) + calc(50px / 2));
+    height: calc(calc(calc(100vh - calc(50px * 2)) + 50px) - 12px);
   }
 }
 .productions_recover__content, .productions_recover .recover {
@@ -1498,11 +1520,11 @@ body.stop-scrolling, .app.stop-scrolling {
   width: 50%;
   box-sizing: border-box;
   padding: 0 30px;
-  height: calc(calc(100vh - calc(100px * 2)) + calc(100px / 2));
+  height: calc(calc(100vh - calc(100px * 2)) + 50px);
 }
 @media (max-width: 1000px), (max-height: 750px) {
   .productions_recover__content, .productions_recover .recover {
-    height: calc(calc(100vh - calc(50px * 2)) + calc(50px / 2));
+    height: calc(calc(100vh - calc(50px * 2)) + 50px);
   }
 }
 .productions_recover__content::after, .productions_recover .recover::after {
@@ -2001,11 +2023,11 @@ body.stop-scrolling, .app.stop-scrolling {
   height: 0;
 }
 .skills_recover--open {
-  height: calc(calc(100vh - calc(100px * 2)) + calc(100px / 2));
+  height: calc(calc(calc(100vh - calc(100px * 2)) + 50px) - 0px);
 }
 @media (max-width: 1000px), (max-height: 750px) {
   .skills_recover--open {
-    height: calc(calc(100vh - calc(50px * 2)) + calc(50px / 2));
+    height: calc(calc(calc(100vh - calc(50px * 2)) + 50px) - 12px);
   }
 }
 @media (max-width: 768px) {
@@ -2024,11 +2046,11 @@ body.stop-scrolling, .app.stop-scrolling {
   box-sizing: border-box;
   padding: 0 30px;
   transition: background-color 1s ease-in-out;
-  height: calc(calc(100vh - calc(100px * 2)) + calc(100px / 2));
+  height: calc(calc(100vh - calc(100px * 2)) + 50px);
 }
 @media (max-width: 1000px), (max-height: 750px) {
   .skills_recover__content, .skills_recover .recover {
-    height: calc(calc(100vh - calc(50px * 2)) + calc(50px / 2));
+    height: calc(calc(100vh - calc(50px * 2)) + 50px);
   }
 }
 .skills_recover__content--white, .skills_recover .recover--white {

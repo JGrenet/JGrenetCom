@@ -1,21 +1,21 @@
 $shell_padding: 100px;
 $shell_padding_sm: 50px;
 
-// @media (max-width: 1000px), (max-height: 750px) {
-//     $shell_padding: 50px !global;
-// }
-
 $shell_width: calc(100vw - calc(#{$shell_padding} * 2));
 $shell_width_sm: calc(100vw - calc(#{$shell_padding_sm} * 2));
 
 $shell_height: calc(100vh - calc(#{$shell_padding} * 2));
 $shell_height_sm: calc(100vh - calc(#{$shell_padding_sm} * 2));
 
-$recover_overflow: calc(#{$shell_padding} / 2);
-$recover_overflow_sm: calc(#{$shell_padding_sm} / 2);
+$recover_overflow: 50px;
+
+$recover_offset: 0px;
+$recover_offset_sm: 12px;
 
 $xxs: 400px;
 $xs: 576px;
 $sm: 768px;
 $md: 992px;
 $lg: 1200px
+
+// Supprimer le responsive style sur l'overflow et mettre des + 35px sur les recovers (si possible) quand shellpadding vaut 50px;

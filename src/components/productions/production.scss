@@ -102,7 +102,7 @@
         height: 0;
 
         &--open {
-            @include responsive_rule("height", "calc(SHELL_HEIGHT + RECOVER_OVERFLOW)");
+            @include responsive_rule("height", "calc(calc(SHELL_HEIGHT + #{$recover_overflow}) - RECOVER_OFFSET)");
         }
     
         &__content, .recover {
@@ -113,7 +113,7 @@
             width: 50%;
             box-sizing: border-box;
             padding: 0 30px;
-            @include responsive_rule("height", "calc(SHELL_HEIGHT + RECOVER_OVERFLOW)");
+            @include responsive_rule("height", "calc(SHELL_HEIGHT + #{$recover_overflow})");
 
             &::after {
                 content: "";

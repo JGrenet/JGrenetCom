@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import React, { useCallback } from "react";
 import clsx from "clsx";
 import Logo from "../logo/Logo";
 import useStores from "../../stores";
@@ -23,12 +23,20 @@ const TimelineItem = observer(({
     const yearLength = Array.isArray(year) ?
         (parseInt(year[1]) - parseInt(year[0])) : 1;
 
+
+    const getItemHeight = useCallback(() => {
+        if (responsiveStore.shellWidth <= 1300 && responsiveStore.shellHeight <= 850) {
+            return yearLength * 30;
+        }
+        return responsiveStore.shellWidth <= 1100 ? yearLength * 30 : yearLength * 50;
+    }, [responsiveStore, yearLength]);
+
     return (
         <div
             className="timeline-item"
             style={{
                 bottom: `${bottom}%`,
-                height: responsiveStore.shellWidth <= 1100 ? yearLength * 30 : yearLength * 50
+                height: getItemHeight()
             }}
         >
             {!applogo && logo && (

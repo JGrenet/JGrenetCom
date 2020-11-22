@@ -1,10 +1,10 @@
 /* Error: Undefined mixin.
  *    ,
- * 35 | /         @include media-breakpoint-down($sm) {
- * 36 | |             padding-top: 0;
- * 37 | \         }
+ * 39 | /         @include media-breakpoint-down($sm) {
+ * 40 | |             padding-top: 0;
+ * 41 | \         }
  *    '
- *   src\components\career\career.scss 35:9  root stylesheet */
+ *   src\components\career\career.scss 39:9  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 35 \2502  \250c          @include media-breakpoint-down($sm) {\a 36 \2502  \2502              padding-top: 0;\a 37 \2502  \2514          }\a    \2575 \a   src\\components\\career\\career.scss 35:9  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 39 \2502  \250c          @include media-breakpoint-down($sm) {\a 40 \2502  \2502              padding-top: 0;\a 41 \2502  \2514          }\a    \2575 \a   src\\components\\career\\career.scss 39:9  root stylesheet";
 }

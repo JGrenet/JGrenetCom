@@ -30,6 +30,10 @@
             text-align: center;
             height: unset;
             width: 100%;
+
+            @media (max-height: 850px) {
+                padding-top: 30px;
+            }
         }
 
         @include media-breakpoint-down($sm) {
@@ -42,6 +46,12 @@
 
             @media (max-width: 1400px) {
                 max-width: 400px;
+            }
+
+            @include media-breakpoint-down(1300px) {
+                @media (max-height: 850px)  {
+                    max-width: calc(100% - 200px);
+                }
             }
 
             h2 {
@@ -93,6 +103,11 @@
         @media (max-width: 1300px) {
             flex-grow: 1;
             width: 100%;
+
+            @media (max-height: 850px) {
+                display: block;
+                padding-top: 30px;
+            }
         }
 
         @include media-breakpoint-down($sm) {
@@ -112,8 +127,16 @@
             height: calc(100% - 200px);
             position: relative;
 
+            @media (max-height: 750px) {
+                height: calc(100% - 100px);
+            }
+
             @media (max-width: 1300px) {
                 height: calc(100% - 120px);
+
+                @media (max-height: 850px) {
+                    height: calc(100% - 50px);
+                }   
             }
 
             @include media-breakpoint-down($sm) {
@@ -201,6 +224,12 @@
                         top: -25px;
                         font-weight: 500;
                         color: $yellow;
+
+                        @include media-breakpoint-down(1300px) {
+                            @media (max-height: 850px) {
+                                top: -20px;
+                            }
+                        }
 
                         @include media-breakpoint-down($sm) {
                             top: -20px;

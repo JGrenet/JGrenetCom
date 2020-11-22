@@ -25,7 +25,7 @@
         $new_str: str-replace($rule_value, "SHELL_PADDING", $shell_padding_sm);
         $new_str:str-replace($new_str, "SHELL_WIDTH", $shell_width_sm);
         $new_str:str-replace($new_str, "SHELL_HEIGHT", $shell_height_sm);
-        $new_str:str-replace($new_str, "RECOVER_OVERFLOW", $recover_overflow_sm);
+        $new_str:str-replace($new_str, "RECOVER_OFFSET", $recover_offset_sm);
 
         @return $new_str;
     }
@@ -33,7 +33,7 @@
     $new_str: str-replace($rule_value, "SHELL_PADDING", $shell_padding);
     $new_str:str-replace($new_str, "SHELL_WIDTH", $shell_width);
     $new_str:str-replace($new_str, "SHELL_HEIGHT", $shell_height);
-    $new_str:str-replace($new_str, "RECOVER_OVERFLOW", $recover_overflow);
+    $new_str:str-replace($new_str, "RECOVER_OFFSET", $recover_offset);
 
     @return $new_str;
 }
@@ -44,8 +44,4 @@
     @media (max-width: 1000px), (max-height: 750px) {
         #{$rule}: #{process_rule($value, true)};
     }
-}
-
-html {
-    @include responsive_rule("toto", "(SHELL_PADDING) (SHELL_WIDTH) (SHELL_HEIGHT) (RECOVER_OVERFLOW)");
 }
