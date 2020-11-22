@@ -111,7 +111,7 @@
         height: 0;
 
         &--open {
-            height: calc(#{$shell_height} + #{$recover_overflow});
+            @include responsive_rule("height", "calc(SHELL_HEIGHT + RECOVER_OVERFLOW)");
         }
 
         @include media-breakpoint-down($sm) {
@@ -129,7 +129,7 @@
             box-sizing: border-box;
             padding: 0 30px;
             transition: background-color 1s ease-in-out;
-            height: calc(#{$shell_height} + #{$recover_overflow});;
+            @include responsive_rule("height", "calc(SHELL_HEIGHT + RECOVER_OVERFLOW)");
 
             &--white {
                 background-color: $white;

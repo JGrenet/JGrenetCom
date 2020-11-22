@@ -1,4 +1,13 @@
 /** Palette **/
+html {
+  toto: (100px) (calc(100vw - calc(100px * 2))) (calc(100vh - calc(100px * 2))) (calc(100px / 2));
+}
+@media (max-width: 1000px), (max-height: 750px) {
+  html {
+    toto: (50px) (calc(100vw - calc(50px * 2))) (calc(100vh - calc(50px * 2))) (calc(50px / 2));
+  }
+}
+
 .animation-fade-enter {
   opacity: 0;
 }

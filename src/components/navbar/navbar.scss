@@ -6,7 +6,7 @@
     left: 0;
     transform: rotate(-90deg) translateX(-50px);
     transform-origin: top left;
-    width: $shell_height;
+    @include responsive_rule("width", "SHELL_HEIGHT");
 
     &_container {
         display: inline-flex;

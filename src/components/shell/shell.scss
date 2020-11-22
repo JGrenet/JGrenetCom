@@ -4,8 +4,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: $shell_height;
-    width: $shell_width;
+    @include responsive_rule("height", "SHELL_HEIGHT");
+    @include responsive_rule("width", "SHELL_WIDTH");
     
     svg {
         position: absolute;
@@ -22,19 +22,19 @@
             transition-property: width, stroke-dashoffset;
             transition-duration: 1.5s;
             transition-timing-function: ease-in-out;
-            stroke-dasharray:  calc(calc(#{$shell_width} * 2) + calc(#{$shell_height} * 2));
-            stroke-dashoffset: calc(calc(#{$shell_width} * 2) + calc(#{$shell_height} * 2));
-            width: $shell_width;
+            @include responsive_rule("stroke-dasharray", "calc(calc(SHELL_WIDTH * 2) + calc(SHELL_HEIGHT * 2))");
+            @include responsive_rule("stroke-dashoffset", "calc(calc(SHELL_WIDTH * 2) + calc(SHELL_HEIGHT * 2))");
+            @include responsive_rule("width", "SHELL_WIDTH");
 
             &--services {
-                width: calc(calc(#{$shell_width} / 2) - 15px);
+                @include responsive_rule("width", "calc(calc(SHELL_WIDTH / 2) - 15px)");
 
                 @media (max-width: 1600px) {
-                    width: calc(calc(#{$shell_width} * 0.6) - 15px);
+                    @include responsive_rule("width", "calc(calc(SHELL_WIDTH * 0.6) - 15px)");
                 }
 
                 @media (max-width: 1400px) {
-                    width: $shell_width;
+                    @include responsive_rule("width", "SHELL_WIDTH");
                 }
             }
         }

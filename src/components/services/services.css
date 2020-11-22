@@ -1,9 +1,9 @@
-/* Error: Undefined variable.
+/* Error: Undefined mixin.
  *   ,
- * 3 |     width: calc(calc(#{$shell_width} / 2) - 15px);
- *   |                        ^^^^^^^^^^^^
+ * 3 |     @include responsive_rule("width", "calc(calc(SHELL_WIDTH / 2) - 15px)");
+ *   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *   '
- *   src\components\services\services.scss 3:24  root stylesheet */
+ *   src\components\services\services.scss 3:5  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 3 \2502      width: calc(calc(#{$shell_width} / 2) - 15px);\d\a   \2502                         ^^^^^^^^^^^^\a   \2575 \a   src\\components\\services\\services.scss 3:24  root stylesheet";
+  content: 'Error: Undefined mixin.\a   \2577 \a 3 \2502      @include responsive_rule("width", "calc(calc(SHELL_WIDTH / 2) - 15px)");\d\a   \2502      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src\\components\\services\\services.scss 3:5  root stylesheet';
 }

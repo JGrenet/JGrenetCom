@@ -15,8 +15,9 @@ class ResponsiveStore {
 
     @action computeShellDimensions(): void {
         const documentWidth = document.documentElement.clientWidth;
+        const documentHeight = document.documentElement.clientHeight;
 
-        this.shellPadding = documentWidth <= 1000 ? 50 : 100;
+        this.shellPadding = documentHeight <= 750 ? 50 : (documentWidth <= 1000 ? 50 : 100);
         this.shellHeight = document.documentElement.clientHeight - (GLOBAL_SHELL_PADDING * 2);
         this.shellWidth = documentWidth - (this.shellPadding * 2);
     }

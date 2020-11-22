@@ -7,3 +7,45 @@
 @mixin font-size($fontsize) {
     font-size: ($fontsize / 16px) * 1em;
 }
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    
+    @return $string;
+  }
+
+@function process_rule($rule_value, $sm) {
+    $new_str: "";
+
+    @if $sm {
+        $new_str: str-replace($rule_value, "SHELL_PADDING", $shell_padding_sm);
+        $new_str:str-replace($new_str, "SHELL_WIDTH", $shell_width_sm);
+        $new_str:str-replace($new_str, "SHELL_HEIGHT", $shell_height_sm);
+        $new_str:str-replace($new_str, "RECOVER_OVERFLOW", $recover_overflow_sm);
+
+        @return $new_str;
+    }
+
+    $new_str: str-replace($rule_value, "SHELL_PADDING", $shell_padding);
+    $new_str:str-replace($new_str, "SHELL_WIDTH", $shell_width);
+    $new_str:str-replace($new_str, "SHELL_HEIGHT", $shell_height);
+    $new_str:str-replace($new_str, "RECOVER_OVERFLOW", $recover_overflow);
+
+    @return $new_str;
+}
+
+@mixin responsive_rule($rule, $value) {
+    #{$rule}: #{process_rule($value, false)};
+
+    @media (max-width: 1000px), (max-height: 750px) {
+        #{$rule}: #{process_rule($value, true)};
+    }
+}
+
+html {
+    @include responsive_rule("toto", "(SHELL_PADDING) (SHELL_WIDTH) (SHELL_HEIGHT) (RECOVER_OVERFLOW)");
+}

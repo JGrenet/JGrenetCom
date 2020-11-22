@@ -2,9 +2,9 @@
  *    ,
  * 6  | /     @include media-breakpoint-down(1300px) {
  * 7  | |         flex-direction: column;
- * 8  | |         justify-content: space-around;
- * 9  | |         box-sizing: border-box;
- * 10 | |         padding: 30px 0 0 0;
+ * 8  | |         box-sizing: border-box;
+ * 9  | |         padding: 50px 0 0 0;
+ * 10 | |         justify-content: unset;
  * 11 | \     }
  *    '
  *   src\components\home\home.scss 6:5  root stylesheet */
@@ -17,5 +17,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 6  \2502  \250c      @include media-breakpoint-down(1300px) {\a 7  \2502  \2502          flex-direction: column;\a 8  \2502  \2502          justify-content: space-around;\a 9  \2502  \2502          box-sizing: border-box;\a 10 \2502  \2502          padding: 30px 0 0 0;\a 11 \2502  \2514      }\a    \2575 \a   src\\components\\home\\home.scss 6:5  root stylesheet";
+  content: "Error: Undefined mixin.\a    \2577 \a 6  \2502  \250c      @include media-breakpoint-down(1300px) {\a 7  \2502  \2502          flex-direction: column;\a 8  \2502  \2502          box-sizing: border-box;\a 9  \2502  \2502          padding: 50px 0 0 0;\a 10 \2502  \2502          justify-content: unset;\a 11 \2502  \2514      }\a    \2575 \a   src\\components\\home\\home.scss 6:5  root stylesheet";
 }

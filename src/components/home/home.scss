@@ -5,24 +5,15 @@
 
     @include media-breakpoint-down(1300px) {
         flex-direction: column;
-        justify-content: space-around;
         box-sizing: border-box;
-        padding: 30px 0 0 0;
+        padding: 50px 0 0 0;
+        justify-content: unset;
     }
 
     @include media-breakpoint-down($sm) {
-        justify-content: unset;
         height: 100vh;
         padding-top: 160px;
         position: relative;
-    }
-
-    @media (max-height: 750px) {
-        padding-top: 140px;
-    }
-
-    @media (max-height: 700px) {
-        padding-top: 100px;
     }
 
     &_content {
@@ -50,6 +41,12 @@
             position: relative;
             top: 50%;
             transform: translateY(-50%);
+
+            @include media-breakpoint-down(1300px) {
+                top: unset;
+                transform: unset;
+                position: initial;
+            }
 
             h1 {
                 @include font-size(60px);
@@ -97,14 +94,15 @@
 
                 @include media-breakpoint-down(1300px) {
                     @include font-size(22px);
-                    left: 50%;
-                    transform: translateX(-50%);
+                    position: initial;
+                    margin-top: 30px;
                 }
 
                 @include media-breakpoint-down($sm) {
                     left: 0;
                     transform: unset;
                     bottom: -60px;
+                    margin-top: unset;
                     @include font-size(35px);
                 }
 
@@ -134,6 +132,11 @@
             border-radius: 50%;
             overflow: hidden;
             padding: 0;
+            margin-top: 50px;
+
+            @media (max-height: 700px) {
+                width: 150px;
+            }
         }
 
         @include media-breakpoint-down($sm) {

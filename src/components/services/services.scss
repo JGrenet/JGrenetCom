@@ -1,13 +1,13 @@
 .services {
     position: relative;
-    width: calc(calc(#{$shell_width} / 2) - 15px);
+    @include responsive_rule("width", "calc(calc(SHELL_WIDTH / 2) - 15px)");
 
     @media (max-width: 1600px) {
-        width: calc(calc(#{$shell_width} * 0.6) - 15px);
+        @include responsive_rule("width", "calc(calc(SHELL_WIDTH * 0.6) - 15px)");
     }
 
     @media (max-width: 1400px) {
-        width: $shell_width;
+        @include responsive_rule("width", "SHELL_WIDTH");
     }
 
     @include media-breakpoint-down($sm) {
@@ -57,13 +57,18 @@
             top: calc(50% - 30px);
             transform: translateY(-50%);
 
-            @include media-breakpoint-down($sm) {
+            @media (max-height: 750px) {
                 position: static;
+                justify-content: space-between;
                 transform: unset;
+                margin-top: 50px;
+                height: calc(100% - 150px);
+            }
+
+            @include media-breakpoint-down($sm) {
                 margin-top: 80px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                height: unset;
+                justify-content: unset;
             }
 
             @include media-breakpoint-down($xs) {
@@ -80,6 +85,10 @@
 
                     @media (max-height: 900px) {
                         margin-top: 65px;
+                    }
+
+                    @media (max-height: 750px) {
+                        margin-top: unset;
                     }
                 }
 
@@ -158,9 +167,14 @@
                     color: $grey;
                     text-align: center;
                     line-height: 18px;
+                    @include font-size(16px);
 
                     @include media-breakpoint-down(1800px) {
                         width: 400px;
+                    }
+
+                    @media (max-height: 650px) {
+                        @include font-size(14px);
                     }
 
                     @include media-breakpoint-down($md) {
@@ -192,14 +206,13 @@
         box-sizing: border-box;
         border: 8px solid $white;
         overflow: hidden;
-        width: calc(calc(#{$shell_width} / 2) - 15px);
-        // right: calc(calc(#{$shell_width} / 2) - 45px);
-        right: calc(calc(calc(#{$shell_width} / 2) - -15px) * -1);
-        height: $shell_height;
+        @include responsive_rule("width", "calc(calc(SHELL_WIDTH / 2) - 15px)");
+        @include responsive_rule("right", "calc(calc(calc(SHELL_WIDTH / 2) - -15px) * -1)");
+        @include responsive_rule("height", "SHELL_HEIGHT");
 
         @media (max-width: 1600px) {
-            width: calc(calc(#{$shell_width} * 0.4) - 15px);
-            right: calc(calc(calc(#{$shell_width} * 0.4) - -15px) * -1);
+            @include responsive_rule("width", "calc(calc(SHELL_WIDTH * 0.4) - 15px)");
+            @include responsive_rule("right", "calc(calc(calc(SHELL_WIDTH * 0.4) - -15px) * -1)");
         }
 
         &.animation-slide-bottom-appear {

@@ -102,7 +102,7 @@
         height: 0;
 
         &--open {
-            height: calc(#{$shell_height} + #{$recover_overflow});
+            @include responsive_rule("height", "calc(SHELL_HEIGHT + RECOVER_OVERFLOW)");
         }
     
         &__content, .recover {
@@ -113,7 +113,7 @@
             width: 50%;
             box-sizing: border-box;
             padding: 0 30px;
-            height: calc(#{$shell_height} + #{$recover_overflow});
+            @include responsive_rule("height", "calc(SHELL_HEIGHT + RECOVER_OVERFLOW)");
 
             &::after {
                 content: "";
@@ -205,7 +205,7 @@
                 padding: 150px 50px 0 50px;
                 position: relative;
                 box-sizing: border-box;
-                width: calc(#{$shell_width} / 2);
+                @include responsive_rule("width", "calc(SHELL_WIDTH / 2)");
 
                 @media (max-width: 1300px) {
                     padding: 150px 30px 0 30px;
