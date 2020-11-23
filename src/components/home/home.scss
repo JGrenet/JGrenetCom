@@ -12,8 +12,12 @@
 
     @include media-breakpoint-down($sm) {
         height: 100vh;
-        padding-top: 160px;
         position: relative;
+        padding-top: 160px;
+
+        @media (max-height: 600px) {
+            padding-top: 20vh;
+        }
     }
 
     &_content {
@@ -78,6 +82,7 @@
                 }
 
                 @include media-breakpoint-down($xxs) {
+                    line-height: 25px;
                     @include font-size(40px);
                 }
 
@@ -99,15 +104,13 @@
                 }
 
                 @include media-breakpoint-down($sm) {
-                    left: 0;
-                    transform: unset;
-                    bottom: -60px;
-                    margin-top: unset;
+                    line-height: 20px;
+                    margin-top: 20px;
                     @include font-size(35px);
                 }
 
                 @include media-breakpoint-down($xxs) {
-                    bottom: -50px;
+                    margin-top: 10px;
                     @include font-size(30px);
                 }
             }
@@ -140,13 +143,20 @@
         }
 
         @include media-breakpoint-down($sm) {
-            margin-top: 110px;
+            margin-top: 60px;
             width: 150px;
+
+            @media (max-height: 700px) {
+                margin-top: 30px;
+            }
         }
 
         @include media-breakpoint-down($xxs) {
-            margin-top: 30%;
             width: 125px;
+
+            @media (min-height: 750px) {
+                width: 150px;
+            }
         }
 
         img {
