@@ -19,6 +19,10 @@
             padding-top: 60px;
         }
 
+        @media (max-height: 800px) {
+            padding-top: 30px;
+        }
+
         @include media-breakpoint-down($sm) {
             padding: 0;
         }
@@ -60,6 +64,10 @@
         @media (max-width: 1300px) {
             margin-top: 40px;
             flex-direction: column;
+
+            @media (max-height: 700px) {
+                margin-top: 20px;
+            }
         }
 
         @include media-breakpoint-down($sm) {
@@ -82,6 +90,10 @@
                     flex-direction: row;
                     margin-top: 60px;
                     justify-content: space-between;
+
+                    @media (max-height: 800px) {
+                        margin-top: 30px;
+                    }
                 }
 
                 @include media-breakpoint-down($sm) {
@@ -104,27 +116,12 @@
                     &.block-socials {
 
                         .content_title {
-                            @media (max-width: 1100px) {
-                                display: none;
-                            }
-
                             @include media-breakpoint-down($sm) {
                                 display: block;
                             }
                         }
 
                         .content_socials {
-                            @media (max-width: 1100px) {
-                                position: absolute;
-                                top: 0;
-                                right: 0;
-                                flex-direction: column;
-                                margin-top: 0;
-
-                                &__item:not(:first-child) {
-                                    margin: 20px 0 0 0;
-                                }
-                            }
 
                             @include media-breakpoint-down($sm) {
                                 position: relative;
@@ -206,6 +203,11 @@
                                         "form-content form-content"
                                         "form-submit form-submit";
                 grid-gap: 50px;
+
+                @media (max-height: 700px) {
+                    margin-top: 50px;
+                    grid-gap: 40px;
+                }
 
                 @media (max-width: 1300px) {
                     margin-top: 50px;
@@ -300,15 +302,22 @@
                 margin-top: 75px;
                 width: 100%;
                 display: flex;
-                height: 80px;
+                height: 50px;
                 @include font-size(20px);
                 justify-content: flex-end;
+
+                @media (max-height: 700px) {
+                    margin-top: 50px;
+                }
 
                 @media (max-width: 1300px) {
                     margin-top: 50px;
                     justify-content: flex-start;
-                    height: 70px;
                     @include font-size(17px);
+
+                    @media (max-height: 700px) {
+                        margin-top: 30px;
+                    }
                 }
 
                 @include media-breakpoint-down($sm) {
@@ -339,6 +348,14 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: flex-end;
+
+                @media (max-width: 1300px) {
+                    margin-top: 50px;
+
+                    @media (max-height: 700px) {
+                        margin-top: 30px;
+                    }
+                }
 
                 &__item {
                     height: 50px;
