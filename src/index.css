@@ -922,6 +922,9 @@ body.stop-scrolling, .app.stop-scrolling {
     margin-top: 80px;
     height: unset;
     justify-content: unset;
+    position: initial;
+    transform: unset;
+    top: unset;
   }
 }
 @media (max-width: 576px) {
@@ -937,12 +940,12 @@ body.stop-scrolling, .app.stop-scrolling {
 .services_content__services-list_item:not(:first-child), .services_content .services-list_item:not(:first-child) {
   margin-top: 80px;
 }
-@media (max-height: 900px) {
+@media (min-width: 768px) and (max-height: 900px) {
   .services_content__services-list_item:not(:first-child), .services_content .services-list_item:not(:first-child) {
     margin-top: 65px;
   }
 }
-@media (max-height: 750px) {
+@media (min-width: 768px) and (max-height: 750px) {
   .services_content__services-list_item:not(:first-child), .services_content .services-list_item:not(:first-child) {
     margin-top: unset;
   }
@@ -1165,7 +1168,7 @@ body.stop-scrolling, .app.stop-scrolling {
     max-width: 400px;
   }
 }
-@media (max-width: 1300px) and (max-height: 850px) {
+@media (max-width: 1300px) and (max-height: 850px) and (min-width: 768px) {
   .career_description__content {
     max-width: calc(100% - 200px);
   }
@@ -1218,13 +1221,13 @@ body.stop-scrolling, .app.stop-scrolling {
   height: 100%;
   width: 50%;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1300px) and (min-width: 768px) {
   .career_timeline {
     flex-grow: 1;
     width: 100%;
   }
 }
-@media (max-width: 1300px) and (max-height: 850px) {
+@media (max-width: 1300px) and (min-width: 768px) and (max-height: 850px) {
   .career_timeline {
     display: block;
     padding-top: 30px;
@@ -2252,7 +2255,7 @@ body.stop-scrolling, .app.stop-scrolling {
     flex-direction: column;
   }
 }
-@media (max-width: 1300px) and (max-height: 700px) {
+@media (max-width: 1300px) and (max-height: 700px) and (min-width: 768px) {
   .contact_content {
     margin-top: 20px;
   }
@@ -2511,12 +2514,12 @@ body.stop-scrolling, .app.stop-scrolling {
   flex-wrap: wrap;
   justify-content: flex-end;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1300px) and (min-width: 768px) {
   .contact_content__container_socials, .contact_content .content_socials {
     margin-top: 50px;
   }
 }
-@media (max-width: 1300px) and (max-height: 700px) {
+@media (max-width: 1300px) and (min-width: 768px) and (max-height: 700px) {
   .contact_content__container_socials, .contact_content .content_socials {
     margin-top: 30px;
   }

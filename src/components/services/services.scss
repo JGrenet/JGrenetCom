@@ -69,6 +69,9 @@
                 margin-top: 80px;
                 height: unset;
                 justify-content: unset;
+                position: initial;
+                transform: unset;
+                top: unset;
             }
 
             @include media-breakpoint-down($xs) {
@@ -83,12 +86,15 @@
                 &:not(:first-child) {
                     margin-top: 80px;
 
-                    @media (max-height: 900px) {
-                        margin-top: 65px;
-                    }
+                    @media (min-width: $sm) {
 
-                    @media (max-height: 750px) {
-                        margin-top: unset;
+                        @media (max-height: 900px) {
+                            margin-top: 65px;
+                        }
+
+                        @media (max-height: 750px) {
+                            margin-top: unset;
+                        }
                     }
                 }
 

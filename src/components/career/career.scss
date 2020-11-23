@@ -49,7 +49,7 @@
             }
 
             @include media-breakpoint-down(1300px) {
-                @media (max-height: 850px)  {
+                @media (max-height: 850px) and (min-width: $sm) {
                     max-width: calc(100% - 200px);
                 }
             }
@@ -100,7 +100,7 @@
         height: 100%;
         width: 50%;
 
-        @media (max-width: 1300px) {
+        @media (max-width: 1300px) and (min-width: $sm) {
             flex-grow: 1;
             width: 100%;
 
