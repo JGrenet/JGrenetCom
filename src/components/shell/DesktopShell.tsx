@@ -22,9 +22,13 @@ const DesktopShell = observer((): JSX.Element => {
         tabStore.selectTab(Tab.CONTACT);
     }, [tabStore]);
 
+    const handleRedirectToHomeTab = useCallback(() => {
+        tabStore.selectTab(Tab.HOME);
+    }, [tabStore]);
+
     const handleDownloadCV = useCallback(() => {
-        window.open("/files/CV-jeremy-grenet.pdf", "_blank");
-    }, []);
+        window.open(`/files/CV-jeremy-grenet-${localeStore.locale}.pdf`, "_blank");
+    }, [localeStore.locale]);
 
     return (
         <div className="shell">
@@ -49,7 +53,7 @@ const DesktopShell = observer((): JSX.Element => {
                     <Routes />
                 </>
             </CSSTransition>
-            <div className="shell_logo stroke-hidder">
+            <div className="shell_logo stroke-hidder" onClick={handleRedirectToHomeTab}>
                 <Logo size={60} wordMark variant="white" />
             </div>
             <div className="shell_language stroke-hidder">

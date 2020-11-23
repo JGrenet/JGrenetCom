@@ -11,7 +11,7 @@ const MobileNavbar = observer((): JSX.Element => {
     const tabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => isNaN(Number(i)))) as TabKeys[]);
 
     const handleDownloadCV = useCallback(() => {
-        window.open("/files/CV-jeremy-grenet.pdf", "_blank");
+        window.open(`/files/CV-jeremy-grenet-${localeStore.locale}.pdf`, "_blank");
     }, []);
 
     return (

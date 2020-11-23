@@ -11,14 +11,19 @@ import useStores from "../../stores";
 import clsx from "clsx";
 import Skills from "../skills/Skills";
 import Contact from "../contact/Contact";
+import { Tab } from "../../stores/TabStore";
 
 const MobileShell = observer((): JSX.Element => {
-    const { responsiveStore } = useStores();
+    const { responsiveStore, tabStore } = useStores();
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
     const handleToggleMenu = useCallback(() => {
         setIsMenuOpen(!isMenuOpen);
-    }, [setIsMenuOpen, isMenuOpen])
+    }, [setIsMenuOpen, isMenuOpen]);
+    
+    const handleRedirectToHomeTab = useCallback(() => {
+        tabStore.selectTab(Tab.HOME, responsiveStore.isMobile);
+    }, [tabStore, responsiveStore]);
 
     return (
         <div className={clsx(
@@ -37,6 +42,7 @@ const MobileShell = observer((): JSX.Element => {
                     wordMark
                     variant={responsiveStore.backgroundColor === "white" ? "dark" : "white"}
                     className="mobileShell_header__logo"
+                    onClick={handleRedirectToHomeTab}
                 />
                 <img
                     src="./icon/menu.svg"

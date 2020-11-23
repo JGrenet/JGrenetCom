@@ -299,7 +299,7 @@
         }
 
         .productions-details {
-            padding: 70px 30px 30px 30px;
+            padding: 70px 30px;
         }
     }
 }
@@ -480,7 +480,7 @@
                 box-sizing: border-box;
                 padding: 0 10px;
                 border: 1px solid $black;
-                cursor: pointer;
+                cursor: default;
                 @include font-size(15px);
                 text-transform: uppercase;
                 background-color: $white;

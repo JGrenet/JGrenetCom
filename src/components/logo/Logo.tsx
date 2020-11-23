@@ -10,9 +10,16 @@ interface LogoProps {
     wordMark?: boolean;
     variant: "white" | "dark";
     className?: string;
+    onClick?: () => void;
 }
 
-const Logo = ({ size, wordMark = false, variant = "white", className }: LogoProps): JSX.Element => {
+const Logo = ({
+    size,
+    wordMark = false,
+    variant = "white",
+    className,
+    onClick
+}: LogoProps): JSX.Element => {
     const style: LogoStyle = {
         icon: {
             height: size,
@@ -27,7 +34,7 @@ const Logo = ({ size, wordMark = false, variant = "white", className }: LogoProp
     }
 
     return (
-        <div className={clsx("logo", className)}>
+        <div className={clsx("logo", className)} onClick={onClick}>
             <div className={clsx("logo_icon", {["dark"]: variant === "dark"})} style={style.icon}>
                 <span className={clsx("logo_icon__text", {["dark"]: variant === "dark"})} style={style.text}>
                     Jg

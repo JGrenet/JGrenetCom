@@ -321,6 +321,7 @@ body.stop-scrolling, .app.stop-scrolling {
   transform: translateY(-50%);
   height: 70px;
   padding: 0 10px;
+  cursor: pointer;
 }
 .shell_logo.dark {
   top: 50px;
@@ -1721,7 +1722,7 @@ body.stop-scrolling, .app.stop-scrolling {
   background-color: white;
 }
 .productions_mobile-details-container .productions-details {
-  padding: 70px 30px 30px 30px;
+  padding: 70px 30px;
 }
 
 .productions-details {
@@ -1891,7 +1892,7 @@ body.stop-scrolling, .app.stop-scrolling {
   box-sizing: border-box;
   padding: 0 10px;
   border: 1px solid black;
-  cursor: pointer;
+  cursor: default;
   font-size: 0.9375em;
   text-transform: uppercase;
   background-color: white;

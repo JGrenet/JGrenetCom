@@ -269,7 +269,8 @@ const Contact = observer((): JSX.Element => {
                             </div>
                             <div className="content_contact__meta-infos">
                                 <div>contact@jeremygrenet.com</div>
-                                <div>06.08.89.58.17</div>
+                                {localeStore.locale === "fr" && <div>06 08 89 58 17</div>}
+                                {localeStore.locale === "en" && <div>+33 6 08 89 58 17</div>}
                             </div>
                         </div>
                     </div>
