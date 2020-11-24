@@ -8,18 +8,21 @@ interface MobileTabItemProps {
     tab: Tab;
     label: string;
     selected: boolean;
+    onClick?: () => void;
 }
 
 const MobileTabItem = observer(({
     tab,
     label,
     selected,
+    onClick
 }: MobileTabItemProps): JSX.Element => {
     const { tabStore } = useStores();
 
     const handleUpdateSelectTab = useCallback(() => {
         tabStore.selectTab(tab, true);
-    }, [tabStore, tab]);
+        onClick?.();
+    }, [tabStore, tab, onClick]);
 
     return (
         <li

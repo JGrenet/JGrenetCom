@@ -22,8 +22,8 @@ class TabStore {
 
     @observable selectedtab: Tab = Tab.HOME;
 
-    scrollTo(hash: string): void {
-        location.hash = "#" + hash;
+    scrollTo(element: HTMLElement | null): void {
+        element?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }
 
     @action selectTab(newTab: Tab, isMobile = false): void {
@@ -31,22 +31,22 @@ class TabStore {
         if (isMobile) {
             switch (this.selectedtab) {
                 case Tab.HOME:
-                    this.scrollTo("home");
+                    this.scrollTo(document.getElementById("home"));
                     break;
                 case Tab.SERVICES:
-                    this.scrollTo("services");
+                    this.scrollTo(document.getElementById("services"));
                     break;
                 case Tab.CAREER:
-                    this.scrollTo("career");
+                    this.scrollTo(document.getElementById("career"));
                     break;
                 case Tab.PRODUCTIONS:
-                    this.scrollTo("productions");
+                    this.scrollTo(document.getElementById("productions"));
                     break;
                 case Tab.SKILLS:
-                    this.scrollTo("skills");
+                    this.scrollTo(document.getElementById("skills"));
                     break;
                 case Tab.CONTACT:
-                    this.scrollTo("contact");
+                    this.scrollTo(document.getElementById("contact"));
                     break;
                 default:
                     break;

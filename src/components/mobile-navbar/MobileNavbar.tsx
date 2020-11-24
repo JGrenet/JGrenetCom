@@ -5,7 +5,10 @@ import { Tab } from "../../stores/TabStore";
 import useStores from "../../stores";
 import MobileTabItem from "./MobileTabItem";
 
-const MobileNavbar = observer((): JSX.Element => {
+interface MobileNavbarProps {
+    closeMenu: () => void;
+}
+const MobileNavbar = observer(({ closeMenu }: MobileNavbarProps): JSX.Element => {
     const { localeStore, tabStore } = useStores();
     const appKeys = localeStore.keys;
     const tabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => isNaN(Number(i)))) as TabKeys[]);
@@ -23,6 +26,7 @@ const MobileNavbar = observer((): JSX.Element => {
                         tab={Tab[t]}
                         label={appKeys[`TAB_${t}`]}
                         selected={Tab[t] === tabStore.selectedtab}
+                        onClick={closeMenu}
                     />
                 )}
                 <li

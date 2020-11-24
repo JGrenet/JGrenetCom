@@ -71,7 +71,7 @@ const MobileShell = observer((): JSX.Element => {
                             onClick={handleToggleMenu}
                         />
                     </div>
-                    <MobileNavbar />
+                    <MobileNavbar closeMenu={handleToggleMenu} />
                     <LanguageSelector
                         variant="dark"
                         className="mobileShell_mobileMenu__language-selector"
