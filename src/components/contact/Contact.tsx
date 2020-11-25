@@ -208,6 +208,7 @@ const Contact = observer((): JSX.Element => {
                             value={firstName}
                             onChange={handleFirstNameChange}
                             hasErrors={hasFirstNameErrors}
+                            autoComplete={false}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_LASTNAME_PLACEHOLDER"]}
@@ -215,6 +216,7 @@ const Contact = observer((): JSX.Element => {
                             value={lastName}
                             onChange={handleLastNameChange}
                             hasErrors={hasLastNameErrors}
+                            autoComplete={false}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_EMAIL_PLACEHOLDER"]}
@@ -222,6 +224,7 @@ const Contact = observer((): JSX.Element => {
                             value={email}
                             onChange={handleEmailChange}
                             hasErrors={hasEmailErrors}
+                            autoComplete={false}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_OBJECT_PLACEHOLDER"]}
@@ -229,6 +232,7 @@ const Contact = observer((): JSX.Element => {
                             value={object}
                             onChange={handleObjectChange}
                             hasErrors={hasObjectErrors}
+                            autoComplete={false}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_CONTENT_PLACEHOLDER"]}
@@ -236,6 +240,7 @@ const Contact = observer((): JSX.Element => {
                             value={content}
                             onChange={handleContentChange}
                             hasErrors={hasContentErrors}
+                            autoComplete={false}
                             textarea
                         />
                         <div className="form-submit">
@@ -263,14 +268,22 @@ const Contact = observer((): JSX.Element => {
                             {appKeys["CONTACT_FORM_INFOS"]}
                         </div>
                         <div className="content_contact">
-                            <div className="content_contact__meta-title">
-                                <div>{appKeys["CONTACT_FORM_INFOS_EMAIL"]}</div>
-                                <div>{appKeys["CONTACT_FORM_INFOS_PHONE"]}</div>
+                            <div className="content_contact__meta">
+                                <span className="content_contact__meta___title">
+                                    {appKeys["CONTACT_FORM_INFOS_EMAIL"]}
+                                </span>
+                                <span className="content_contact__meta___infos">
+                                    contact@jeremygrenet.com
+                                </span>
                             </div>
-                            <div className="content_contact__meta-infos">
-                                <div>contact@jeremygrenet.com</div>
-                                {localeStore.locale === "fr" && <div>06 08 89 58 17</div>}
-                                {localeStore.locale === "en" && <div>+33 6 08 89 58 17</div>}
+                            <div className="content_contact__meta">
+                                <span className="content_contact__meta___title">
+                                    {appKeys["CONTACT_FORM_INFOS_PHONE"]}
+                                </span>
+                                <span className="content_contact__meta___infos">
+                                    {localeStore.locale === "fr" && "06 08 89 58 17"}
+                                    {localeStore.locale === "en" && "+33 6 08 89 58 17"}
+                                </span>
                             </div>
                         </div>
                     </div>

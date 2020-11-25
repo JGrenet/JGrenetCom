@@ -10,6 +10,7 @@ interface TextFieldProps {
     onChange: (value: string) => void;
     hasErrors: string;
     textarea?: boolean;
+    autoComplete?: boolean;
 }
 
 const TextField = ({
@@ -18,7 +19,8 @@ const TextField = ({
     value,
     onChange,
     hasErrors,
-    textarea = false
+    textarea = false,
+    autoComplete = true
 }: TextFieldProps): JSX.Element => {
     const { responsiveStore } = useStores();
     const inputContainerRef = useRef<HTMLDivElement>(null);
@@ -68,11 +70,17 @@ const TextField = ({
             )}
             ref={inputContainerRef}
         >
-            {!textarea && <input type="text" {...props} />}
+            {!textarea && (
+                <input
+                    type="text" {...props}
+                    autoComplete={autoComplete ? "on" : "new-password"}
+                />
+            )}
             {textarea && (
                 <TextareaAutosize
                     minRows={1}
                     maxRows={responsiveStore.isMobile ? undefined : 3}
+                    autoComplete={autoComplete ? "on" : "new-password"}
                     {...props} 
                 />
             )}
