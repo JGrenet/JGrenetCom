@@ -44,15 +44,21 @@ const MobileShell = observer((): JSX.Element => {
                     className="mobileShell_header__logo"
                     onClick={handleRedirectToHomeTab}
                 />
-                <img
-                    src="./icon/menu.svg"
-                    className={clsx(
-                        "icon",
-                        {["icon--black"]: responsiveStore.backgroundColor === "white"}
-                    )}
-                    alt="menu"
-                    onClick={handleToggleMenu}
-                />
+                <div className="mobileShell_header__actions mobile-header-actions">
+                    <LanguageSelector
+                        variant={responsiveStore.backgroundColor === "white" ? "dark" : "white"}
+                        className="mobile-header-actions_language-selector"
+                    />
+                    <img
+                        src="./icon/menu.svg"
+                        className={clsx(
+                            "mobile-header-actions_icon",
+                            {["mobile-header-actions_icon--black"]: responsiveStore.backgroundColor === "white"}
+                        )}
+                        alt="menu"
+                        onClick={handleToggleMenu}
+                    />
+                </div>
             </div>
             {isMenuOpen && (
                 <div className="mobileShell_mobileMenu">

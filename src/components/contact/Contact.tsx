@@ -179,6 +179,10 @@ const Contact = observer((): JSX.Element => {
         return () => window.removeEventListener("scroll", handleContactsScroll);
     }, [handleContactsScroll]);
 
+    const handleDownloadCV = useCallback(() => {
+        window.open(`/files/CV-jeremy-grenet-${localeStore.locale}.pdf`, "_blank");
+    }, [localeStore.locale]);
+
     return (
         <div
             id="contact"
@@ -312,6 +316,11 @@ const Contact = observer((): JSX.Element => {
                         </div>
                     </div>
                 </div>
+                {responsiveStore.isMobile && (
+                    <div className="contact_content__container content_cv">
+                        <Button label={appKeys["ACTION_DOWNLOAD_CV"]} onClick={handleDownloadCV} size="medium" />
+                    </div>
+                )}
             </div>
         </div>
     )

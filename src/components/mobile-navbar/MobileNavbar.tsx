@@ -15,7 +15,7 @@ const MobileNavbar = observer(({ closeMenu }: MobileNavbarProps): JSX.Element =>
 
     const handleDownloadCV = useCallback(() => {
         window.open(`/files/CV-jeremy-grenet-${localeStore.locale}.pdf`, "_blank");
-    }, []);
+    }, [localeStore.locale]);
 
     return (
         <nav className="mobile-navbar">

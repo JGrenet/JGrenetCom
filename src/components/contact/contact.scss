@@ -74,6 +74,10 @@
             padding: 0 25px;
         }
 
+        @include media-breakpoint-down($xs) {
+            padding: 0 10px;
+        }
+
         &__container, .content {
             width: 500px;
             position: relative;
@@ -155,6 +159,7 @@
                 }
 
                 @include media-breakpoint-down($sm) {
+                    line-height: 20px;
                     @include font-size(30px);
                 }
 
@@ -384,6 +389,12 @@
                         }
                     }
                 }
+            }
+
+            &_cv {
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
             }
         }
     }
