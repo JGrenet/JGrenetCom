@@ -57,11 +57,11 @@
             margin-top: 50px;
         }
 
-        @media (max-width: 1650px) {
+        @include media-breakpoint-down(1650px) {
             padding: 0 100px;
         }
 
-        @media (max-width: 1300px) {
+        @include media-breakpoint-down(1300px) {
             margin-top: 40px;
             flex-direction: column;
 
@@ -82,7 +82,7 @@
             width: 500px;
             position: relative;
 
-            @media (max-width: 1300px) {
+            @include media-breakpoint-down(1300px) {
                 width: 100%;
             }
 
@@ -90,7 +90,7 @@
                 display: flex;
                 flex-direction: column;
 
-                @media (max-width: 1300px) {
+                @include media-breakpoint-down(1300px) {
                     flex-direction: row;
                     margin-top: 60px;
                     justify-content: space-between;
@@ -111,7 +111,7 @@
                         margin-top: 75px;
                     }
 
-                    @media (max-width: 1300px) {
+                    @include media-breakpoint-down(1300px) {
                         &:not(:first-child) {
                             margin-top: 0;
                         }
@@ -153,7 +153,7 @@
                 @include font-size(22px);
                 stroke-dashoffset: 25px;
 
-                @media (max-width: 1300px) {
+                @include media-breakpoint-down(1300px) {
                     @include font-size(20px);
                     text-align: left;
                 }
@@ -177,7 +177,7 @@
                 &--align-right::after {
                     right: 0;
 
-                    @media (max-width: 1300px) {
+                    @include media-breakpoint-down(1300px) {
                         left: 0;
                     }
                 }
@@ -205,7 +205,7 @@
                     grid-gap: 40px;
                 }
 
-                @media (max-width: 1300px) {
+                @include media-breakpoint-down(1300px) {
                     margin-top: 50px;
                     grid-template-columns: 1fr 1fr 1fr 1fr;
                     grid-gap: 30px;
@@ -274,7 +274,7 @@
                         width: 100%;
                         text-align: center;
 
-                        @media (max-width: 1300px) {
+                        @include media-breakpoint-down(1300px) {
                             bottom: -30px;
                         }
 
@@ -303,7 +303,7 @@
                     margin-top: 50px;
                 }
 
-                @media (max-width: 1300px) {
+                @include media-breakpoint-down(1300px) {
                     margin-top: 50px;
                     float: left;
                     @include font-size(17px);
@@ -344,11 +344,13 @@
                 flex-wrap: wrap;
                 justify-content: flex-end;
 
-                @media (max-width: 1300px) and (min-width: $sm) {
-                    margin-top: 50px;
+                @include media-breakpoint-down(1300px) {
+                    @media (min-width: $sm) {
+                        margin-top: 50px;  
 
-                    @media (max-height: 700px) {
-                        margin-top: 30px;
+                        @media (max-height: 700px) {
+                            margin-top: 30px;
+                        }
                     }
                 }
 
@@ -365,7 +367,7 @@
                         background-color: $black;
                     }
 
-                    @media (max-width: 1100px) {
+                    @include media-breakpoint-down(1100px) {
                         height: 40px;
                         width: 40px;
                     }
@@ -378,7 +380,7 @@
                         width: 40px;
                         height: 40px;
 
-                        @media (max-width: 1100px) {
+                        @include media-breakpoint-down(1100px) {
                             height: 30px;
                             width: 30px;
                         }

@@ -32,15 +32,15 @@
                 color: $black;
             }
 
-            @media (max-width: 1500px) {
+            @include media-breakpoint-down(1500px) {
                 margin-left: 50px;
             }
 
-            @media (max-width: 1400px) {
+            @include media-breakpoint-down(1400px) {
                 max-width: 400px;
             }
 
-            @media (max-width: 1200px) {
+            @include media-breakpoint-down(1200px) {
                 margin-left: 25px;
                 max-width: 300px;
             }
@@ -74,12 +74,12 @@
                 @include font-size(20px);
                 line-height: 22px;
 
-                @media (max-width: 1300px) {
+                @include media-breakpoint-down(1300px) {
                     @include font-size(17px);
                     line-height: 16px;
                 }
 
-                @media (max-width: 1200px) {
+                @include media-breakpoint-down(1200px) {
                     @include font-size(16px);
                 }
 
@@ -131,7 +131,7 @@
                 padding: 0 40px;
                 margin: 150px auto 0 auto;
 
-                @media (max-width: 1520px) {
+                @include media-breakpoint-down(1520px) {
                     padding: 0;
                 }  
 
@@ -148,17 +148,17 @@
                         grid-gap: 35px;
                         padding: 0 40px 50px 40px;
 
-                        @media (max-width: 1750px) {
+                        @include media-breakpoint-down(1750px) {
                             grid-template-columns: repeat(auto-fill, 180px);
                             justify-content: center;
                         }
 
-                        @media (max-width: 1520px) {
+                        @include media-breakpoint-down(1520px) {
                             grid-template-columns: repeat(auto-fill, 150px);
                             justify-content: center;
                         }
 
-                        @media (max-width: 1150px) {
+                        @include media-breakpoint-down(1150px) {
                             grid-template-columns: repeat(auto-fill, 200px);
                             justify-content: center;
                         }
@@ -207,7 +207,7 @@
                 box-sizing: border-box;
                 @include responsive_rule("width", "calc(SHELL_WIDTH / 2)");
 
-                @media (max-width: 1300px) {
+                @include media-breakpoint-down(1300px) {
                     padding: 150px 30px 0 30px;
                 }
 
@@ -218,7 +218,7 @@
                     cursor: pointer;
                     position: absolute;
 
-                    @media (max-width: 1300px) {
+                    @include media-breakpoint-down(1300px) {
                         left: 30px;
                     }
                 }
@@ -312,7 +312,7 @@
     padding: 0 50px 60px 0;
     box-sizing: border-box;
 
-    @media (max-width: 1300px) {
+    @include media-breakpoint-down(1300px) {
         padding: 0 30px 60px 0;
     }
 

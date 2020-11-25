@@ -29,11 +29,11 @@
             &--services {
                 @include responsive_rule("width", "calc(calc(SHELL_WIDTH / 2) - 15px)");
 
-                @media (max-width: 1600px) {
+                @include media-breakpoint-down(1600px) {
                     @include responsive_rule("width", "calc(calc(SHELL_WIDTH * 0.6) - 15px)");
                 }
 
-                @media (max-width: 1400px) {
+                @include media-breakpoint-down(1400px) {
                     @include responsive_rule("width", "SHELL_WIDTH");
                 }
             }
