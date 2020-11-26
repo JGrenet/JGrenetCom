@@ -1,11 +1,16 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import React, { useCallback } from "react";
+import { Tab } from "../../stores/TabStore";
 import useStores from "../../stores";
 import Button from "../button/Button";
 
 const Home = observer(() => {
-    const { localeStore, responsiveStore } = useStores();
+    const { localeStore, responsiveStore, tabStore } = useStores();
     const appKeys = localeStore.keys;
+
+    const handleRedirectToContactTab = useCallback(() => {
+        tabStore.selectTab(Tab.CONTACT, true);
+    }, [tabStore]);
 
     return (
         <div id="home" className="home tab-content">
@@ -22,7 +27,7 @@ const Home = observer(() => {
             </div>
             {responsiveStore.isMobile && (
                 <div className="home_contact">
-                    <Button label={appKeys["ACTION_CONTACT_ME"]} />
+                    <Button label={appKeys["ACTION_CONTACT_ME"]} onClick={handleRedirectToContactTab} />
                 </div>
             )}
         </div>       
