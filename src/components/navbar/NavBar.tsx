@@ -34,6 +34,9 @@ const NavBar = observer(({ variant = "white" }: NavBarProps): JSX.Element  => {
         if (navBarContainerRef?.current) {
             updateUnderlinePosition();
         }
+
+        window.addEventListener("resize", () => updateUnderlinePosition());
+        return () => window.removeEventListener("resize", () => updateUnderlinePosition());
     }, [navBarContainerRef, tabStore.selectedtab, updateUnderlinePosition])
 
     const tabKeys: TabKeys[] = ((Object.keys(Tab).filter((i) => isNaN(Number(i)))) as TabKeys[]).reverse();

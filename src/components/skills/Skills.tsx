@@ -55,6 +55,7 @@ const Skills = observer(() => {
                             <div className="recover_content__container___grid skills-grid">
                                 {skillsList.map((skill) => 
                                     <SkillsGridItem
+                                        key={skill}
                                         label={skill}
                                         iconUrl={`/icon/${skill.toLowerCase()}${responsiveStore.isMobile && responsiveStore.backgroundColor === "black" ? "_black" : ""}.png`}
                                     />

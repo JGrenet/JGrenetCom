@@ -91,7 +91,7 @@ export const ProductionsDetails = ({
                 </span>
                 <div className="productions-details_section__skills-list skills-list">
                     {production.skills.map((skill) =>
-                        <div className="skills-list_item">{skill}</div>
+                        <div key={skill} className="skills-list_item">{skill}</div>
                     )}
                 </div>
             </div>
