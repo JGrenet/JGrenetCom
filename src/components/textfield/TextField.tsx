@@ -11,6 +11,7 @@ interface TextFieldProps {
     hasErrors: string;
     textarea?: boolean;
     autoComplete?: boolean;
+    disabled?: boolean;
 }
 
 const TextField = ({
@@ -20,7 +21,8 @@ const TextField = ({
     onChange,
     hasErrors,
     textarea = false,
-    autoComplete = true
+    autoComplete = true,
+    disabled = false
 }: TextFieldProps): JSX.Element => {
     const { responsiveStore } = useStores();
     const inputContainerRef = useRef<HTMLDivElement>(null);
@@ -74,6 +76,7 @@ const TextField = ({
                 <input
                     type="text" {...props}
                     autoComplete={autoComplete ? "on" : "new-password"}
+                    disabled={false}
                 />
             )}
             {textarea && (
@@ -81,6 +84,7 @@ const TextField = ({
                     minRows={1}
                     maxRows={responsiveStore.isMobile ? undefined : 3}
                     autoComplete={autoComplete ? "on" : "new-password"}
+                    disabled={false}
                     {...props} 
                 />
             )}

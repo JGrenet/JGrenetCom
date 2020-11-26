@@ -1,0 +1,34 @@
+.loadingButton {
+    display: inline-block;
+    position: relative;
+
+    &_button {
+        position: relative;
+        transition: border-color .5s ease-in-out;
+
+        &--loading {
+            border-color: transparent;
+        }
+    }
+
+    &_stroke {
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+
+        &__rect {
+            stroke: $white;
+            stroke-width: 3px;
+            stroke-dasharray: 80px;
+            animation: loader_dash 5s linear infinite;
+            opacity: 0%;
+            transition: opacity .5s ease-in-out;
+
+            &--show {
+                opacity: 100%;
+            }
+        }
+    }
+}

@@ -6,11 +6,13 @@ import clsx from "clsx";
 import emailjs from 'emailjs-com';
 import { emailjs_userId } from "../../ressources";
 import { observer } from "mobx-react-lite";
+import LoadingButton from "../loadingButton/LoadingButton";
 
 const Contact = observer((): JSX.Element => {
     const { responsiveStore, localeStore } = useStores();
     const contactRef = useRef<HTMLDivElement>(null);
     const [sentSuccess, setSentSuccess] = useState<boolean | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const appKeys = localeStore.keys;
 
     /* First name */
@@ -76,6 +78,8 @@ const Contact = observer((): JSX.Element => {
     const handleSubmit = useCallback(() => {
         let hasErrors = false;
 
+        setSentSuccess(null);
+
         /* First name */
         if (firstName) {
             hasFirstNameErrors && setHasFirstNameErrors("");
@@ -121,6 +125,7 @@ const Contact = observer((): JSX.Element => {
         }
 
         if (!hasErrors) {
+            setIsLoading(true);
             emailjs.send('default_service', 'template_20lp063', {
                 from_name: `${firstName} ${lastName}`,
                 object: object,
@@ -136,7 +141,10 @@ const Contact = observer((): JSX.Element => {
                 setSentSuccess(true);
             }, () => {
                 setSentSuccess(false);
+            }).finally(() => {
+                setIsLoading(false);
             });
+
         }
     }, [
         firstName,
@@ -159,7 +167,8 @@ const Contact = observer((): JSX.Element => {
         handleEmailChange,
         handleObjectChange,
         handleContentChange,
-        appKeys
+        appKeys,
+        setIsLoading
     ]);
 
     const handleContactsScroll = useCallback(() => {
@@ -213,6 +222,7 @@ const Contact = observer((): JSX.Element => {
                             onChange={handleFirstNameChange}
                             hasErrors={hasFirstNameErrors}
                             autoComplete={false}
+                            disabled={isLoading}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_LASTNAME_PLACEHOLDER"]}
@@ -221,6 +231,7 @@ const Contact = observer((): JSX.Element => {
                             onChange={handleLastNameChange}
                             hasErrors={hasLastNameErrors}
                             autoComplete={false}
+                            disabled={isLoading}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_EMAIL_PLACEHOLDER"]}
@@ -229,6 +240,7 @@ const Contact = observer((): JSX.Element => {
                             onChange={handleEmailChange}
                             hasErrors={hasEmailErrors}
                             autoComplete={false}
+                            disabled={isLoading}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_OBJECT_PLACEHOLDER"]}
@@ -237,6 +249,7 @@ const Contact = observer((): JSX.Element => {
                             onChange={handleObjectChange}
                             hasErrors={hasObjectErrors}
                             autoComplete={false}
+                            disabled={isLoading}
                         />
                         <TextField
                             placeholder={appKeys["CONTACT_FORM_CONTENT_PLACEHOLDER"]}
@@ -245,10 +258,16 @@ const Contact = observer((): JSX.Element => {
                             onChange={handleContentChange}
                             hasErrors={hasContentErrors}
                             autoComplete={false}
+                            disabled={isLoading}
                             textarea
                         />
                         <div className="form-submit">
-                            <Button label={appKeys["CONTACT_FORM_SUBMIT"]} onClick={handleSubmit} size="medium" />
+                            <LoadingButton
+                                onClick={handleSubmit}
+                                size="medium"
+                                isLoading={isLoading}
+                                label={appKeys["CONTACT_FORM_SUBMIT"]}
+                            />
                             {sentSuccess !== null && (
                                 <div className={clsx(
                                         "form-submit_status",

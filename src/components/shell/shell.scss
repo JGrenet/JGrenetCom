@@ -7,7 +7,7 @@
     @include responsive_rule("height", "SHELL_HEIGHT");
     @include responsive_rule("width", "SHELL_WIDTH");
     
-    svg {
+    & > svg {
         position: absolute;
         top: 0;
         left: 0;

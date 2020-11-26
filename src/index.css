@@ -175,14 +175,14 @@ body.stop-scrolling, .app.stop-scrolling {
   align-items: center;
   justify-content: center;
 }
-.loader svg {
+.loader > svg {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
-.loader svg rect {
+.loader > svg rect {
   stroke: white;
   stroke-width: 3px;
   stroke-dasharray: 80px;
@@ -222,14 +222,14 @@ body.stop-scrolling, .app.stop-scrolling {
     width: calc(100vw - calc(50px * 2));
   }
 }
-.shell svg {
+.shell > svg {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
-.shell svg .shell-border {
+.shell > svg .shell-border {
   stroke: white;
   stroke-width: 3px;
   height: 100%;
@@ -242,49 +242,49 @@ body.stop-scrolling, .app.stop-scrolling {
   width: calc(100vw - calc(100px * 2));
 }
 @media (max-width: 1000px), (max-height: 750px) {
-  .shell svg .shell-border {
+  .shell > svg .shell-border {
     stroke-dasharray: calc(calc(calc(100vw - calc(50px * 2)) * 2) + calc(calc(100vh - calc(50px * 2)) * 2));
   }
 }
 @media (max-width: 1000px), (max-height: 750px) {
-  .shell svg .shell-border {
+  .shell > svg .shell-border {
     stroke-dashoffset: calc(calc(calc(100vw - calc(50px * 2)) * 2) + calc(calc(100vh - calc(50px * 2)) * 2));
   }
 }
 @media (max-width: 1000px), (max-height: 750px) {
-  .shell svg .shell-border {
+  .shell > svg .shell-border {
     width: calc(100vw - calc(50px * 2));
   }
 }
-.shell svg .shell-border--services {
+.shell > svg .shell-border--services {
   width: calc(calc(calc(100vw - calc(100px * 2)) / 2) - 15px);
 }
 @media (max-width: 1000px), (max-height: 750px) {
-  .shell svg .shell-border--services {
+  .shell > svg .shell-border--services {
     width: calc(calc(calc(100vw - calc(50px * 2)) / 2) - 15px);
   }
 }
 @media (max-width: 1600px) {
-  .shell svg .shell-border--services {
+  .shell > svg .shell-border--services {
     width: calc(calc(calc(100vw - calc(100px * 2)) * 0.6) - 15px);
   }
 }
 @media (max-width: 1600px) and (max-width: 1000px), (max-width: 1600px) and (max-height: 750px) {
-  .shell svg .shell-border--services {
+  .shell > svg .shell-border--services {
     width: calc(calc(calc(100vw - calc(50px * 2)) * 0.6) - 15px);
   }
 }
 @media (max-width: 1400px) {
-  .shell svg .shell-border--services {
+  .shell > svg .shell-border--services {
     width: calc(100vw - calc(100px * 2));
   }
 }
 @media (max-width: 1400px) and (max-width: 1000px), (max-width: 1400px) and (max-height: 750px) {
-  .shell svg .shell-border--services {
+  .shell > svg .shell-border--services {
     width: calc(100vw - calc(50px * 2));
   }
 }
-.shell svg.animation-stroke-appear-active .shell-border, .shell svg.animation-stroke-appear-done .shell-border {
+.shell > svg.animation-stroke-appear-active .shell-border, .shell > svg.animation-stroke-appear-done .shell-border {
   stroke-dashoffset: 0 !important;
 }
 .shell_language {
@@ -485,7 +485,7 @@ body.stop-scrolling, .app.stop-scrolling {
     font-size: 1.5625em;
   }
 }
-.button:hover {
+.button:not(.button--disabled):hover {
   background-color: white;
   color: black;
 }
@@ -2579,4 +2579,34 @@ body.stop-scrolling, .app.stop-scrolling {
   margin-top: 50px;
   display: flex;
   justify-content: center;
+}
+
+.loadingButton {
+  display: inline-block;
+  position: relative;
+}
+.loadingButton_button {
+  position: relative;
+  transition: border-color 0.5s ease-in-out;
+}
+.loadingButton_button--loading {
+  border-color: transparent;
+}
+.loadingButton_stroke {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+}
+.loadingButton_stroke__rect {
+  stroke: white;
+  stroke-width: 3px;
+  stroke-dasharray: 80px;
+  animation: loader_dash 5s linear infinite;
+  opacity: 0%;
+  transition: opacity 0.5s ease-in-out;
+}
+.loadingButton_stroke__rect--show {
+  opacity: 100%;
 }
