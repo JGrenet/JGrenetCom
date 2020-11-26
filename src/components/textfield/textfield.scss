@@ -11,7 +11,7 @@
         padding: 0 0 7px 0;
         width: 100%;
         transition: border-bottom 1s ease-in-out;
-        font-family: "Montserrat";
+        font-family: 'Montserrat', sans-serif;
 
         @include media-breakpoint-down($sm) {
             @include font-size(25px);

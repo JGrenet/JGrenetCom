@@ -239,6 +239,7 @@
                                 }
     
                                 &_front {
+                                    transform: rotateX(0deg);
                                     &__logo {
                                         width: 70px;
                                     }
@@ -246,7 +247,7 @@
     
                                 &_back {
                                     color: $black;
-                                    transform: rotateY(180deg);
+                                    transform: rotateY(180deg) rotateX(0deg);
                                     @include font-size(15px);
                                     font-weight: 600;
                                     transition: color 1s ease-in-out;
