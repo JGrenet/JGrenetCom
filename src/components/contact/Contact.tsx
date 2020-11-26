@@ -327,7 +327,7 @@ const Contact = observer((): JSX.Element => {
                                 <a
                                     className="content_socials__item___logo"
                                     target="_blank"
-                                    href="https://www.linkedin.com/in/j%C3%A9r%C3%A9my-grenet-652144b6/"
+                                    href={`https://www.linkedin.com/in/j%C3%A9r%C3%A9my-grenet-652144b6/?locale=${localeStore.locale === "en" ? "en_US" : "fr_FR"}`}
                                 >
                                     <img src="/icon/linkedin.png" />
                                 </a>
