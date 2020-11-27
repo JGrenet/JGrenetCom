@@ -309,11 +309,11 @@
     height: 100%;
     width: 100%;
     position: relative;
-    padding: 0 50px 60px 0;
+    padding: 0 50px 80px 0;
     box-sizing: border-box;
 
     @include media-breakpoint-down(1300px) {
-        padding: 0 30px 60px 0;
+        padding: 0 30px 80px 0;
     }
 
     &_meta {

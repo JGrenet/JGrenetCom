@@ -956,7 +956,7 @@ body.stop-scrolling, .app.stop-scrolling {
 .services_content__services-list_item, .services_content .services-list_item {
   display: inline-flex;
   align-items: center;
-  cursor: pointer;
+  cursor: default;
 }
 .services_content__services-list_item:not(:first-child), .services_content .services-list_item:not(:first-child) {
   margin-top: 80px;
@@ -1737,12 +1737,12 @@ body.stop-scrolling, .app.stop-scrolling {
   height: 100%;
   width: 100%;
   position: relative;
-  padding: 0 50px 60px 0;
+  padding: 0 50px 80px 0;
   box-sizing: border-box;
 }
 @media (max-width: 1300px) {
   .productions-details {
-    padding: 0 30px 60px 0;
+    padding: 0 30px 80px 0;
   }
 }
 .productions-details_meta {
@@ -2263,9 +2263,9 @@ body.stop-scrolling, .app.stop-scrolling {
   padding: 0 200px;
   box-sizing: border-box;
 }
-@media (max-height: 950px) {
+@media (max-height: 850px) {
   .contact_content {
-    margin-top: 50px;
+    margin-top: 75px;
   }
 }
 @media (max-width: 1650px) {

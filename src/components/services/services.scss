@@ -81,7 +81,7 @@
             &_item {
                 display: inline-flex;
                 align-items: center;
-                cursor: pointer;
+                cursor: default;
 
                 &:not(:first-child) {
                     margin-top: 80px;
