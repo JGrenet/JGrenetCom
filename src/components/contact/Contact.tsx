@@ -144,7 +144,6 @@ const Contact = observer((): JSX.Element => {
             }).finally(() => {
                 setIsLoading(false);
             });
-
         }
     }, [
         firstName,

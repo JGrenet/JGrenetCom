@@ -23,11 +23,11 @@
             stroke-width: 3px;
             stroke-dasharray: 80px;
             animation: loader_dash 5s linear infinite;
-            opacity: 0%;
+            opacity: 0;
             transition: opacity .5s ease-in-out;
 
             &--show {
-                opacity: 100%;
+                opacity: 1;
             }
         }
     }
