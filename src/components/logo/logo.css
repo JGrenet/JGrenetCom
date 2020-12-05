@@ -3,7 +3,7 @@
  * 7 |         border: 2px solid $white;
  *   |                           ^^^^^^
  *   '
- *   src\components\logo\logo.scss 7:27  root stylesheet */
+ *   src/components/logo/logo.scss 7:27  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 7 \2502          border: 2px solid $white;\d\a   \2502                            ^^^^^^\a   \2575 \a   src\\components\\logo\\logo.scss 7:27  root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 7 \2502          border: 2px solid $white;\a   \2502                            ^^^^^^\a   \2575 \a   src/components/logo/logo.scss 7:27  root stylesheet";
 }

@@ -3,8 +3,8 @@
  * 2 |     color: $white;
  *   |            ^^^^^^
  *   '
- *   src\components\loader\loader.scss 2:12  @import
- *   src\components\index.scss 1:9           root stylesheet */
+ *   src/components/loader/loader.scss 2:12  @import
+ *   src/components/index.scss 1:9           root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 2 \2502      color: $white;\d\a   \2502             ^^^^^^\a   \2575 \a   src\\components\\loader\\loader.scss 2:12  @import\a   src\\components\\index.scss 1:9           root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 2 \2502      color: $white;\a   \2502             ^^^^^^\a   \2575 \a   src/components/loader/loader.scss 2:12  @import\a   src/components/index.scss 1:9           root stylesheet";
 }

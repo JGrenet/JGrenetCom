@@ -25,6 +25,7 @@ const App = observer((): JSX.Element  => {
 
     const handleScroll = useCallback((event: React.WheelEvent<HTMLDivElement>) => {
         if (!scrollDisabled) {
+            console.log("Here");
             setScrollDisabled(true);
             if (event.deltaY > 0) {
                 tabStore.goNextTab();

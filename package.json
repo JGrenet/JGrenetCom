@@ -6,9 +6,9 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "browserslist": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
   ],
   "dependencies": {
     "@types/react-transition-group": "^4.4.0",

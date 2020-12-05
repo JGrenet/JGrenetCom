@@ -493,6 +493,10 @@ body.stop-scrolling, .app.stop-scrolling {
 .textfield {
   position: relative;
   width: 100%;
+  display: flex;
+}
+.textfield > input, .textfield > textarea {
+  margin-bottom: 0;
 }
 .textfield_input {
   background-color: transparent;
@@ -534,14 +538,6 @@ body.stop-scrolling, .app.stop-scrolling {
   bottom: 0;
   height: 3px;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.textfield--textarea::after {
-  bottom: 2px;
-}
-@media (max-width: 768px) {
-  .textfield--textarea::after {
-    bottom: 1px;
-  }
 }
 .textfield.focused::after {
   width: 100%;
@@ -1175,6 +1171,11 @@ body.stop-scrolling, .app.stop-scrolling {
     padding-top: 30px;
   }
 }
+@media (max-width: 1300px) and (min-width: 768px) {
+  .career_description {
+    flex-shrink: 0;
+  }
+}
 @media (max-width: 768px) {
   .career_description {
     padding-top: 0;
@@ -1248,12 +1249,6 @@ body.stop-scrolling, .app.stop-scrolling {
     width: 100%;
   }
 }
-@media (max-width: 1300px) and (min-width: 768px) and (max-height: 850px) {
-  .career_timeline {
-    display: block;
-    padding-top: 30px;
-  }
-}
 @media (max-width: 768px) {
   .career_timeline {
     height: unset;
@@ -1285,7 +1280,7 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 @media (max-width: 1300px) and (max-height: 850px) {
   .career_timeline .timeline {
-    height: calc(100% - 50px);
+    height: calc(100% - 100px);
   }
 }
 @media (max-width: 768px) {
@@ -2270,7 +2265,7 @@ body.stop-scrolling, .app.stop-scrolling {
 }
 @media (max-width: 1650px) {
   .contact_content {
-    padding: 0 100px;
+    padding: 0 150px;
   }
 }
 @media (max-width: 1300px) {
